@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root name="weather">
+	<include file="org/stefx/hexweather/configuration/ModuleConfiguration.xml"/>
+	<include file="org/stefx/hexweather/configuration/ServiceConfiguration.xml"/>
+	<include file="org/stefx/hexweather/configuration/ViewConfigurationJS.xml"/>
+</root>

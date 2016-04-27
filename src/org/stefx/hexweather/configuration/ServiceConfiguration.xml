@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<data>
+	<serviceLocator id="hexWeatherServiceLocator" type="hex.config.stateful.ServiceLocator" >
+		<item> 
+			<key type="Class" value="org.stefx.hexweather.module.currentweather.service.IGetCurrentWeatherService"/>
+			<value type="Class" value="org.stefx.hexweather.service.wunderground.GetCurrentWeatherService"/>
+		</item>
+	</serviceLocator>
+</data>

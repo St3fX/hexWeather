@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+	<!-- MODULES -->
+	<module id="currentWeather" type="org.stefx.hexweather.module.currentweather.CurrentWeatherModule">
+		<argument ref="hexWeatherServiceLocator"/>
+	</module>
+</root>
