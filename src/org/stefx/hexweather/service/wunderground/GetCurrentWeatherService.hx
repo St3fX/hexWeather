@@ -3,6 +3,7 @@ package org.stefx.hexweather.service.wunderground;
 import hex.log.Logger;
 import hex.service.stateless.http.HTTPService;
 import hex.service.stateless.http.HTTPServiceConfiguration;
+import org.stefx.hexweather.constant.CAPIKey;
 import org.stefx.hexweather.constant.CLocation;
 import org.stefx.hexweather.module.currentweather.service.IGetCurrentWeatherService;
 import org.stefx.hexweather.module.currentweather.vo.CurrentWeatherVO;
@@ -19,14 +20,15 @@ class GetCurrentWeatherService extends HTTPService<HTTPServiceConfiguration> imp
 	public function new() 
 	{
 		super();
-		
 	}
 	
 	@PostConstruct
 	override public function createConfiguration() : Void
 	{
 		Logger.DEBUG("GetCurrentWeatherService createConfiguration");
-		var serviceUrl = "http://api.wunderground.com/api/864880f1238c33fe/conditions/q/" + CLocation.STATE + "/" + CLocation.CITY + ".json";
+		var serviceUrl = "http://api.wunderground.com/api/" + CAPIKey.KEY 
+							+ "/conditions/q/" + CLocation.STATE + "/"
+							+ CLocation.CITY + ".json";
 		Logger.DEBUG( serviceUrl );
 		this.setConfiguration( new HTTPServiceConfiguration( serviceUrl ) );
 		this.setParser( new WundergroundCurrentWeatherParser() );

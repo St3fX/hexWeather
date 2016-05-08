@@ -21,8 +21,13 @@ class WundergroundCurrentWeatherParser implements IParser
 		var json = haxe.Json.parse( jsonString );
 		Logger.DEBUG( "Weather: " + json.current_observation.temp_c );
 		
-		var currentWeatherVO : CurrentWeatherVO = new CurrentWeatherVO();
-				
+		var currentWeatherVO = new CurrentWeatherVO();
+		
+		for ( n in Reflect.fields( json ) )
+		{
+			Reflect.setProperty( currentWeatherVO, n, Reflect.field( json, n ) );
+		}
+		
 		return currentWeatherVO;
 	}
 	

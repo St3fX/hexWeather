@@ -12,6 +12,7 @@ import hex.log.layout.LogLayoutHTMLView;
 import hex.log.layout.LogProxyLayout;
 import hex.log.layout.SimpleBrowserLayout;
 import hex.log.Logger;
+import org.stefx.hexweather.service.wunderground.GetCurrentWeatherService;
 
 import js.Browser;
 import js.Lib;
@@ -22,12 +23,12 @@ import js.Lib;
  */
 class HexWeather 
 {
-	static var self:HexWeather;
+	static var self : HexWeather;
 	
-	var _applicationAssembler:ApplicationAssembler;
-	var _applicationContext:AbstractApplicationContext;
+	var _applicationAssembler : ApplicationAssembler;
+	var _applicationContext : AbstractApplicationContext;
 	
-	var _injector:IBasicInjector;
+	var _injector : IBasicInjector;
 	
 	static public function main()
 	{
@@ -36,9 +37,9 @@ class HexWeather
 			var controller:LogLayoutHTMLView = new LogLayoutHTMLView( proxy );
 			proxy.addListener( new SimpleBrowserLayout( controller.consoleWrapperTaget ) );
 			proxy.addListener( new JavaScriptConsoleLayout() );
-			
-			self = new HexWeather();
 		#end
+
+		self = new HexWeather();
 	}
 	
 	public function new()
@@ -48,10 +49,10 @@ class HexWeather
 		this._build( this._getApplicationXml() );
 	}
 	
-	function _getApplicationXml( ) : Xml
+	function _getApplicationXml() : Xml
 	{
-		var source:String = "";
-		var viewConfigName:String = "";
+		var source : String = "";
+		var viewConfigName : String = "";
 		
 		#if js
 			viewConfigName = "viewConfigJS";
@@ -64,20 +65,15 @@ class HexWeather
 	
 	function _init()
 	{
-		//CoreFactory.setFastEvalMethod( ObjectUtil.fastEvalFromTarget );
-		
-		this._applicationAssembler = new ApplicationAssembler();
-		this._applicationContext = this._applicationAssembler.getApplicationContext( "weather" );
-		this._injector = this._applicationContext.getBasicInjector();
+		_applicationAssembler = new ApplicationAssembler();
+		_applicationContext = this._applicationAssembler.getApplicationContext( "applicationContext" );
+		_injector = this._applicationContext.getBasicInjector();
 	}
 	
 	function _registerView()
 	{
 		#if js
-			//this._applicationAssembler.getBuilderFactory( this._applicationContext ).getCoreFactory().register( "appRoot", Browser.document.getElementById( "app" ) );
-			//var result:Array<Dynamic> = riot.Riot.mount( "#app", "weather" );
-			Logger.DEBUG( "_registerView" );
-			//this._applicationAssembler.getBuilderFactory( this._applicationContext ).getCoreFactory().register( "riotRoot", { layout: result[ 0 ] } );
+			this._applicationAssembler.getContextFactory( this._applicationContext ).getCoreFactory().register( "appRoot", Browser.document.getElementById( "app" ) );
 		#end
 	}
 	
