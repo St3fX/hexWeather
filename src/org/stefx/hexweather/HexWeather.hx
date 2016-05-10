@@ -1,6 +1,7 @@
 package org.stefx.hexweather;
 
 //import com.util.ObjectUtil;
+import hex.compiler.parser.xml.XmlCompiler;
 import hex.di.IBasicInjector;
 import hex.ioc.assembler.AbstractApplicationContext;
 import hex.ioc.assembler.ApplicationAssembler;
@@ -44,44 +45,46 @@ class HexWeather
 	
 	public function new()
 	{
-		this._init();
-		this._registerView();
-		this._build( this._getApplicationXml() );
+		//this._init();
+		//this._registerView();
+		//this._build( this._getApplicationXml() );
+
+		XmlCompiler.readXmlFile( "org/stefx/hexweather/configuration/context.xml" );
 	}
 	
-	function _getApplicationXml() : Xml
-	{
-		var source : String = "";
-		var viewConfigName : String = "";
-		
-		#if js
-			viewConfigName = "viewConfigJS";
-		#end
-		
-		source = XmlReader.readXmlFile( "org/stefx/hexweather/configuration/context.xml" );
-		
-		return Xml.parse( source );
-	}
-	
-	function _init()
-	{
-		_applicationAssembler = new ApplicationAssembler();
-		_applicationContext = this._applicationAssembler.getApplicationContext( "applicationContext" );
-		_injector = this._applicationContext.getBasicInjector();
-	}
-	
-	function _registerView()
-	{
-		#if js
-			this._applicationAssembler.getContextFactory( this._applicationContext ).getCoreFactory().register( "appRoot", Browser.document.getElementById( "app" ) );
-		#end
-	}
-	
-	function _build( xml:Xml )
-	{
-		var parser : ApplicationXMLParser = new ApplicationXMLParser();
-		parser.parse( this._applicationAssembler, xml );
-		this._applicationAssembler.buildEverything();
-	}
+	//function _getApplicationXml() : Xml
+	//{
+		//var source : String = "";
+		//var viewConfigName : String = "";
+		//
+		//#if js
+			//viewConfigName = "viewConfigJS";
+		//#end
+		//
+		//source = XmlReader.readXmlFile( "org/stefx/hexweather/configuration/context.xml" );
+		//
+		//return Xml.parse( source );
+	//}
+	//
+	//function _init()
+	//{
+		//_applicationAssembler = new ApplicationAssembler();
+		//_applicationContext = this._applicationAssembler.getApplicationContext( "applicationContext" );
+		//_injector = this._applicationContext.getBasicInjector();
+	//}
+	//
+	//function _registerView()
+	//{
+		//#if js
+			//this._applicationAssembler.getContextFactory( this._applicationContext ).getCoreFactory().register( "appRoot", Browser.document.getElementById( "app" ) );
+		//#end
+	//}
+	//
+	//function _build( xml:Xml )
+	//{
+		//var parser : ApplicationXMLParser = new ApplicationXMLParser();
+		//parser.parse( this._applicationAssembler, xml );
+		//this._applicationAssembler.buildEverything();
+	//}
 	
 }

@@ -6,5 +6,5 @@ package org.stefx.hexweather.constant;
  */
 class CAPIKey
 {
-	static public var KEY = "xxxxxxxxxxxxxxxx";
+	static public var KEY = "864880f1238c33fe";
 }

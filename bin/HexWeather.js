@@ -1,5 +1,5 @@
 (function (console) { "use strict";
-var $hxClasses = {};
+var $hxClasses = {},$estr = function() { return js_Boot.__string_rec(this,''); };
 function $extend(from, fields) {
 	function Inherit() {} Inherit.prototype = from; var proto = new Inherit();
 	for (var name in fields) proto[name] = fields[name];
@@ -1149,6 +1149,138 @@ haxe_ds__$StringMap_StringMapIterator.prototype = {
 	}
 	,__class__: haxe_ds__$StringMap_StringMapIterator
 };
+var haxe_macro_Constant = { __ename__ : true, __constructs__ : ["CInt","CFloat","CString","CIdent","CRegexp"] };
+haxe_macro_Constant.CInt = function(v) { var $x = ["CInt",0,v]; $x.__enum__ = haxe_macro_Constant; $x.toString = $estr; return $x; };
+haxe_macro_Constant.CFloat = function(f) { var $x = ["CFloat",1,f]; $x.__enum__ = haxe_macro_Constant; $x.toString = $estr; return $x; };
+haxe_macro_Constant.CString = function(s) { var $x = ["CString",2,s]; $x.__enum__ = haxe_macro_Constant; $x.toString = $estr; return $x; };
+haxe_macro_Constant.CIdent = function(s) { var $x = ["CIdent",3,s]; $x.__enum__ = haxe_macro_Constant; $x.toString = $estr; return $x; };
+haxe_macro_Constant.CRegexp = function(r,opt) { var $x = ["CRegexp",4,r,opt]; $x.__enum__ = haxe_macro_Constant; $x.toString = $estr; return $x; };
+var haxe_macro_Binop = { __ename__ : true, __constructs__ : ["OpAdd","OpMult","OpDiv","OpSub","OpAssign","OpEq","OpNotEq","OpGt","OpGte","OpLt","OpLte","OpAnd","OpOr","OpXor","OpBoolAnd","OpBoolOr","OpShl","OpShr","OpUShr","OpMod","OpAssignOp","OpInterval","OpArrow"] };
+haxe_macro_Binop.OpAdd = ["OpAdd",0];
+haxe_macro_Binop.OpAdd.toString = $estr;
+haxe_macro_Binop.OpAdd.__enum__ = haxe_macro_Binop;
+haxe_macro_Binop.OpMult = ["OpMult",1];
+haxe_macro_Binop.OpMult.toString = $estr;
+haxe_macro_Binop.OpMult.__enum__ = haxe_macro_Binop;
+haxe_macro_Binop.OpDiv = ["OpDiv",2];
+haxe_macro_Binop.OpDiv.toString = $estr;
+haxe_macro_Binop.OpDiv.__enum__ = haxe_macro_Binop;
+haxe_macro_Binop.OpSub = ["OpSub",3];
+haxe_macro_Binop.OpSub.toString = $estr;
+haxe_macro_Binop.OpSub.__enum__ = haxe_macro_Binop;
+haxe_macro_Binop.OpAssign = ["OpAssign",4];
+haxe_macro_Binop.OpAssign.toString = $estr;
+haxe_macro_Binop.OpAssign.__enum__ = haxe_macro_Binop;
+haxe_macro_Binop.OpEq = ["OpEq",5];
+haxe_macro_Binop.OpEq.toString = $estr;
+haxe_macro_Binop.OpEq.__enum__ = haxe_macro_Binop;
+haxe_macro_Binop.OpNotEq = ["OpNotEq",6];
+haxe_macro_Binop.OpNotEq.toString = $estr;
+haxe_macro_Binop.OpNotEq.__enum__ = haxe_macro_Binop;
+haxe_macro_Binop.OpGt = ["OpGt",7];
+haxe_macro_Binop.OpGt.toString = $estr;
+haxe_macro_Binop.OpGt.__enum__ = haxe_macro_Binop;
+haxe_macro_Binop.OpGte = ["OpGte",8];
+haxe_macro_Binop.OpGte.toString = $estr;
+haxe_macro_Binop.OpGte.__enum__ = haxe_macro_Binop;
+haxe_macro_Binop.OpLt = ["OpLt",9];
+haxe_macro_Binop.OpLt.toString = $estr;
+haxe_macro_Binop.OpLt.__enum__ = haxe_macro_Binop;
+haxe_macro_Binop.OpLte = ["OpLte",10];
+haxe_macro_Binop.OpLte.toString = $estr;
+haxe_macro_Binop.OpLte.__enum__ = haxe_macro_Binop;
+haxe_macro_Binop.OpAnd = ["OpAnd",11];
+haxe_macro_Binop.OpAnd.toString = $estr;
+haxe_macro_Binop.OpAnd.__enum__ = haxe_macro_Binop;
+haxe_macro_Binop.OpOr = ["OpOr",12];
+haxe_macro_Binop.OpOr.toString = $estr;
+haxe_macro_Binop.OpOr.__enum__ = haxe_macro_Binop;
+haxe_macro_Binop.OpXor = ["OpXor",13];
+haxe_macro_Binop.OpXor.toString = $estr;
+haxe_macro_Binop.OpXor.__enum__ = haxe_macro_Binop;
+haxe_macro_Binop.OpBoolAnd = ["OpBoolAnd",14];
+haxe_macro_Binop.OpBoolAnd.toString = $estr;
+haxe_macro_Binop.OpBoolAnd.__enum__ = haxe_macro_Binop;
+haxe_macro_Binop.OpBoolOr = ["OpBoolOr",15];
+haxe_macro_Binop.OpBoolOr.toString = $estr;
+haxe_macro_Binop.OpBoolOr.__enum__ = haxe_macro_Binop;
+haxe_macro_Binop.OpShl = ["OpShl",16];
+haxe_macro_Binop.OpShl.toString = $estr;
+haxe_macro_Binop.OpShl.__enum__ = haxe_macro_Binop;
+haxe_macro_Binop.OpShr = ["OpShr",17];
+haxe_macro_Binop.OpShr.toString = $estr;
+haxe_macro_Binop.OpShr.__enum__ = haxe_macro_Binop;
+haxe_macro_Binop.OpUShr = ["OpUShr",18];
+haxe_macro_Binop.OpUShr.toString = $estr;
+haxe_macro_Binop.OpUShr.__enum__ = haxe_macro_Binop;
+haxe_macro_Binop.OpMod = ["OpMod",19];
+haxe_macro_Binop.OpMod.toString = $estr;
+haxe_macro_Binop.OpMod.__enum__ = haxe_macro_Binop;
+haxe_macro_Binop.OpAssignOp = function(op) { var $x = ["OpAssignOp",20,op]; $x.__enum__ = haxe_macro_Binop; $x.toString = $estr; return $x; };
+haxe_macro_Binop.OpInterval = ["OpInterval",21];
+haxe_macro_Binop.OpInterval.toString = $estr;
+haxe_macro_Binop.OpInterval.__enum__ = haxe_macro_Binop;
+haxe_macro_Binop.OpArrow = ["OpArrow",22];
+haxe_macro_Binop.OpArrow.toString = $estr;
+haxe_macro_Binop.OpArrow.__enum__ = haxe_macro_Binop;
+var haxe_macro_Unop = { __ename__ : true, __constructs__ : ["OpIncrement","OpDecrement","OpNot","OpNeg","OpNegBits"] };
+haxe_macro_Unop.OpIncrement = ["OpIncrement",0];
+haxe_macro_Unop.OpIncrement.toString = $estr;
+haxe_macro_Unop.OpIncrement.__enum__ = haxe_macro_Unop;
+haxe_macro_Unop.OpDecrement = ["OpDecrement",1];
+haxe_macro_Unop.OpDecrement.toString = $estr;
+haxe_macro_Unop.OpDecrement.__enum__ = haxe_macro_Unop;
+haxe_macro_Unop.OpNot = ["OpNot",2];
+haxe_macro_Unop.OpNot.toString = $estr;
+haxe_macro_Unop.OpNot.__enum__ = haxe_macro_Unop;
+haxe_macro_Unop.OpNeg = ["OpNeg",3];
+haxe_macro_Unop.OpNeg.toString = $estr;
+haxe_macro_Unop.OpNeg.__enum__ = haxe_macro_Unop;
+haxe_macro_Unop.OpNegBits = ["OpNegBits",4];
+haxe_macro_Unop.OpNegBits.toString = $estr;
+haxe_macro_Unop.OpNegBits.__enum__ = haxe_macro_Unop;
+var haxe_macro_ExprDef = { __ename__ : true, __constructs__ : ["EConst","EArray","EBinop","EField","EParenthesis","EObjectDecl","EArrayDecl","ECall","ENew","EUnop","EVars","EFunction","EBlock","EFor","EIn","EIf","EWhile","ESwitch","ETry","EReturn","EBreak","EContinue","EUntyped","EThrow","ECast","EDisplay","EDisplayNew","ETernary","ECheckType","EMeta"] };
+haxe_macro_ExprDef.EConst = function(c) { var $x = ["EConst",0,c]; $x.__enum__ = haxe_macro_ExprDef; $x.toString = $estr; return $x; };
+haxe_macro_ExprDef.EArray = function(e1,e2) { var $x = ["EArray",1,e1,e2]; $x.__enum__ = haxe_macro_ExprDef; $x.toString = $estr; return $x; };
+haxe_macro_ExprDef.EBinop = function(op,e1,e2) { var $x = ["EBinop",2,op,e1,e2]; $x.__enum__ = haxe_macro_ExprDef; $x.toString = $estr; return $x; };
+haxe_macro_ExprDef.EField = function(e,field) { var $x = ["EField",3,e,field]; $x.__enum__ = haxe_macro_ExprDef; $x.toString = $estr; return $x; };
+haxe_macro_ExprDef.EParenthesis = function(e) { var $x = ["EParenthesis",4,e]; $x.__enum__ = haxe_macro_ExprDef; $x.toString = $estr; return $x; };
+haxe_macro_ExprDef.EObjectDecl = function(fields) { var $x = ["EObjectDecl",5,fields]; $x.__enum__ = haxe_macro_ExprDef; $x.toString = $estr; return $x; };
+haxe_macro_ExprDef.EArrayDecl = function(values) { var $x = ["EArrayDecl",6,values]; $x.__enum__ = haxe_macro_ExprDef; $x.toString = $estr; return $x; };
+haxe_macro_ExprDef.ECall = function(e,params) { var $x = ["ECall",7,e,params]; $x.__enum__ = haxe_macro_ExprDef; $x.toString = $estr; return $x; };
+haxe_macro_ExprDef.ENew = function(t,params) { var $x = ["ENew",8,t,params]; $x.__enum__ = haxe_macro_ExprDef; $x.toString = $estr; return $x; };
+haxe_macro_ExprDef.EUnop = function(op,postFix,e) { var $x = ["EUnop",9,op,postFix,e]; $x.__enum__ = haxe_macro_ExprDef; $x.toString = $estr; return $x; };
+haxe_macro_ExprDef.EVars = function(vars) { var $x = ["EVars",10,vars]; $x.__enum__ = haxe_macro_ExprDef; $x.toString = $estr; return $x; };
+haxe_macro_ExprDef.EFunction = function(name,f) { var $x = ["EFunction",11,name,f]; $x.__enum__ = haxe_macro_ExprDef; $x.toString = $estr; return $x; };
+haxe_macro_ExprDef.EBlock = function(exprs) { var $x = ["EBlock",12,exprs]; $x.__enum__ = haxe_macro_ExprDef; $x.toString = $estr; return $x; };
+haxe_macro_ExprDef.EFor = function(it,expr) { var $x = ["EFor",13,it,expr]; $x.__enum__ = haxe_macro_ExprDef; $x.toString = $estr; return $x; };
+haxe_macro_ExprDef.EIn = function(e1,e2) { var $x = ["EIn",14,e1,e2]; $x.__enum__ = haxe_macro_ExprDef; $x.toString = $estr; return $x; };
+haxe_macro_ExprDef.EIf = function(econd,eif,eelse) { var $x = ["EIf",15,econd,eif,eelse]; $x.__enum__ = haxe_macro_ExprDef; $x.toString = $estr; return $x; };
+haxe_macro_ExprDef.EWhile = function(econd,e,normalWhile) { var $x = ["EWhile",16,econd,e,normalWhile]; $x.__enum__ = haxe_macro_ExprDef; $x.toString = $estr; return $x; };
+haxe_macro_ExprDef.ESwitch = function(e,cases,edef) { var $x = ["ESwitch",17,e,cases,edef]; $x.__enum__ = haxe_macro_ExprDef; $x.toString = $estr; return $x; };
+haxe_macro_ExprDef.ETry = function(e,catches) { var $x = ["ETry",18,e,catches]; $x.__enum__ = haxe_macro_ExprDef; $x.toString = $estr; return $x; };
+haxe_macro_ExprDef.EReturn = function(e) { var $x = ["EReturn",19,e]; $x.__enum__ = haxe_macro_ExprDef; $x.toString = $estr; return $x; };
+haxe_macro_ExprDef.EBreak = ["EBreak",20];
+haxe_macro_ExprDef.EBreak.toString = $estr;
+haxe_macro_ExprDef.EBreak.__enum__ = haxe_macro_ExprDef;
+haxe_macro_ExprDef.EContinue = ["EContinue",21];
+haxe_macro_ExprDef.EContinue.toString = $estr;
+haxe_macro_ExprDef.EContinue.__enum__ = haxe_macro_ExprDef;
+haxe_macro_ExprDef.EUntyped = function(e) { var $x = ["EUntyped",22,e]; $x.__enum__ = haxe_macro_ExprDef; $x.toString = $estr; return $x; };
+haxe_macro_ExprDef.EThrow = function(e) { var $x = ["EThrow",23,e]; $x.__enum__ = haxe_macro_ExprDef; $x.toString = $estr; return $x; };
+haxe_macro_ExprDef.ECast = function(e,t) { var $x = ["ECast",24,e,t]; $x.__enum__ = haxe_macro_ExprDef; $x.toString = $estr; return $x; };
+haxe_macro_ExprDef.EDisplay = function(e,isCall) { var $x = ["EDisplay",25,e,isCall]; $x.__enum__ = haxe_macro_ExprDef; $x.toString = $estr; return $x; };
+haxe_macro_ExprDef.EDisplayNew = function(t) { var $x = ["EDisplayNew",26,t]; $x.__enum__ = haxe_macro_ExprDef; $x.toString = $estr; return $x; };
+haxe_macro_ExprDef.ETernary = function(econd,eif,eelse) { var $x = ["ETernary",27,econd,eif,eelse]; $x.__enum__ = haxe_macro_ExprDef; $x.toString = $estr; return $x; };
+haxe_macro_ExprDef.ECheckType = function(e,t) { var $x = ["ECheckType",28,e,t]; $x.__enum__ = haxe_macro_ExprDef; $x.toString = $estr; return $x; };
+haxe_macro_ExprDef.EMeta = function(s,e) { var $x = ["EMeta",29,s,e]; $x.__enum__ = haxe_macro_ExprDef; $x.toString = $estr; return $x; };
+var haxe_macro_ComplexType = { __ename__ : true, __constructs__ : ["TPath","TFunction","TAnonymous","TParent","TExtend","TOptional"] };
+haxe_macro_ComplexType.TPath = function(p) { var $x = ["TPath",0,p]; $x.__enum__ = haxe_macro_ComplexType; $x.toString = $estr; return $x; };
+haxe_macro_ComplexType.TFunction = function(args,ret) { var $x = ["TFunction",1,args,ret]; $x.__enum__ = haxe_macro_ComplexType; $x.toString = $estr; return $x; };
+haxe_macro_ComplexType.TAnonymous = function(fields) { var $x = ["TAnonymous",2,fields]; $x.__enum__ = haxe_macro_ComplexType; $x.toString = $estr; return $x; };
+haxe_macro_ComplexType.TParent = function(t) { var $x = ["TParent",3,t]; $x.__enum__ = haxe_macro_ComplexType; $x.toString = $estr; return $x; };
+haxe_macro_ComplexType.TExtend = function(p,fields) { var $x = ["TExtend",4,p,fields]; $x.__enum__ = haxe_macro_ComplexType; $x.toString = $estr; return $x; };
+haxe_macro_ComplexType.TOptional = function(t) { var $x = ["TOptional",5,t]; $x.__enum__ = haxe_macro_ComplexType; $x.toString = $estr; return $x; };
 var haxe_rtti_Meta = function() { };
 $hxClasses["haxe.rtti.Meta"] = haxe_rtti_Meta;
 haxe_rtti_Meta.__name__ = ["haxe","rtti","Meta"];
@@ -1850,6 +1982,743 @@ hex_collection_LocatorMessage.__name__ = ["hex","collection","LocatorMessage"];
 hex_collection_LocatorMessage.prototype = {
 	__class__: hex_collection_LocatorMessage
 };
+var hex_compiler_CompileTimeFastEval = function() {
+};
+$hxClasses["hex.compiler.CompileTimeFastEval"] = hex_compiler_CompileTimeFastEval;
+hex_compiler_CompileTimeFastEval.__name__ = ["hex","compiler","CompileTimeFastEval"];
+hex_compiler_CompileTimeFastEval.fromTarget = function(target,toEval,coreFactory) {
+	var members = toEval.split(".");
+	var result;
+	while(members.length > 0) {
+		var member = members.shift();
+		result = Reflect.field(target,member);
+		if(result == null) {
+		}
+		target = result;
+	}
+	return target;
+};
+hex_compiler_CompileTimeFastEval.prototype = {
+	__class__: hex_compiler_CompileTimeFastEval
+};
+var hex_ioc_assembler_IApplicationAssembler = function() { };
+$hxClasses["hex.ioc.assembler.IApplicationAssembler"] = hex_ioc_assembler_IApplicationAssembler;
+hex_ioc_assembler_IApplicationAssembler.__name__ = ["hex","ioc","assembler","IApplicationAssembler"];
+hex_ioc_assembler_IApplicationAssembler.prototype = {
+	getContextFactory: null
+	,buildEverything: null
+	,release: null
+	,buildProperty: null
+	,buildObject: null
+	,buildMethodCall: null
+	,buildDomainListener: null
+	,configureStateTransition: null
+	,getApplicationContext: null
+	,setStrictMode: null
+	,isInStrictMode: null
+	,addConditionalProperty: null
+	,allowsIfList: null
+	,allowsIfNotList: null
+	,__class__: hex_ioc_assembler_IApplicationAssembler
+};
+var hex_compiler_assembler_CompileTimeApplicationAssembler = function() {
+	this._strictMode = true;
+	this._conditionalProperties = new haxe_ds_StringMap();
+	this._mContextFactories = new haxe_ds_ObjectMap();
+	this._mApplicationContext = new haxe_ds_StringMap();
+};
+$hxClasses["hex.compiler.assembler.CompileTimeApplicationAssembler"] = hex_compiler_assembler_CompileTimeApplicationAssembler;
+hex_compiler_assembler_CompileTimeApplicationAssembler.__name__ = ["hex","compiler","assembler","CompileTimeApplicationAssembler"];
+hex_compiler_assembler_CompileTimeApplicationAssembler.__interfaces__ = [hex_ioc_assembler_IApplicationAssembler];
+hex_compiler_assembler_CompileTimeApplicationAssembler._deserializeArguments = function(ownerID,args) {
+	var length = args.length;
+	var index;
+	var obj;
+	var _g = 0;
+	while(_g < length) {
+		var index1 = _g++;
+		args[index1] = hex_compiler_assembler_CompileTimeApplicationAssembler._getConstructorVO(ownerID,args[index1]);
+	}
+};
+hex_compiler_assembler_CompileTimeApplicationAssembler._getConstructorVO = function(ownerID,obj) {
+	if(obj.method != null) return new hex_ioc_vo_ConstructorVO(null,"Function",[obj.method]); else if(obj.ref != null) return new hex_ioc_vo_ConstructorVO(null,"Instance",null,null,null,false,obj.ref); else if(obj.staticRef != null) return new hex_ioc_vo_ConstructorVO(null,"Instance",null,null,null,false,null,null,obj.staticRef); else {
+		var type;
+		if(obj.type != null) type = obj.type; else type = "String";
+		return new hex_ioc_vo_ConstructorVO(ownerID,type,[obj.value]);
+	}
+};
+hex_compiler_assembler_CompileTimeApplicationAssembler.prototype = {
+	_mApplicationContext: null
+	,_mContextFactories: null
+	,_conditionalProperties: null
+	,_strictMode: null
+	,_mainExpr: null
+	,_expressions: null
+	,addExpression: function(expr) {
+		this._expressions.push(expr);
+	}
+	,getMainExpression: function() {
+		return { expr : haxe_macro_ExprDef.EBlock(this._expressions), pos : { file : "C:/docler/hexIoC/src/hex/compiler/assembler/CompileTimeApplicationAssembler.hx", min : 1343, max : 1364}};
+	}
+	,getContextFactory: function(applicationContext) {
+		return this._mContextFactories.h[applicationContext.__id__];
+	}
+	,release: function() {
+	}
+	,buildProperty: function(applicationContext,ownerID,name,value,type,ref,method,staticRef,ifList,ifNotList) {
+		if(this.allowsIfList(ifList) && this.allowsIfNotList(ifNotList)) this.getContextFactory(applicationContext).registerPropertyVO(ownerID,new hex_ioc_vo_PropertyVO(ownerID,name,value,type,ref,method,staticRef));
+	}
+	,buildObject: function(applicationContext,ownerID,type,args,factory,singleton,injectInto,mapType,staticRef,ifList,ifNotList) {
+		if(injectInto == null) injectInto = false;
+		if(this.allowsIfList(ifList) && this.allowsIfNotList(ifNotList)) {
+			this._registerID(applicationContext,ownerID);
+			var constructorVO = new hex_ioc_vo_ConstructorVO(ownerID,type,args,factory,singleton,injectInto,null,mapType,staticRef);
+			this.getContextFactory(applicationContext).registerConstructorVO(ownerID,constructorVO);
+		}
+	}
+	,buildMethodCall: function(applicationContext,ownerID,methodCallName,args,ifList,ifNotList) {
+		if(this.allowsIfList(ifList) && this.allowsIfNotList(ifNotList)) this.getContextFactory(applicationContext).registerMethodCallVO(new hex_ioc_vo_MethodCallVO(ownerID,methodCallName,args));
+	}
+	,buildDomainListener: function(applicationContext,ownerID,listenedDomainName,args,ifList,ifNotList) {
+	}
+	,configureStateTransition: function(applicationContext,ID,staticReference,instanceReference,enterList,exitList,ifList,ifNotList) {
+	}
+	,buildEverything: function() {
+		var itFactory = this._mContextFactories.iterator();
+		var builderFactories = [];
+		while(itFactory.hasNext()) builderFactories.push(itFactory.next());
+		var itFactory1 = this._mContextFactories.iterator();
+		while(itFactory1.hasNext()) itFactory1.next().buildAllStateTransitions();
+		var applicationContexts = [];
+		var itContext = this._mApplicationContext.iterator();
+		while(itContext.hasNext()) applicationContexts.push(itContext.next());
+		var len = builderFactories.length;
+		var i;
+		var _g = 0;
+		while(_g < len) {
+			var i1 = _g++;
+			builderFactories[i1].buildAllObjects();
+		}
+		var _g1 = 0;
+		while(_g1 < len) {
+			var i2 = _g1++;
+			builderFactories[i2].assignAllDomainListeners();
+		}
+		var _g2 = 0;
+		while(_g2 < len) {
+			var i3 = _g2++;
+			builderFactories[i3].callAllMethods();
+		}
+		var _g3 = 0;
+		while(_g3 < len) {
+			var i4 = _g3++;
+			builderFactories[i4].callModuleInitialisation();
+		}
+	}
+	,getApplicationContext: function(applicationContextName,applicationContextClass) {
+		var applicationContext;
+		if(this._mApplicationContext.exists(applicationContextName)) applicationContext = this._mApplicationContext.get(applicationContextName); else {
+			var builderFactory = new hex_compiler_core_CompileTimeContextFactory(this._expressions,applicationContextName,applicationContextClass);
+			applicationContext = builderFactory.getApplicationContext();
+			this._mApplicationContext.set(applicationContextName,applicationContext);
+			this._mContextFactories.set(applicationContext,builderFactory);
+		}
+		return applicationContext;
+	}
+	,setStrictMode: function(b) {
+		this._strictMode = b;
+	}
+	,isInStrictMode: function() {
+		return this._strictMode;
+	}
+	,addConditionalProperty: function(conditionalProperties) {
+		var i = conditionalProperties.keys();
+		var key;
+		while(i.hasNext()) {
+			key = i.next();
+			if(!this._conditionalProperties.exists(key)) {
+				var value;
+				value = __map_reserved[key] != null?conditionalProperties.getReserved(key):conditionalProperties.h[key];
+				this._conditionalProperties.set(key,value);
+			} else throw new js__$Boot_HaxeError(new hex_error_IllegalArgumentException("addConditionalcontext fails with key'" + key + "', this key was already assigned",{ fileName : "CompileTimeApplicationAssembler.hx", lineNumber : 249, className : "hex.compiler.assembler.CompileTimeApplicationAssembler", methodName : "addConditionalProperty"}));
+		}
+	}
+	,allowsIfList: function(ifList) {
+		if(ifList != null) {
+			var _g = 0;
+			while(_g < ifList.length) {
+				var ifItem = ifList[_g];
+				++_g;
+				if(this._conditionalProperties.exists(ifItem)) {
+					if(this._conditionalProperties.get(ifItem)) return true;
+				} else if(this._strictMode) throw new js__$Boot_HaxeError(new hex_ioc_error_BuildingException("'" + ifItem + "' was not found in application assembler",{ fileName : "CompileTimeApplicationAssembler.hx", lineNumber : 269, className : "hex.compiler.assembler.CompileTimeApplicationAssembler", methodName : "allowsIfList"}));
+			}
+		} else return true;
+		return false;
+	}
+	,allowsIfNotList: function(ifNotList) {
+		if(ifNotList != null) {
+			var _g = 0;
+			while(_g < ifNotList.length) {
+				var ifNotItem = ifNotList[_g];
+				++_g;
+				if(this._conditionalProperties.exists(ifNotItem)) {
+					if(this._conditionalProperties.get(ifNotItem)) return false;
+				} else if(this._strictMode) throw new js__$Boot_HaxeError(new hex_ioc_error_BuildingException("'" + ifNotItem + "' was not found in application assembler",{ fileName : "CompileTimeApplicationAssembler.hx", lineNumber : 296, className : "hex.compiler.assembler.CompileTimeApplicationAssembler", methodName : "allowsIfNotList"}));
+			}
+		}
+		return true;
+	}
+	,_registerID: function(applicationContext,ID) {
+		return this.getContextFactory(applicationContext).registerID(ID);
+	}
+	,__class__: hex_compiler_assembler_CompileTimeApplicationAssembler
+};
+var hex_ioc_core_IContextFactory = function() { };
+$hxClasses["hex.ioc.core.IContextFactory"] = hex_ioc_core_IContextFactory;
+hex_ioc_core_IContextFactory.__name__ = ["hex","ioc","core","IContextFactory"];
+hex_ioc_core_IContextFactory.prototype = {
+	registerID: null
+	,registerStateTransitionVO: null
+	,buildStateTransition: null
+	,buildAllStateTransitions: null
+	,registerPropertyVO: null
+	,registerConstructorVO: null
+	,buildObject: null
+	,buildAllObjects: null
+	,registerDomainListenerVO: null
+	,assignDomainListener: null
+	,assignAllDomainListeners: null
+	,registerMethodCallVO: null
+	,callMethod: null
+	,callAllMethods: null
+	,callModuleInitialisation: null
+	,getApplicationContext: null
+	,getAnnotationProvider: null
+	,getCoreFactory: null
+	,release: null
+	,__class__: hex_ioc_core_IContextFactory
+};
+var hex_compiler_core_CompileTimeContextFactory = function(expressions,applicationContextName,applicationContextClass) {
+	this._expressions = expressions;
+	var domain = hex_domain_DomainUtil.getDomain(applicationContextName,hex_domain_Domain);
+	this._contextDispatcher = hex_domain_ApplicationDomainDispatcher.getInstance().getDomainDispatcher(domain);
+	this._coreFactory = new hex_compiler_core_CompileTimeCoreFactory(this._expressions);
+	if(applicationContextClass != null) this._applicationContext = new hex_ioc_assembler_AbstractApplicationContext(this._coreFactory,applicationContextName); else this._applicationContext = new hex_ioc_assembler_AbstractApplicationContext(this._coreFactory,applicationContextName);
+	this._coreFactory.register(applicationContextName,this._applicationContext);
+	this._init();
+};
+$hxClasses["hex.compiler.core.CompileTimeContextFactory"] = hex_compiler_core_CompileTimeContextFactory;
+hex_compiler_core_CompileTimeContextFactory.__name__ = ["hex","compiler","core","CompileTimeContextFactory"];
+hex_compiler_core_CompileTimeContextFactory.__interfaces__ = [hex_collection_ILocatorListener,hex_ioc_core_IContextFactory];
+hex_compiler_core_CompileTimeContextFactory.prototype = {
+	_expressions: null
+	,_annotationProvider: null
+	,_contextDispatcher: null
+	,_moduleLocator: null
+	,_applicationContext: null
+	,_factoryMap: null
+	,_coreFactory: null
+	,_IDExpert: null
+	,_constructorVOLocator: null
+	,_propertyVOLocator: null
+	,_methodCallVOLocator: null
+	,_domainListenerVOLocator: null
+	,_stateTransitionVOLocator: null
+	,registerID: function(id) {
+		return this._IDExpert.register(id);
+	}
+	,registerStateTransitionVO: function(id,stateTransitionVO) {
+		this._stateTransitionVOLocator.register(id,stateTransitionVO);
+	}
+	,buildStateTransition: function(key) {
+		this._stateTransitionVOLocator.buildStateTransition(key);
+	}
+	,buildAllStateTransitions: function() {
+		var keys = this._stateTransitionVOLocator.keys();
+		var _g = 0;
+		while(_g < keys.length) {
+			var key = keys[_g];
+			++_g;
+			this._stateTransitionVOLocator.buildStateTransition(key);
+		}
+	}
+	,registerPropertyVO: function(id,propertyVO) {
+		if(this._propertyVOLocator.isRegisteredWithKey(id)) this._propertyVOLocator.locate(id).push(propertyVO); else this._propertyVOLocator.register(id,[propertyVO]);
+	}
+	,_getPropertyValue: function(property,id) {
+		var value = null;
+		var propertyName = property.name;
+		if(property.method != null) {
+		} else if(property.ref != null) {
+		} else if(property.staticRef != null) {
+		} else {
+		}
+		return value;
+	}
+	,_setPropertyValue: function(property,target,id) {
+		var propertyName = property.name;
+		if(propertyName.indexOf(".") == -1) {
+			var value = this._getPropertyValue(property,id);
+			Reflect.setProperty(target,propertyName,value);
+		} else {
+			var props = propertyName.split(".");
+			propertyName = props.pop();
+			var target1 = this._coreFactory.fastEvalFromTarget(target,props.join("."));
+			Reflect.setProperty(target1,propertyName,this._getPropertyValue(property,id));
+		}
+	}
+	,onRegister: function(key,instance) {
+		if(this._propertyVOLocator.isRegisteredWithKey(key)) {
+			var properties = this._propertyVOLocator.locate(key);
+			var _g = 0;
+			while(_g < properties.length) {
+				var p = properties[_g];
+				++_g;
+				this._setPropertyValue(p,instance,key);
+			}
+		}
+	}
+	,onUnregister: function(key) {
+	}
+	,handleEvent: function(e) {
+	}
+	,registerConstructorVO: function(id,constructorVO) {
+		this._constructorVOLocator.register(id,constructorVO);
+	}
+	,buildObject: function(id) {
+	}
+	,buildAllObjects: function() {
+		var keys = this._constructorVOLocator.keys();
+		var _g = 0;
+		while(_g < keys.length) {
+			var key = keys[_g];
+			++_g;
+			this.buildObject(key);
+		}
+	}
+	,registerDomainListenerVO: function(domainListenerVO) {
+		this._domainListenerVOLocator.register("" + hex_core_HashCodeFactory.getKey(domainListenerVO),domainListenerVO);
+	}
+	,assignAllDomainListeners: function() {
+		var listeners = this._domainListenerVOLocator.keys();
+		var _g = 0;
+		while(_g < listeners.length) {
+			var key = listeners[_g];
+			++_g;
+			this.assignDomainListener(key);
+		}
+		this._domainListenerVOLocator.clear();
+	}
+	,assignDomainListener: function(id) {
+		return hex_compiler_factory_DomainListenerFactory.build(id,this._domainListenerVOLocator,this._applicationContext,this._annotationProvider);
+	}
+	,registerMethodCallVO: function(methodCallVO) {
+		var index = this._methodCallVOLocator.keys().length + 1;
+		this._methodCallVOLocator.register("" + index,methodCallVO);
+	}
+	,callMethod: function(id) {
+	}
+	,callAllMethods: function() {
+		var keyList = this._methodCallVOLocator.keys();
+		var _g = 0;
+		while(_g < keyList.length) {
+			var key = keyList[_g];
+			++_g;
+			this.callMethod(key);
+		}
+		this._methodCallVOLocator.clear();
+	}
+	,callModuleInitialisation: function() {
+		this._moduleLocator.callModuleInitialisation();
+	}
+	,getApplicationContext: function() {
+		return this._applicationContext;
+	}
+	,getCoreFactory: function() {
+		return this._coreFactory;
+	}
+	,getAnnotationProvider: function() {
+		return this._annotationProvider;
+	}
+	,getStateTransitionVOLocator: function() {
+		return this._stateTransitionVOLocator;
+	}
+	,release: function() {
+		this._coreFactory.removeListener(this);
+		this._coreFactory.clear();
+		this._constructorVOLocator.release();
+		this._propertyVOLocator.release();
+		this._methodCallVOLocator.release();
+		this._domainListenerVOLocator.release();
+		this._stateTransitionVOLocator.release();
+		this._moduleLocator.release();
+		this._factoryMap = new haxe_ds_StringMap();
+		this._IDExpert.clear();
+	}
+	,_init: function() {
+		this._factoryMap = new haxe_ds_StringMap();
+		this._IDExpert = new hex_ioc_core_IDExpert();
+		this._constructorVOLocator = new hex_ioc_locator_ConstructorVOLocator();
+		this._propertyVOLocator = new hex_ioc_locator_PropertyVOLocator();
+		this._methodCallVOLocator = new hex_ioc_locator_MethodCallVOLocator();
+		this._domainListenerVOLocator = new hex_ioc_locator_DomainListenerVOLocator();
+		this._stateTransitionVOLocator = new hex_ioc_locator_StateTransitionVOLocator(this);
+		this._moduleLocator = new hex_ioc_locator_ModuleLocator(this);
+		this._coreFactory.addListener(this);
+	}
+	,__class__: hex_compiler_core_CompileTimeContextFactory
+};
+var hex_ioc_core_ICoreFactory = function() { };
+$hxClasses["hex.ioc.core.ICoreFactory"] = hex_ioc_core_ICoreFactory;
+hex_ioc_core_ICoreFactory.__name__ = ["hex","ioc","core","ICoreFactory"];
+hex_ioc_core_ICoreFactory.__interfaces__ = [hex_collection_ILocator];
+hex_ioc_core_ICoreFactory.prototype = {
+	getBasicInjector: null
+	,clear: null
+	,buildInstance: null
+	,fastEvalFromTarget: null
+	,__class__: hex_ioc_core_ICoreFactory
+};
+var hex_compiler_core_CompileTimeCoreFactory = function(expressions) {
+	this._expressions = expressions;
+	this._dispatcher = new hex_event_Dispatcher();
+	this._map = new haxe_ds_StringMap();
+};
+$hxClasses["hex.compiler.core.CompileTimeCoreFactory"] = hex_compiler_core_CompileTimeCoreFactory;
+hex_compiler_core_CompileTimeCoreFactory.__name__ = ["hex","compiler","core","CompileTimeCoreFactory"];
+hex_compiler_core_CompileTimeCoreFactory.__interfaces__ = [hex_ioc_core_ICoreFactory];
+hex_compiler_core_CompileTimeCoreFactory.setFastEvalMethod = function(method) {
+	hex_compiler_core_CompileTimeCoreFactory._fastEvalMethod = method;
+};
+hex_compiler_core_CompileTimeCoreFactory.prototype = {
+	_expressions: null
+	,_dispatcher: null
+	,_map: null
+	,getBasicInjector: function() {
+		return null;
+	}
+	,clear: function() {
+		this._map = new haxe_ds_StringMap();
+	}
+	,keys: function() {
+		var a = [];
+		var it = this._map.keys();
+		while(it.hasNext()) a.push(it.next());
+		return a;
+	}
+	,values: function() {
+		var a = [];
+		var it = this._map.iterator();
+		while(it.hasNext()) a.push(it.next());
+		return a;
+	}
+	,isRegisteredWithKey: function(key) {
+		var key1 = key;
+		return this._map.exists(key1);
+	}
+	,isInstanceRegistered: function(instance) {
+		return (function($this) {
+			var $r;
+			var _this = $this.values();
+			var x = instance;
+			$r = HxOverrides.indexOf(_this,x,0);
+			return $r;
+		}(this)) != -1;
+	}
+	,locate: function(key) {
+		if(this._map.exists(key)) return this._map.get(key); else if(key.indexOf(".") != -1) {
+			var props = key.split(".");
+			var baseKey = props.shift();
+			if(this._map.exists(baseKey)) {
+				var target = this._map.get(baseKey);
+				return this.fastEvalFromTarget(target,props.join("."));
+			}
+		}
+		throw new js__$Boot_HaxeError(new hex_error_NoSuchElementException("Can't find item with '" + key + "' key in " + hex_log_Stringifier.stringify(this),{ fileName : "CompileTimeCoreFactory.hx", lineNumber : 90, className : "hex.compiler.core.CompileTimeCoreFactory", methodName : "locate"}));
+	}
+	,register: function(key,element) {
+		if(!this._map.exists(key)) {
+			var value = element;
+			this._map.set(key,value);
+			this._dispatcher.dispatch(hex_collection_LocatorMessage.REGISTER,[key,element]);
+			return true;
+		} else throw new js__$Boot_HaxeError(new hex_error_IllegalArgumentException("register(" + key + ", " + Std.string(element) + ") fails, key is already registered.",{ fileName : "CompileTimeCoreFactory.hx", lineNumber : 103, className : "hex.compiler.core.CompileTimeCoreFactory", methodName : "register"}));
+	}
+	,unregisterWithKey: function(key) {
+		if(this._map.exists(key)) {
+			var instance = this._map.get(key);
+			this._map.remove(key);
+			this._dispatcher.dispatch(hex_collection_LocatorMessage.UNREGISTER,[key]);
+			return true;
+		} else return false;
+	}
+	,unregister: function(instance) {
+		var key = this.getKeyOfInstance(instance);
+		if(key != null) return this.unregisterWithKey(key); else return false;
+	}
+	,getKeyOfInstance: function(instance) {
+		var iterator = this._map.keys();
+		while(iterator.hasNext()) {
+			var key = iterator.next();
+			if(this._map.get(key) == instance) return key;
+		}
+		return null;
+	}
+	,add: function(map) {
+		var iterator = map.keys();
+		while(iterator.hasNext()) {
+			var key = iterator.next();
+			try {
+				this.register(key,__map_reserved[key] != null?map.getReserved(key):map.h[key]);
+			} catch( e ) {
+				if (e instanceof js__$Boot_HaxeError) e = e.val;
+				if( js_Boot.__instanceof(e,hex_error_IllegalArgumentException) ) {
+					e.message = Std.string(this) + ".add() fails. " + e.message;
+					throw new js__$Boot_HaxeError(e);
+				} else throw(e);
+			}
+		}
+	}
+	,addListener: function(listener) {
+		return this._dispatcher.addListener(listener);
+	}
+	,removeListener: function(listener) {
+		return this._dispatcher.removeListener(listener);
+	}
+	,buildInstance: function(qualifiedClassName,args,factoryMethod,singletonAccess,instantiateUnmapped) {
+		if(instantiateUnmapped == null) instantiateUnmapped = false;
+		var classReference;
+		try {
+			classReference = hex_util_ClassUtil.getClassReference(qualifiedClassName);
+		} catch( e ) {
+			if (e instanceof js__$Boot_HaxeError) e = e.val;
+			if( js_Boot.__instanceof(e,hex_error_IllegalArgumentException) ) {
+				throw new js__$Boot_HaxeError(new hex_error_IllegalArgumentException("'" + qualifiedClassName + "' class is not available in current domain",{ fileName : "CompileTimeCoreFactory.hx", lineNumber : 182, className : "hex.compiler.core.CompileTimeCoreFactory", methodName : "buildInstance"}));
+			} else throw(e);
+		}
+		var obj = null;
+		if(instantiateUnmapped) {
+		} else if(factoryMethod != null) {
+			if(singletonAccess != null) {
+				var inst = null;
+				var singletonCall = Reflect.field(classReference,singletonAccess);
+				if(singletonCall != null) inst = singletonCall(); else throw new js__$Boot_HaxeError(new hex_error_IllegalArgumentException(qualifiedClassName + "." + singletonAccess + "()' singleton access failed.",{ fileName : "CompileTimeCoreFactory.hx", lineNumber : 204, className : "hex.compiler.core.CompileTimeCoreFactory", methodName : "buildInstance"}));
+				var methodReference = Reflect.field(inst,factoryMethod);
+				if(methodReference != null) obj = Reflect.callMethod(inst,methodReference,args); else throw new js__$Boot_HaxeError(new hex_error_IllegalArgumentException(qualifiedClassName + "." + singletonAccess + "()." + factoryMethod + "()' factory method call failed.",{ fileName : "CompileTimeCoreFactory.hx", lineNumber : 214, className : "hex.compiler.core.CompileTimeCoreFactory", methodName : "buildInstance"}));
+			} else {
+				var methodReference1 = Reflect.field(classReference,factoryMethod);
+				if(methodReference1 != null) obj = Reflect.callMethod(classReference,methodReference1,args); else throw new js__$Boot_HaxeError(new hex_error_IllegalArgumentException(qualifiedClassName + "." + factoryMethod + "()' factory method call failed.",{ fileName : "CompileTimeCoreFactory.hx", lineNumber : 227, className : "hex.compiler.core.CompileTimeCoreFactory", methodName : "buildInstance"}));
+			}
+		} else if(singletonAccess != null) {
+			var singletonCall1 = Reflect.field(classReference,singletonAccess);
+			if(singletonCall1 != null) obj = singletonCall1(); else throw new js__$Boot_HaxeError(new hex_error_IllegalArgumentException(qualifiedClassName + "." + singletonAccess + "()' singleton call failed.",{ fileName : "CompileTimeCoreFactory.hx", lineNumber : 240, className : "hex.compiler.core.CompileTimeCoreFactory", methodName : "buildInstance"}));
+		} else {
+			try {
+				obj = Type.createInstance(classReference,args != null?args:[]);
+			} catch( e1 ) {
+				if (e1 instanceof js__$Boot_HaxeError) e1 = e1.val;
+				throw new js__$Boot_HaxeError(new hex_error_IllegalArgumentException("Instantiation of class '" + qualifiedClassName + "' failed with arguments: " + Std.string(args) + " : " + Std.string(e1),{ fileName : "CompileTimeCoreFactory.hx", lineNumber : 251, className : "hex.compiler.core.CompileTimeCoreFactory", methodName : "buildInstance"}));
+			}
+			if(js_Boot.__instanceof(obj,hex_core_IAnnotationParsable)) {
+			}
+			if(js_Boot.__instanceof(obj,hex_service_IService)) obj.createConfiguration();
+		}
+		return obj;
+	}
+	,fastEvalFromTarget: function(target,toEval) {
+		return hex_compiler_core_CompileTimeCoreFactory._fastEvalMethod(target,toEval,this);
+	}
+	,__class__: hex_compiler_core_CompileTimeCoreFactory
+};
+var hex_compiler_factory_ArrayFactory = function() {
+};
+$hxClasses["hex.compiler.factory.ArrayFactory"] = hex_compiler_factory_ArrayFactory;
+hex_compiler_factory_ArrayFactory.__name__ = ["hex","compiler","factory","ArrayFactory"];
+hex_compiler_factory_ArrayFactory.prototype = {
+	__class__: hex_compiler_factory_ArrayFactory
+};
+var hex_compiler_factory_BoolFactory = function() {
+};
+$hxClasses["hex.compiler.factory.BoolFactory"] = hex_compiler_factory_BoolFactory;
+hex_compiler_factory_BoolFactory.__name__ = ["hex","compiler","factory","BoolFactory"];
+hex_compiler_factory_BoolFactory.prototype = {
+	__class__: hex_compiler_factory_BoolFactory
+};
+var hex_compiler_factory_ClassFactory = function() {
+};
+$hxClasses["hex.compiler.factory.ClassFactory"] = hex_compiler_factory_ClassFactory;
+hex_compiler_factory_ClassFactory.__name__ = ["hex","compiler","factory","ClassFactory"];
+hex_compiler_factory_ClassFactory.prototype = {
+	__class__: hex_compiler_factory_ClassFactory
+};
+var hex_compiler_factory_ClassInstanceFactory = function() {
+};
+$hxClasses["hex.compiler.factory.ClassInstanceFactory"] = hex_compiler_factory_ClassInstanceFactory;
+hex_compiler_factory_ClassInstanceFactory.__name__ = ["hex","compiler","factory","ClassInstanceFactory"];
+hex_compiler_factory_ClassInstanceFactory.prototype = {
+	__class__: hex_compiler_factory_ClassInstanceFactory
+};
+var hex_compiler_factory_DomainListenerFactory = function() {
+};
+$hxClasses["hex.compiler.factory.DomainListenerFactory"] = hex_compiler_factory_DomainListenerFactory;
+hex_compiler_factory_DomainListenerFactory.__name__ = ["hex","compiler","factory","DomainListenerFactory"];
+hex_compiler_factory_DomainListenerFactory.build = function(id,domainListenerVOLocator,applicationContext,annotationProvider) {
+	var coreFactory = applicationContext.getCoreFactory();
+	var domainListener = domainListenerVOLocator.locate(id);
+	var listener = coreFactory.locate(domainListener.ownerID);
+	var args = domainListener["arguments"];
+	var service = null;
+	if(coreFactory.isRegisteredWithKey(domainListener.listenedDomainName)) {
+		var located = coreFactory.locate(domainListener.listenedDomainName);
+		if(js_Boot.__instanceof(located,hex_service_IService)) service = located;
+	}
+	if(args != null && args.length > 0) {
+		var _g = 0;
+		while(_g < args.length) {
+			var domainListenerArgument = args[_g];
+			++_g;
+			var method;
+			if(js_Boot.__instanceof(listener,hex_event_EventProxy)) method = "handleCallback"; else method = domainListenerArgument.method;
+			var messageType;
+			if(domainListenerArgument.name != null) messageType = new hex_event_MessageType(domainListenerArgument.name); else messageType = hex_util_ClassUtil.getStaticVariableReference(domainListenerArgument.staticRef);
+			if(method != null && Reflect.isFunction(Reflect.field(listener,method)) || domainListenerArgument.strategy != null) {
+				var callback;
+				if(domainListenerArgument.strategy != null) callback = hex_compiler_factory_DomainListenerFactory._getStrategyCallback(annotationProvider,applicationContext,listener,method,domainListenerArgument.strategy,domainListenerArgument.injectedInModule); else callback = Reflect.field(listener,method);
+				if(service == null) {
+					var domain = hex_domain_DomainUtil.getDomain(domainListener.listenedDomainName,hex_domain_Domain);
+					hex_domain_ApplicationDomainDispatcher.getInstance().addHandler(messageType,listener,callback,domain);
+				} else service.addHandler(messageType,listener,callback);
+			} else if(method == null) throw new js__$Boot_HaxeError(new hex_error_IllegalArgumentException("DomainListenerFactory.build failed. Callback should be defined (use 'method' attribute) in instance of '" + hex_log_Stringifier.stringify(listener) + "' class with '" + domainListener.ownerID + "' id",{ fileName : "DomainListenerFactory.hx", lineNumber : 81, className : "hex.compiler.factory.DomainListenerFactory", methodName : "build"})); else throw new js__$Boot_HaxeError(new hex_error_IllegalArgumentException("DomainListenerFactory.build failed. Method named '" + method + "' can't be found in instance of '" + hex_log_Stringifier.stringify(listener) + "' class with '" + domainListener.ownerID + "' id",{ fileName : "DomainListenerFactory.hx", lineNumber : 86, className : "hex.compiler.factory.DomainListenerFactory", methodName : "build"}));
+		}
+		return true;
+	} else {
+		var domain1 = hex_domain_DomainUtil.getDomain(domainListener.listenedDomainName,hex_domain_Domain);
+		return hex_domain_ApplicationDomainDispatcher.getInstance().addListener(listener,domain1);
+	}
+};
+hex_compiler_factory_DomainListenerFactory._getStrategyCallback = function(annotationProvider,applicationContext,listener,method,strategyClassName,injectedInModule) {
+	if(injectedInModule == null) injectedInModule = false;
+	var callback = Reflect.field(listener,method);
+	var strategyClass = hex_util_ClassUtil.getClassReference(strategyClassName);
+	var adapter = new hex_event_ClassAdapter();
+	adapter.setCallBackMethod(listener,callback);
+	adapter.setAdapterClass(strategyClass);
+	adapter.setAnnotationProvider(annotationProvider);
+	if(injectedInModule && js_Boot.__instanceof(listener,hex_module_IModule)) {
+		var basicInjector = listener.getBasicInjector();
+		adapter.setFactoryMethod(basicInjector,$bind(basicInjector,basicInjector.instantiateUnmapped));
+	} else adapter.setFactoryMethod(applicationContext.getBasicInjector(),($_=applicationContext.getBasicInjector(),$bind($_,$_.instantiateUnmapped)));
+	var f = function(rest) {
+		(adapter.getCallbackAdapter())(rest);
+	};
+	return Reflect.makeVarArgs(f);
+};
+hex_compiler_factory_DomainListenerFactory.prototype = {
+	__class__: hex_compiler_factory_DomainListenerFactory
+};
+var hex_compiler_factory_DynamicObjectFactory = function() {
+};
+$hxClasses["hex.compiler.factory.DynamicObjectFactory"] = hex_compiler_factory_DynamicObjectFactory;
+hex_compiler_factory_DynamicObjectFactory.__name__ = ["hex","compiler","factory","DynamicObjectFactory"];
+hex_compiler_factory_DynamicObjectFactory.build = function(factoryVO) {
+	var constructorVO = factoryVO.constructorVO;
+	factoryVO.constructorVO.result = { };
+	return null;
+};
+hex_compiler_factory_DynamicObjectFactory.prototype = {
+	__class__: hex_compiler_factory_DynamicObjectFactory
+};
+var hex_compiler_factory_FloatFactory = function() {
+};
+$hxClasses["hex.compiler.factory.FloatFactory"] = hex_compiler_factory_FloatFactory;
+hex_compiler_factory_FloatFactory.__name__ = ["hex","compiler","factory","FloatFactory"];
+hex_compiler_factory_FloatFactory.prototype = {
+	__class__: hex_compiler_factory_FloatFactory
+};
+var hex_compiler_factory_FunctionFactory = function() {
+};
+$hxClasses["hex.compiler.factory.FunctionFactory"] = hex_compiler_factory_FunctionFactory;
+hex_compiler_factory_FunctionFactory.__name__ = ["hex","compiler","factory","FunctionFactory"];
+hex_compiler_factory_FunctionFactory.build = function(factoryVO) {
+	var constructorVO = factoryVO.constructorVO;
+	var method;
+	var msg;
+	var args = constructorVO["arguments"][0].split(".");
+	var targetID = args[0];
+	var path = args.slice(1).join(".");
+	if(!factoryVO.coreFactory.isRegisteredWithKey(targetID)) factoryVO.contextFactory.buildObject(targetID);
+	var target = factoryVO.coreFactory.locate(targetID);
+	try {
+		method = factoryVO.coreFactory.fastEvalFromTarget(target,path);
+	} catch( error ) {
+		if (error instanceof js__$Boot_HaxeError) error = error.val;
+		msg = "FunctionFactory.build() failed on " + Std.string(target) + " with id '" + targetID + "'. ";
+		msg += path + " method can't be found.";
+		throw new js__$Boot_HaxeError(new hex_error_Exception(msg,{ fileName : "FunctionFactory.hx", lineNumber : 44, className : "hex.compiler.factory.FunctionFactory", methodName : "build"}));
+	}
+	constructorVO.result = method;
+	return null;
+};
+hex_compiler_factory_FunctionFactory.prototype = {
+	__class__: hex_compiler_factory_FunctionFactory
+};
+var hex_compiler_factory_HashMapFactory = function() {
+};
+$hxClasses["hex.compiler.factory.HashMapFactory"] = hex_compiler_factory_HashMapFactory;
+hex_compiler_factory_HashMapFactory.__name__ = ["hex","compiler","factory","HashMapFactory"];
+hex_compiler_factory_HashMapFactory.prototype = {
+	__class__: hex_compiler_factory_HashMapFactory
+};
+var hex_compiler_factory_IntFactory = function() {
+};
+$hxClasses["hex.compiler.factory.IntFactory"] = hex_compiler_factory_IntFactory;
+hex_compiler_factory_IntFactory.__name__ = ["hex","compiler","factory","IntFactory"];
+hex_compiler_factory_IntFactory.prototype = {
+	__class__: hex_compiler_factory_IntFactory
+};
+var hex_compiler_factory_NullFactory = function() {
+};
+$hxClasses["hex.compiler.factory.NullFactory"] = hex_compiler_factory_NullFactory;
+hex_compiler_factory_NullFactory.__name__ = ["hex","compiler","factory","NullFactory"];
+hex_compiler_factory_NullFactory.prototype = {
+	__class__: hex_compiler_factory_NullFactory
+};
+var hex_compiler_factory_ServiceLocatorFactory = function() {
+};
+$hxClasses["hex.compiler.factory.ServiceLocatorFactory"] = hex_compiler_factory_ServiceLocatorFactory;
+hex_compiler_factory_ServiceLocatorFactory.__name__ = ["hex","compiler","factory","ServiceLocatorFactory"];
+hex_compiler_factory_ServiceLocatorFactory.prototype = {
+	__class__: hex_compiler_factory_ServiceLocatorFactory
+};
+var hex_compiler_factory_StaticVariableFactory = function() {
+};
+$hxClasses["hex.compiler.factory.StaticVariableFactory"] = hex_compiler_factory_StaticVariableFactory;
+hex_compiler_factory_StaticVariableFactory.__name__ = ["hex","compiler","factory","StaticVariableFactory"];
+hex_compiler_factory_StaticVariableFactory.prototype = {
+	__class__: hex_compiler_factory_StaticVariableFactory
+};
+var hex_compiler_factory_StringFactory = function() {
+};
+$hxClasses["hex.compiler.factory.StringFactory"] = hex_compiler_factory_StringFactory;
+hex_compiler_factory_StringFactory.__name__ = ["hex","compiler","factory","StringFactory"];
+hex_compiler_factory_StringFactory.prototype = {
+	__class__: hex_compiler_factory_StringFactory
+};
+var hex_compiler_factory_UIntFactory = function() {
+};
+$hxClasses["hex.compiler.factory.UIntFactory"] = hex_compiler_factory_UIntFactory;
+hex_compiler_factory_UIntFactory.__name__ = ["hex","compiler","factory","UIntFactory"];
+hex_compiler_factory_UIntFactory.prototype = {
+	__class__: hex_compiler_factory_UIntFactory
+};
+var hex_compiler_factory_XmlFactory = function() {
+};
+$hxClasses["hex.compiler.factory.XmlFactory"] = hex_compiler_factory_XmlFactory;
+hex_compiler_factory_XmlFactory.__name__ = ["hex","compiler","factory","XmlFactory"];
+hex_compiler_factory_XmlFactory.prototype = {
+	__class__: hex_compiler_factory_XmlFactory
+};
 var hex_compiler_parser_xml_ClassImportHelper = function() {
 	this._compiledClass = [];
 };
@@ -1859,6 +2728,9 @@ hex_compiler_parser_xml_ClassImportHelper.prototype = {
 	_compiledClass: null
 	,__class__: hex_compiler_parser_xml_ClassImportHelper
 };
+var hex_compiler_parser_xml_XmlCompiler = function() { };
+$hxClasses["hex.compiler.parser.xml.XmlCompiler"] = hex_compiler_parser_xml_XmlCompiler;
+hex_compiler_parser_xml_XmlCompiler.__name__ = ["hex","compiler","parser","xml","XmlCompiler"];
 var hex_compiler_parser_xml_XmlContextReader = function() {
 };
 $hxClasses["hex.compiler.parser.xml.XmlContextReader"] = hex_compiler_parser_xml_XmlContextReader;
@@ -2989,7 +3861,7 @@ hex_di_Injector.prototype = {
 		if(name == null) name = "";
 		this.map(clazz,name).toSingleton(type);
 	}
-	,getInstance: function(type,name,targetType) {
+	,getInstance: function(type,name) {
 		if(name == null) name = "";
 		var mappingID = Type.getClassName(type) + "|" + name;
 		var mapping = this._mapping.get(mappingID);
@@ -3139,7 +4011,6 @@ var hex_error_Exception = function(message,posInfos) {
 	this.message = message;
 	this.posInfos = posInfos;
 	this.name = hex_log_Stringifier.stringify(this);
-	hex_log_Logger.ERROR(this.toString(),null,{ fileName : "Exception.hx", lineNumber : 24, className : "hex.error.Exception", methodName : "new"});
 };
 $hxClasses["hex.error.Exception"] = hex_error_Exception;
 hex_error_Exception.__name__ = ["hex","error","Exception"];
@@ -4064,14 +4935,17 @@ hex_event_ClassAdapter.prototype = {
 	,_callbackMethod: null
 	,_adapterClass: null
 	,_adapterInstance: null
+	,_adapterMethodName: null
 	,_factoryTarget: null
 	,_factoryMethod: null
 	,setCallBackMethod: function(callbackTarget,callbackMethod) {
 		this._callbackTarget = callbackTarget;
 		this._callbackMethod = callbackMethod;
 	}
-	,setAdapterClass: function(adapterClass) {
+	,setAdapterClass: function(adapterClass,adapterMethodName) {
+		if(adapterMethodName == null) adapterMethodName = "adapt";
 		this._adapterClass = adapterClass;
+		this._adapterMethodName = adapterMethodName;
 	}
 	,setFactoryMethod: function(factoryTarget,factoryMethod) {
 		this._factoryTarget = factoryTarget;
@@ -4086,6 +4960,7 @@ hex_event_ClassAdapter.prototype = {
 		var callbackMethod = this._callbackMethod;
 		var adapterInstance = null;
 		var adapterClass = null;
+		var adapterMethodName = this._adapterMethodName;
 		var factoryTarget = null;
 		var factoryMethod = null;
 		var isEventAdapterStrategyMacro = false;
@@ -4101,7 +4976,6 @@ hex_event_ClassAdapter.prototype = {
 			if(isEventAdapterStrategyMacro) {
 				var aSyncCommand;
 				if(factoryTarget != null && factoryMethod != null) aSyncCommand = factoryMethod(adapterClass); else aSyncCommand = Type.createInstance(adapterClass,[]);
-				if(js_Boot.__instanceof(aSyncCommand,hex_event_IAdapterStrategy) == false) throw new js__$Boot_HaxeError(new hex_error_IllegalArgumentException("adapterInstance class should extend AdapterStrategy. Check if you passed the correct class",{ fileName : "ClassAdapter.hx", lineNumber : 105, className : "hex.event.ClassAdapter", methodName : "getCallbackAdapter"}));
 				if(js_Boot.__instanceof(aSyncCommand,hex_core_IAnnotationParsable)) annotationProvider.parse(aSyncCommand);
 				adapterInstance = aSyncCommand;
 				$bind(aSyncCommand,aSyncCommand.adapt).apply(aSyncCommand,rest);
@@ -4112,8 +4986,7 @@ hex_event_ClassAdapter.prototype = {
 				return;
 			} else if(adapterInstance != null) {
 				if(js_Boot.__instanceof(adapterInstance,hex_core_IAnnotationParsable)) annotationProvider.parse(adapterInstance);
-				if(js_Boot.__instanceof(adapterInstance,hex_event_IAdapterStrategy) == false) throw new js__$Boot_HaxeError(new hex_error_IllegalArgumentException("adapterInstance class should extend AdapterStrategy. Check if you passed the correct class",{ fileName : "ClassAdapter.hx", lineNumber : 133, className : "hex.event.ClassAdapter", methodName : "getCallbackAdapter"}));
-				result = $bind(adapterInstance,adapterInstance.adapt).apply(adapterInstance,[rest]);
+				if(adapterMethodName == "adapt") result = $bind(adapterInstance,adapterInstance.adapt).apply(adapterInstance,rest); else result = Reflect.callMethod(adapterInstance,Reflect.field(adapterInstance,adapterMethodName),rest);
 			}
 			Reflect.callMethod(callbackTarget,callbackMethod,(result instanceof Array) && result.__enum__ == null?result:[result]);
 		};
@@ -4449,7 +5322,6 @@ hex_ioc_assembler_AbstractApplicationContext.prototype = {
 		} catch( ex ) {
 			if (ex instanceof js__$Boot_HaxeError) ex = ex.val;
 			if( js_Boot.__instanceof(ex,hex_error_IllegalArgumentException) ) {
-				hex_log_Logger.ERROR("addChild failed with applicationContext named '" + applicationContext.getName() + "'",null,{ fileName : "AbstractApplicationContext.hx", lineNumber : 45, className : "hex.ioc.assembler.AbstractApplicationContext", methodName : "addChild"});
 				return false;
 			} else throw(ex);
 		}
@@ -4464,26 +5336,6 @@ hex_ioc_assembler_AbstractApplicationContext.prototype = {
 		return this._coreFactory.getBasicInjector();
 	}
 	,__class__: hex_ioc_assembler_AbstractApplicationContext
-};
-var hex_ioc_assembler_IApplicationAssembler = function() { };
-$hxClasses["hex.ioc.assembler.IApplicationAssembler"] = hex_ioc_assembler_IApplicationAssembler;
-hex_ioc_assembler_IApplicationAssembler.__name__ = ["hex","ioc","assembler","IApplicationAssembler"];
-hex_ioc_assembler_IApplicationAssembler.prototype = {
-	getContextFactory: null
-	,buildEverything: null
-	,release: null
-	,buildProperty: null
-	,buildObject: null
-	,buildMethodCall: null
-	,buildDomainListener: null
-	,configureStateTransition: null
-	,getApplicationContext: null
-	,setStrictMode: null
-	,isInStrictMode: null
-	,addConditionalProperty: null
-	,allowsIfList: null
-	,allowsIfNotList: null
-	,__class__: hex_ioc_assembler_IApplicationAssembler
 };
 var hex_ioc_assembler_ApplicationAssembler = function() {
 	this._strictMode = true;
@@ -4576,19 +5428,6 @@ hex_ioc_assembler_ApplicationAssembler.prototype = {
 		if(injectInto == null) injectInto = false;
 		if(this.allowsIfList(ifList) && this.allowsIfNotList(ifNotList)) {
 			this._registerID(applicationContext,ownerID);
-			if(args != null) {
-				var length = args.length;
-				var index;
-				var obj;
-				if(type == "hex.collection.HashMap" || type == "hex.config.stateful.ServiceLocator") {
-					var _g = 0;
-					while(_g < length) {
-						var index1 = _g++;
-						obj = args[index1];
-						args[index1] = new hex_ioc_vo_MapVO(hex_ioc_assembler_ApplicationAssembler._getConstructorVO(ownerID,obj.key),hex_ioc_assembler_ApplicationAssembler._getConstructorVO(ownerID,obj.value),obj.mapName);
-					}
-				}
-			}
 			var constructorVO = new hex_ioc_vo_ConstructorVO(ownerID,type,args,factory,singleton,injectInto,null,mapType,staticRef);
 			this.getContextFactory(applicationContext).registerConstructorVO(ownerID,constructorVO);
 		}
@@ -4793,15 +5632,13 @@ hex_ioc_control_ClassInstanceFactory.__name__ = ["hex","ioc","control","ClassIns
 hex_ioc_control_ClassInstanceFactory.build = function(factoryVO) {
 	var constructorVO = factoryVO.constructorVO;
 	if(constructorVO.ref != null) hex_ioc_control_ReferenceFactory.build(factoryVO); else {
-		if(constructorVO.staticRef != null) constructorVO.result = hex_util_ClassUtil.getStaticReference(constructorVO.staticRef); else {
-			var classReference = hex_util_ClassUtil.getClassReference(constructorVO.type);
-			var isModule = hex_util_ClassUtil.classExtendsOrImplements(classReference,hex_module_IModule);
-			if(isModule && constructorVO.ID != null && constructorVO.ID.length > 0) {
-				hex_domain_DomainExpert.getInstance().registerDomain(hex_domain_DomainUtil.getDomain(constructorVO.ID,hex_domain_Domain));
-				hex_metadata_AnnotationProvider.registerToDomain(factoryVO.contextFactory.getAnnotationProvider(),hex_domain_DomainUtil.getDomain(constructorVO.ID,hex_domain_Domain));
-			}
-			constructorVO.result = factoryVO.coreFactory.buildInstance(constructorVO.type,constructorVO["arguments"],constructorVO.factory,constructorVO.singleton,constructorVO.injectInto);
+		var classReference = hex_util_ClassUtil.getClassReference(constructorVO.type);
+		var isModule = hex_util_ClassUtil.classExtendsOrImplements(classReference,hex_module_IModule);
+		if(isModule && constructorVO.ID != null && constructorVO.ID.length > 0) {
+			hex_domain_DomainExpert.getInstance().registerDomain(hex_domain_DomainUtil.getDomain(constructorVO.ID,hex_domain_Domain));
+			hex_metadata_AnnotationProvider.registerToDomain(factoryVO.contextFactory.getAnnotationProvider(),hex_domain_DomainUtil.getDomain(constructorVO.ID,hex_domain_Domain));
 		}
+		constructorVO.result = factoryVO.coreFactory.buildInstance(constructorVO.type,constructorVO["arguments"],constructorVO.factory,constructorVO.singleton,constructorVO.injectInto);
 		if(js_Boot.__instanceof(constructorVO.result,hex_module_IModule)) factoryVO.moduleLocator.register(constructorVO.ID,constructorVO.result);
 		if(constructorVO.mapType != null) {
 			var classToMap = Type.resolveClass(constructorVO.mapType);
@@ -4834,7 +5671,7 @@ hex_ioc_control_DomainListenerFactory.build = function(id,domainListenerVOLocato
 			var method;
 			if(js_Boot.__instanceof(listener,hex_event_EventProxy)) method = "handleCallback"; else method = domainListenerArgument.method;
 			var messageType;
-			if(domainListenerArgument.name != null) messageType = new hex_event_MessageType(domainListenerArgument.name); else messageType = hex_util_ClassUtil.getStaticReference(domainListenerArgument.staticRef);
+			if(domainListenerArgument.name != null) messageType = new hex_event_MessageType(domainListenerArgument.name); else messageType = hex_util_ClassUtil.getStaticVariableReference(domainListenerArgument.staticRef);
 			if(method != null && Reflect.isFunction(Reflect.field(listener,method)) || domainListenerArgument.strategy != null) {
 				var callback;
 				if(domainListenerArgument.strategy != null) callback = hex_ioc_control_DomainListenerFactory._getStrategyCallback(annotationProvider,applicationContext,listener,method,domainListenerArgument.strategy,domainListenerArgument.injectedInModule); else callback = Reflect.field(listener,method);
@@ -4929,7 +5766,8 @@ hex_ioc_control_HashMapFactory.build = function(factoryVO) {
 	var constructorVO = factoryVO.constructorVO;
 	var map = new hex_collection_HashMap();
 	var args = constructorVO["arguments"];
-	if(args.length == 0) hex_log_Logger.WARN("HashMapFactory.build(" + Std.string(args) + ") returns an empty HashMap.",null,{ fileName : "HashMapFactory.hx", lineNumber : 30, className : "hex.ioc.control.HashMapFactory", methodName : "build"}); else {
+	if(args.length == 0) {
+	} else {
 		var _g = 0;
 		while(_g < args.length) {
 			var item = args[_g];
@@ -4977,12 +5815,12 @@ hex_ioc_control_ReferenceFactory.build = function(factoryVO) {
 	var key = constructorVO.ref;
 	if(key.indexOf(".") != -1) key = Std.string(key.split(".").shift());
 	if(!factoryVO.coreFactory.isRegisteredWithKey(key)) factoryVO.contextFactory.buildObject(key);
-	constructorVO.result = factoryVO.coreFactory.locate(key);
+	var result = factoryVO.coreFactory.locate(key);
 	if(constructorVO.ref.indexOf(".") != -1) {
 		var args = constructorVO.ref.split(".");
 		args.shift();
-		constructorVO.result = factoryVO.coreFactory.fastEvalFromTarget(constructorVO.result,args.join("."));
-	}
+		constructorVO.result = factoryVO.coreFactory.fastEvalFromTarget(result,args.join("."));
+	} else constructorVO.result = result;
 };
 hex_ioc_control_ReferenceFactory.prototype = {
 	__class__: hex_ioc_control_ReferenceFactory
@@ -5008,20 +5846,27 @@ hex_ioc_control_ServiceLocatorFactory.build = function(factoryVO) {
 hex_ioc_control_ServiceLocatorFactory.prototype = {
 	__class__: hex_ioc_control_ServiceLocatorFactory
 };
+var hex_ioc_control_StaticVariableFactory = function() {
+};
+$hxClasses["hex.ioc.control.StaticVariableFactory"] = hex_ioc_control_StaticVariableFactory;
+hex_ioc_control_StaticVariableFactory.__name__ = ["hex","ioc","control","StaticVariableFactory"];
+hex_ioc_control_StaticVariableFactory.build = function(factoryVO) {
+	var constructorVO = factoryVO.constructorVO;
+	constructorVO.result = hex_util_ClassUtil.getStaticVariableReference(constructorVO.staticRef);
+};
+hex_ioc_control_StaticVariableFactory.prototype = {
+	__class__: hex_ioc_control_StaticVariableFactory
+};
 var hex_ioc_control_StringFactory = function() {
 };
 $hxClasses["hex.ioc.control.StringFactory"] = hex_ioc_control_StringFactory;
 hex_ioc_control_StringFactory.__name__ = ["hex","ioc","control","StringFactory"];
 hex_ioc_control_StringFactory.build = function(factoryVO) {
 	var constructorVO = factoryVO.constructorVO;
-	console.log(constructorVO);
 	var value = null;
 	var args = constructorVO["arguments"];
-	if(args != null && args.length > 0 && args[0] != null) value = Std.string(args[0]); else throw new js__$Boot_HaxeError(new hex_error_IllegalArgumentException("StringFactory.build(" + value + ") returns empty String.",{ fileName : "StringFactory.hx", lineNumber : 33, className : "hex.ioc.control.StringFactory", methodName : "build"}));
-	if(value == null) {
-		value = "";
-		hex_log_Logger.WARN("StringFactory.build(" + value + ") returns empty String.",null,{ fileName : "StringFactory.hx", lineNumber : 40, className : "hex.ioc.control.StringFactory", methodName : "build"});
-	}
+	if(args != null && args.length > 0 && args[0] != null) value = Std.string(args[0]); else throw new js__$Boot_HaxeError(new hex_error_IllegalArgumentException("StringFactory.build(" + value + ") returns empty String.",{ fileName : "StringFactory.hx", lineNumber : 32, className : "hex.ioc.control.StringFactory", methodName : "build"}));
+	if(value == null) value = "";
 	constructorVO.result = value;
 };
 hex_ioc_control_StringFactory.prototype = {
@@ -5057,16 +5902,10 @@ hex_ioc_control_XmlFactory.build = function(factoryVO) {
 				constructorVO.result = parser.parse(Xml.parse(source));
 			} catch( error ) {
 				if (error instanceof js__$Boot_HaxeError) error = error.val;
-				throw new js__$Boot_HaxeError(new hex_ioc_error_ParsingException("XmlFactory.build() failed to deserialize XML with '" + factory + "' deserializer class.",{ fileName : "XmlFactory.hx", lineNumber : 45, className : "hex.ioc.control.XmlFactory", methodName : "build"}));
+				throw new js__$Boot_HaxeError(new hex_ioc_error_ParsingException("XmlFactory.build() failed to deserialize XML with '" + factory + "' deserializer class.",{ fileName : "XmlFactory.hx", lineNumber : 49, className : "hex.ioc.control.XmlFactory", methodName : "build"}));
 			}
-		} else {
-			console.log("XmlFactory.build() returns an empty XML.");
-			constructorVO.result = Xml.parse("");
-		}
-	} else {
-		console.log("XmlFactory.build() returns an empty XML.");
-		constructorVO.result = Xml.parse("");
-	}
+		} else constructorVO.result = Xml.parse("");
+	} else constructorVO.result = Xml.parse("");
 };
 hex_ioc_control_XmlFactory.prototype = {
 	__class__: hex_ioc_control_XmlFactory
@@ -5078,32 +5917,6 @@ $hxClasses["hex.ioc.core.ContextAttributeList"] = hex_ioc_core_ContextAttributeL
 hex_ioc_core_ContextAttributeList.__name__ = ["hex","ioc","core","ContextAttributeList"];
 hex_ioc_core_ContextAttributeList.prototype = {
 	__class__: hex_ioc_core_ContextAttributeList
-};
-var hex_ioc_core_IContextFactory = function() { };
-$hxClasses["hex.ioc.core.IContextFactory"] = hex_ioc_core_IContextFactory;
-hex_ioc_core_IContextFactory.__name__ = ["hex","ioc","core","IContextFactory"];
-hex_ioc_core_IContextFactory.prototype = {
-	registerID: null
-	,registerStateTransitionVO: null
-	,buildStateTransition: null
-	,buildAllStateTransitions: null
-	,registerPropertyVO: null
-	,deserializeArguments: null
-	,registerConstructorVO: null
-	,buildObject: null
-	,buildAllObjects: null
-	,registerDomainListenerVO: null
-	,assignDomainListener: null
-	,assignAllDomainListeners: null
-	,registerMethodCallVO: null
-	,callMethod: null
-	,callAllMethods: null
-	,callModuleInitialisation: null
-	,getApplicationContext: null
-	,getAnnotationProvider: null
-	,getCoreFactory: null
-	,release: null
-	,__class__: hex_ioc_core_IContextFactory
 };
 var hex_ioc_core_ContextFactory = function(applicationContextName,applicationContextClass) {
 	var domain = hex_domain_DomainUtil.getDomain(applicationContextName,hex_domain_Domain);
@@ -5160,7 +5973,7 @@ hex_ioc_core_ContextFactory.prototype = {
 		if(this._propertyVOLocator.isRegisteredWithKey(id)) this._propertyVOLocator.locate(id).push(propertyVO); else this._propertyVOLocator.register(id,[propertyVO]);
 	}
 	,_getPropertyValue: function(property) {
-		if(property.method != null) return this._build(new hex_ioc_vo_ConstructorVO(null,"Function",[property.method])); else if(property.ref != null) return this._build(new hex_ioc_vo_ConstructorVO(null,"Instance",null,null,null,false,property.ref)); else if(property.staticRef != null) return hex_util_ClassUtil.getStaticReference(property.staticRef); else {
+		if(property.method != null) return this._build(new hex_ioc_vo_ConstructorVO(null,"Function",[property.method])); else if(property.ref != null) return this._build(new hex_ioc_vo_ConstructorVO(null,"Instance",null,null,null,false,property.ref)); else if(property.staticRef != null) return hex_util_ClassUtil.getStaticVariableReference(property.staticRef); else {
 			var type;
 			if(property.type != null) type = property.type; else type = "String";
 			return this._build(new hex_ioc_vo_ConstructorVO(property.ownerID,type,[property.value]));
@@ -5174,15 +5987,6 @@ hex_ioc_core_ContextFactory.prototype = {
 			var target1 = this._coreFactory.fastEvalFromTarget(target,props.join("."));
 			Reflect.setProperty(target1,propertyName,this._getPropertyValue(property));
 		}
-	}
-	,deserializeArguments: function($arguments) {
-		var l = $arguments.length;
-		var _g = 0;
-		while(_g < l) {
-			var i = _g++;
-			$arguments[i] = this._build($arguments[i]);
-		}
-		return $arguments;
 	}
 	,onRegister: function(key,instance) {
 		if(this._propertyVOLocator.isRegisteredWithKey(key)) {
@@ -5219,7 +6023,15 @@ hex_ioc_core_ContextFactory.prototype = {
 						result.push(mapVO);
 					}
 					cons["arguments"] = result;
-				} else cons["arguments"] = this.deserializeArguments(cons["arguments"]);
+				} else {
+					var $arguments = cons["arguments"];
+					var l = $arguments.length;
+					var _g1 = 0;
+					while(_g1 < l) {
+						var i = _g1++;
+						$arguments[i] = this._build($arguments[i]);
+					}
+				}
 			}
 			this._build(cons,id);
 			this._constructorVOLocator.unregister(id);
@@ -5260,7 +6072,14 @@ hex_ioc_core_ContextFactory.prototype = {
 		var method = this._methodCallVOLocator.locate(id);
 		var cons = new hex_ioc_vo_ConstructorVO(null,"Function",[method.ownerID + "." + method.name]);
 		var func = this._build(cons);
-		Reflect.callMethod(this._coreFactory.locate(method.ownerID),func,this.deserializeArguments(method["arguments"]));
+		var $arguments = method["arguments"];
+		var l = $arguments.length;
+		var _g = 0;
+		while(_g < l) {
+			var i = _g++;
+			$arguments[i] = this._build($arguments[i]);
+		}
+		Reflect.callMethod(this._coreFactory.locate(method.ownerID),func,$arguments);
 	}
 	,callAllMethods: function() {
 		var keyList = this._methodCallVOLocator.keys();
@@ -5325,6 +6144,7 @@ hex_ioc_core_ContextFactory.prototype = {
 		this._factoryMap.set("XML",hex_ioc_control_XmlFactory.build);
 		this._factoryMap.set("Function",hex_ioc_control_FunctionFactory.build);
 		this._factoryMap.set("Instance",hex_ioc_control_ClassInstanceFactory.build);
+		this._factoryMap.set("StaticVariable",hex_ioc_control_StaticVariableFactory.build);
 		this._coreFactory.addListener(this);
 	}
 	,_build: function(constructorVO,id) {
@@ -5354,17 +6174,6 @@ hex_ioc_core_ContextNameList.prototype = {
 var hex_ioc_core_ContextTypeList = function() { };
 $hxClasses["hex.ioc.core.ContextTypeList"] = hex_ioc_core_ContextTypeList;
 hex_ioc_core_ContextTypeList.__name__ = ["hex","ioc","core","ContextTypeList"];
-var hex_ioc_core_ICoreFactory = function() { };
-$hxClasses["hex.ioc.core.ICoreFactory"] = hex_ioc_core_ICoreFactory;
-hex_ioc_core_ICoreFactory.__name__ = ["hex","ioc","core","ICoreFactory"];
-hex_ioc_core_ICoreFactory.__interfaces__ = [hex_collection_ILocator];
-hex_ioc_core_ICoreFactory.prototype = {
-	getBasicInjector: null
-	,clear: null
-	,buildInstance: null
-	,fastEvalFromTarget: null
-	,__class__: hex_ioc_core_ICoreFactory
-};
 var hex_util_FastEval = function() {
 };
 $hxClasses["hex.util.FastEval"] = hex_util_FastEval;
@@ -5565,126 +6374,6 @@ hex_log_BasicStringifierStrategy.prototype = {
 		return hex_log_Stringifier.stringify(this);
 	}
 	,__class__: hex_log_BasicStringifierStrategy
-};
-var hex_log_Logger = function() {
-	this.setLevel(hex_log_LogLevel._ALL);
-	this._dispatcher = new hex_domain_DomainDispatcher();
-};
-$hxClasses["hex.log.Logger"] = hex_log_Logger;
-hex_log_Logger.__name__ = ["hex","log","Logger"];
-hex_log_Logger.getInstance = function() {
-	if(hex_log_Logger._Instance == null) hex_log_Logger._Instance = new hex_log_Logger();
-	return hex_log_Logger._Instance;
-};
-hex_log_Logger.DEBUG = function(o,domain,posInfos) {
-	hex_log_Logger.getInstance().log(o,hex_log_LogLevel._DEBUG,domain,posInfos);
-};
-hex_log_Logger.INFO = function(o,domain,posInfos) {
-	hex_log_Logger.getInstance().log(o,hex_log_LogLevel._INFO,domain,posInfos);
-};
-hex_log_Logger.WARN = function(o,domain,posInfos) {
-	hex_log_Logger.getInstance().log(o,hex_log_LogLevel._WARN,domain,posInfos);
-};
-hex_log_Logger.ERROR = function(o,domain,posInfos) {
-	hex_log_Logger.getInstance().log(o,hex_log_LogLevel._ERROR,domain,posInfos);
-};
-hex_log_Logger.FATAL = function(o,domain,posInfos) {
-	hex_log_Logger.getInstance().log(o,hex_log_LogLevel._FATAL,domain,posInfos);
-};
-hex_log_Logger.CLEAR = function(domain) {
-	hex_log_Logger.getInstance().clear();
-};
-hex_log_Logger.prototype = {
-	_dispatcher: null
-	,_level: null
-	,setLevel: function(level) {
-		this._level = level;
-	}
-	,getLevel: function() {
-		return this._level;
-	}
-	,clear: function() {
-		this._dispatcher.dispatch(hex_log_LoggerMessage.CLEAR);
-	}
-	,log: function(o,level,domain,posInfos) {
-		if(this._level.get_value() <= level.get_value()) this._dispatcher.dispatch(hex_log_LoggerMessage.LOG,domain,[new hex_log_LoggerMessage(o,level,domain == null?hex_domain_NoDomain.DOMAIN:domain,posInfos)]);
-	}
-	,addListener: function(listener,domain) {
-		this._dispatcher.addHandler(hex_log_LoggerMessage.LOG,listener,$bind(listener,listener.onLog),domain);
-		return this._dispatcher.addHandler(hex_log_LoggerMessage.CLEAR,listener,$bind(listener,listener.onClear),domain);
-	}
-	,removeListener: function(listener,domain) {
-		this._dispatcher.removeHandler(hex_log_LoggerMessage.LOG,listener,$bind(listener,listener.onLog),domain);
-		return this._dispatcher.removeHandler(hex_log_LoggerMessage.CLEAR,listener,$bind(listener,listener.onClear),domain);
-	}
-	,isRegistered: function(listener,domain) {
-		return this._dispatcher.isRegistered(listener,hex_log_LoggerMessage.LOG,domain);
-	}
-	,removeAllListeners: function() {
-		this._dispatcher.removeAllListeners();
-	}
-	,toString: function() {
-		return hex_log_Stringifier.stringify(this);
-	}
-	,__class__: hex_log_Logger
-};
-var hex_log_LogLevel = function(value) {
-	this.value = value;
-};
-$hxClasses["hex.log.LogLevel"] = hex_log_LogLevel;
-hex_log_LogLevel.__name__ = ["hex","log","LogLevel"];
-hex_log_LogLevel.__properties__ = {get_OFF:"get_OFF",get_FATAL:"get_FATAL",get_ERROR:"get_ERROR",get_WARN:"get_WARN",get_INFO:"get_INFO",get_DEBUG:"get_DEBUG",get_ALL:"get_ALL",get_LEVELS:"get_LEVELS"}
-hex_log_LogLevel.get_LEVELS = function() {
-	return [hex_log_LogLevel._ALL,hex_log_LogLevel._DEBUG,hex_log_LogLevel._INFO,hex_log_LogLevel._WARN,hex_log_LogLevel._ERROR,hex_log_LogLevel._FATAL,hex_log_LogLevel._OFF];
-};
-hex_log_LogLevel.get_ALL = function() {
-	return hex_log_LogLevel._ALL;
-};
-hex_log_LogLevel.get_DEBUG = function() {
-	return hex_log_LogLevel._DEBUG;
-};
-hex_log_LogLevel.get_INFO = function() {
-	return hex_log_LogLevel._INFO;
-};
-hex_log_LogLevel.get_WARN = function() {
-	return hex_log_LogLevel._WARN;
-};
-hex_log_LogLevel.get_ERROR = function() {
-	return hex_log_LogLevel._ERROR;
-};
-hex_log_LogLevel.get_FATAL = function() {
-	return hex_log_LogLevel._FATAL;
-};
-hex_log_LogLevel.get_OFF = function() {
-	return hex_log_LogLevel._OFF;
-};
-hex_log_LogLevel.prototype = {
-	value: null
-	,get_value: function() {
-		return this.value;
-	}
-	,toString: function() {
-		var _g = this.get_value();
-		switch(_g) {
-		case 0:
-			return "ALL";
-		case 10000:
-			return "DEBUG";
-		case 20000:
-			return "INFO";
-		case 30000:
-			return "WARN";
-		case 40000:
-			return "ERROR";
-		case 50000:
-			return "FATAL";
-		case 60000:
-			return "OFF";
-		}
-		return "";
-	}
-	,__class__: hex_log_LogLevel
-	,__properties__: {get_value:"get_value"}
 };
 var hex_ioc_core_CoreFactory = function(injector,annotationProvider) {
 	this._injector = injector;
@@ -5996,7 +6685,7 @@ hex_ioc_locator_StateTransitionVOLocator.prototype = $extend(hex_collection_Loca
 			var vo = this.locate(key);
 			var coreFactory = this._contextFactory.getCoreFactory();
 			var state = null;
-			if(vo.staticReference != null) state = hex_util_ClassUtil.getStaticReference(vo.staticReference); else if(vo.instanceReference != null) state = coreFactory.locate(vo.instanceReference); else throw new js__$Boot_HaxeError(new hex_ioc_error_BuildingException(Std.string(this) + ".buildStateTransition failed with id '" + key + "'",{ fileName : "StateTransitionVOLocator.hx", lineNumber : 54, className : "hex.ioc.locator.StateTransitionVOLocator", methodName : "buildStateTransition"}));
+			if(vo.staticReference != null) state = hex_util_ClassUtil.getStaticVariableReference(vo.staticReference); else if(vo.instanceReference != null) state = coreFactory.locate(vo.instanceReference); else throw new js__$Boot_HaxeError(new hex_ioc_error_BuildingException(Std.string(this) + ".buildStateTransition failed with id '" + key + "'",{ fileName : "StateTransitionVOLocator.hx", lineNumber : 54, className : "hex.ioc.locator.StateTransitionVOLocator", methodName : "buildStateTransition"}));
 			var stateUnmapper = null;
 			if(!this._stateUnmapper.containsKey(state)) {
 				stateUnmapper = new hex_ioc_locator__$StateTransitionVOLocator_StateUnmapper(state);
@@ -6290,7 +6979,7 @@ hex_ioc_parser_xml_ObjectXMLParser.prototype = $extend(hex_ioc_parser_xml_Abstra
 			args = [new hex_ioc_vo_ConstructorVO(identifier,"String",[xml.firstElement().toString()])];
 			this.getApplicationAssembler().buildObject(applicationContext,identifier,type,args,factory);
 		} else {
-			if(type == "hex.collection.HashMap" || type == "hex.config.stateful.ServiceLocator") args = hex_ioc_parser_xml_XMLParserUtil.getItems(identifier,xml); else args = hex_ioc_parser_xml_XMLParserUtil.getArguments(identifier,xml,type);
+			if(type == "hex.collection.HashMap" || type == "hex.config.stateful.ServiceLocator") args = hex_ioc_parser_xml_XMLParserUtil.getMapArguments(identifier,xml); else args = hex_ioc_parser_xml_XMLParserUtil.getArguments(identifier,xml,type);
 			factory = hex_ioc_parser_xml_XMLAttributeUtil.getFactoryMethod(xml);
 			singleton = hex_ioc_parser_xml_XMLAttributeUtil.getSingletonAccess(xml);
 			injectInto = hex_ioc_parser_xml_XMLAttributeUtil.getInjectInto(xml);
@@ -6298,7 +6987,7 @@ hex_ioc_parser_xml_ObjectXMLParser.prototype = $extend(hex_ioc_parser_xml_Abstra
 			staticRef = hex_ioc_parser_xml_XMLAttributeUtil.getStaticRef(xml);
 			ifList = hex_ioc_parser_xml_XMLParserUtil.getIfList(xml);
 			ifNotList = hex_ioc_parser_xml_XMLParserUtil.getIfNotList(xml);
-			if(type == null) if(staticRef != null) type = "Instance"; else type = "String";
+			if(type == null) if(staticRef != null) type = "StaticVariable"; else type = "String";
 			this.getApplicationAssembler().buildObject(applicationContext,identifier,type,args,factory,singleton,injectInto,mapType,staticRef,ifList,ifNotList);
 			var propertyIterator = xml.elementsNamed("property");
 			while(propertyIterator.hasNext()) {
@@ -6461,26 +7150,37 @@ hex_ioc_parser_xml_XMLParserUtil.__name__ = ["hex","ioc","parser","xml","XMLPars
 hex_ioc_parser_xml_XMLParserUtil.getArguments = function(ownerID,xml,type) {
 	var args = [];
 	var iterator = xml.elementsNamed("argument");
-	if(iterator.hasNext()) while(iterator.hasNext()) args.push(hex_ioc_parser_xml_XMLParserUtil._getConstructorVO(ownerID,iterator.next())); else {
+	if(iterator.hasNext()) while(iterator.hasNext()) args.push(hex_ioc_parser_xml_XMLParserUtil._getConstructorVOFromXML(ownerID,iterator.next())); else {
 		var value = hex_ioc_parser_xml_XMLAttributeUtil.getValue(xml);
 		if(value != null) args.push(new hex_ioc_vo_ConstructorVO(ownerID,"String",[xml.get("value")]));
 	}
 	return args;
 };
-hex_ioc_parser_xml_XMLParserUtil._getConstructorVO = function(ownerID,item) {
+hex_ioc_parser_xml_XMLParserUtil._getConstructorVOFromXML = function(ownerID,item) {
 	var method = item.get("method");
 	var ref = item.get("ref");
 	var staticRef = item.get("static-ref");
-	if(method != null) return new hex_ioc_vo_ConstructorVO(null,"Function",[method]); else if(ref != null) return new hex_ioc_vo_ConstructorVO(null,"Instance",null,null,null,false,item.get("ref")); else if(staticRef != null) return new hex_ioc_vo_ConstructorVO(null,"Instance",null,null,null,false,null,null,item.get("static-ref")); else {
+	if(method != null) return new hex_ioc_vo_ConstructorVO(null,"Function",[method]); else if(ref != null) return new hex_ioc_vo_ConstructorVO(null,"Instance",null,null,null,false,item.get("ref")); else if(staticRef != null) return new hex_ioc_vo_ConstructorVO(null,"StaticVariable",null,null,null,false,null,null,item.get("static-ref")); else {
 		var type = item.get("type");
 		if(type == null) type = "String";
 		return new hex_ioc_vo_ConstructorVO(ownerID,type,[item.get("value")]);
 	}
 };
+hex_ioc_parser_xml_XMLParserUtil._getConstructorVO = function(ownerID,item) {
+	var type = item.type;
+	var method = item.method;
+	var ref = item.ref;
+	var staticRef = item.staticRef;
+	var value = item.value;
+	if(method != null) return new hex_ioc_vo_ConstructorVO(null,"Function",[method]); else if(ref != null) return new hex_ioc_vo_ConstructorVO(null,"Instance",null,null,null,false,ref); else if(staticRef != null) return new hex_ioc_vo_ConstructorVO(null,"Instance",null,null,null,false,null,null,staticRef); else {
+		if(type == null) type = "String";
+		return new hex_ioc_vo_ConstructorVO(ownerID,type,[value]);
+	}
+};
 hex_ioc_parser_xml_XMLParserUtil.getMethodCallArguments = function(ownerID,xml) {
 	var args = [];
 	var iterator = xml.elementsNamed("argument");
-	while(iterator.hasNext()) args.push(hex_ioc_parser_xml_XMLParserUtil._getConstructorVO(ownerID,iterator.next()));
+	while(iterator.hasNext()) args.push(hex_ioc_parser_xml_XMLParserUtil._getConstructorVOFromXML(ownerID,iterator.next()));
 	return args;
 };
 hex_ioc_parser_xml_XMLParserUtil.getEventArguments = function(xml) {
@@ -6505,25 +7205,11 @@ hex_ioc_parser_xml_XMLParserUtil.getMapArguments = function(ownerID,xml) {
 		var item = iterator.next();
 		var keyList = item.elementsNamed("key");
 		var valueList = item.elementsNamed("value");
-		if(keyList.hasNext()) args.push({ mapName : hex_ioc_parser_xml_XMLAttributeUtil.getMapName(item), key : hex_ioc_parser_xml_XMLParserUtil._getAttributes(keyList.next()), value : hex_ioc_parser_xml_XMLParserUtil._getAttributes(valueList.next())});
-	}
-	var length = args.length;
-	var _g = 0;
-	while(_g < length) {
-		var index = _g++;
-		var obj = args[index];
-		args[index] = new hex_ioc_vo_MapVO(hex_ioc_parser_xml_XMLParserUtil._getConstructorVO(ownerID,obj.key),hex_ioc_parser_xml_XMLParserUtil._getConstructorVO(ownerID,obj.value),obj.mapName);
-	}
-	return args;
-};
-hex_ioc_parser_xml_XMLParserUtil.getItems = function(ownerID,xml) {
-	var args = [];
-	var iterator = xml.elementsNamed("item");
-	while(iterator.hasNext()) {
-		var item = iterator.next();
-		var keyList = item.elementsNamed("key");
-		var valueList = item.elementsNamed("value");
-		if(keyList.hasNext()) args.push({ mapName : hex_ioc_parser_xml_XMLAttributeUtil.getMapName(item), key : hex_ioc_parser_xml_XMLParserUtil._getAttributes(keyList.next()), value : hex_ioc_parser_xml_XMLParserUtil._getAttributes(valueList.next())});
+		if(keyList.hasNext()) {
+			var key = hex_ioc_parser_xml_XMLParserUtil._getAttributes(keyList.next());
+			var value = hex_ioc_parser_xml_XMLParserUtil._getAttributes(valueList.next());
+			args.push(new hex_ioc_vo_MapVO(hex_ioc_parser_xml_XMLParserUtil._getConstructorVO(ownerID,key),hex_ioc_parser_xml_XMLParserUtil._getConstructorVO(ownerID,value),hex_ioc_parser_xml_XMLAttributeUtil.getMapName(item)));
+		}
 	}
 	return args;
 };
@@ -6564,8 +7250,7 @@ hex_ioc_vo_CommandMappingVO.prototype = {
 	,contextOwner: null
 	,__class__: hex_ioc_vo_CommandMappingVO
 };
-var hex_ioc_vo_ConstructorVO = function(id,type,args,factory,singleton,injectInto,ref,mapType,staticRef,isProperty) {
-	if(isProperty == null) isProperty = false;
+var hex_ioc_vo_ConstructorVO = function(id,type,args,factory,singleton,injectInto,ref,mapType,staticRef) {
 	if(injectInto == null) injectInto = false;
 	this.ID = id;
 	this.type = type;
@@ -6576,7 +7261,6 @@ var hex_ioc_vo_ConstructorVO = function(id,type,args,factory,singleton,injectInt
 	this.ref = ref;
 	this.mapType = mapType;
 	this.staticRef = staticRef;
-	this.isProperty = isProperty;
 };
 $hxClasses["hex.ioc.vo.ConstructorVO"] = hex_ioc_vo_ConstructorVO;
 hex_ioc_vo_ConstructorVO.__name__ = ["hex","ioc","vo","ConstructorVO"];
@@ -6591,7 +7275,6 @@ hex_ioc_vo_ConstructorVO.prototype = {
 	,result: null
 	,mapType: null
 	,staticRef: null
-	,isProperty: null
 	,toString: function() {
 		return "(" + "id:" + this.ID + ", " + "type:" + this.type + ", " + "arguments:[" + Std.string(this["arguments"]) + "], " + "factory:" + this.factory + ", " + "singleton:" + this.singleton + ", " + "injectInto:" + Std.string(this.injectInto) + ", " + "ref:" + this.ref + ", " + "mapType:" + this.mapType + ", " + "staticRef:" + this.staticRef + ")";
 	}
@@ -6767,6 +7450,126 @@ hex_log_ILogListener.prototype = {
 	onClear: null
 	,onLog: null
 	,__class__: hex_log_ILogListener
+};
+var hex_log_LogLevel = function(value) {
+	this.value = value;
+};
+$hxClasses["hex.log.LogLevel"] = hex_log_LogLevel;
+hex_log_LogLevel.__name__ = ["hex","log","LogLevel"];
+hex_log_LogLevel.__properties__ = {get_OFF:"get_OFF",get_FATAL:"get_FATAL",get_ERROR:"get_ERROR",get_WARN:"get_WARN",get_INFO:"get_INFO",get_DEBUG:"get_DEBUG",get_ALL:"get_ALL",get_LEVELS:"get_LEVELS"}
+hex_log_LogLevel.get_LEVELS = function() {
+	return [hex_log_LogLevel._ALL,hex_log_LogLevel._DEBUG,hex_log_LogLevel._INFO,hex_log_LogLevel._WARN,hex_log_LogLevel._ERROR,hex_log_LogLevel._FATAL,hex_log_LogLevel._OFF];
+};
+hex_log_LogLevel.get_ALL = function() {
+	return hex_log_LogLevel._ALL;
+};
+hex_log_LogLevel.get_DEBUG = function() {
+	return hex_log_LogLevel._DEBUG;
+};
+hex_log_LogLevel.get_INFO = function() {
+	return hex_log_LogLevel._INFO;
+};
+hex_log_LogLevel.get_WARN = function() {
+	return hex_log_LogLevel._WARN;
+};
+hex_log_LogLevel.get_ERROR = function() {
+	return hex_log_LogLevel._ERROR;
+};
+hex_log_LogLevel.get_FATAL = function() {
+	return hex_log_LogLevel._FATAL;
+};
+hex_log_LogLevel.get_OFF = function() {
+	return hex_log_LogLevel._OFF;
+};
+hex_log_LogLevel.prototype = {
+	value: null
+	,get_value: function() {
+		return this.value;
+	}
+	,toString: function() {
+		var _g = this.get_value();
+		switch(_g) {
+		case 0:
+			return "ALL";
+		case 10000:
+			return "DEBUG";
+		case 20000:
+			return "INFO";
+		case 30000:
+			return "WARN";
+		case 40000:
+			return "ERROR";
+		case 50000:
+			return "FATAL";
+		case 60000:
+			return "OFF";
+		}
+		return "";
+	}
+	,__class__: hex_log_LogLevel
+	,__properties__: {get_value:"get_value"}
+};
+var hex_log_Logger = function() {
+	this.setLevel(hex_log_LogLevel._ALL);
+	this._dispatcher = new hex_domain_DomainDispatcher();
+};
+$hxClasses["hex.log.Logger"] = hex_log_Logger;
+hex_log_Logger.__name__ = ["hex","log","Logger"];
+hex_log_Logger.getInstance = function() {
+	if(hex_log_Logger._Instance == null) hex_log_Logger._Instance = new hex_log_Logger();
+	return hex_log_Logger._Instance;
+};
+hex_log_Logger.DEBUG = function(o,domain,posInfos) {
+	hex_log_Logger.getInstance().log(o,hex_log_LogLevel._DEBUG,domain,posInfos);
+};
+hex_log_Logger.INFO = function(o,domain,posInfos) {
+	hex_log_Logger.getInstance().log(o,hex_log_LogLevel._INFO,domain,posInfos);
+};
+hex_log_Logger.WARN = function(o,domain,posInfos) {
+	hex_log_Logger.getInstance().log(o,hex_log_LogLevel._WARN,domain,posInfos);
+};
+hex_log_Logger.ERROR = function(o,domain,posInfos) {
+	hex_log_Logger.getInstance().log(o,hex_log_LogLevel._ERROR,domain,posInfos);
+};
+hex_log_Logger.FATAL = function(o,domain,posInfos) {
+	hex_log_Logger.getInstance().log(o,hex_log_LogLevel._FATAL,domain,posInfos);
+};
+hex_log_Logger.CLEAR = function(domain) {
+	hex_log_Logger.getInstance().clear();
+};
+hex_log_Logger.prototype = {
+	_dispatcher: null
+	,_level: null
+	,setLevel: function(level) {
+		this._level = level;
+	}
+	,getLevel: function() {
+		return this._level;
+	}
+	,clear: function() {
+		this._dispatcher.dispatch(hex_log_LoggerMessage.CLEAR);
+	}
+	,log: function(o,level,domain,posInfos) {
+		if(this._level.get_value() <= level.get_value()) this._dispatcher.dispatch(hex_log_LoggerMessage.LOG,domain,[new hex_log_LoggerMessage(o,level,domain == null?hex_domain_NoDomain.DOMAIN:domain,posInfos)]);
+	}
+	,addListener: function(listener,domain) {
+		this._dispatcher.addHandler(hex_log_LoggerMessage.LOG,listener,$bind(listener,listener.onLog),domain);
+		return this._dispatcher.addHandler(hex_log_LoggerMessage.CLEAR,listener,$bind(listener,listener.onClear),domain);
+	}
+	,removeListener: function(listener,domain) {
+		this._dispatcher.removeHandler(hex_log_LoggerMessage.LOG,listener,$bind(listener,listener.onLog),domain);
+		return this._dispatcher.removeHandler(hex_log_LoggerMessage.CLEAR,listener,$bind(listener,listener.onClear),domain);
+	}
+	,isRegistered: function(listener,domain) {
+		return this._dispatcher.isRegistered(listener,hex_log_LoggerMessage.LOG,domain);
+	}
+	,removeAllListeners: function() {
+		this._dispatcher.removeAllListeners();
+	}
+	,toString: function() {
+		return hex_log_Stringifier.stringify(this);
+	}
+	,__class__: hex_log_Logger
 };
 var hex_log_LoggerMessage = function(message,level,domain,posInfos) {
 	this.message = message;
@@ -8501,18 +9304,28 @@ hex_util_ClassUtil.classExtendsOrImplements = function(classOrClassName,superCla
 	var classInstance = Type.createEmptyInstance(actualClass);
 	return js_Boot.__instanceof(classInstance,superClass);
 };
-hex_util_ClassUtil.getStaticReference = function(qualifiedClassName) {
+hex_util_ClassUtil.getStaticVariableReference = function(qualifiedClassName) {
 	var a = qualifiedClassName.split(".");
 	var type = a[a.length - 1];
 	a.splice(a.length - 1,1);
 	var classReference = hex_util_ClassUtil.getClassReference(a.join("."));
 	var staticRef = Reflect.field(classReference,type);
-	if(staticRef == null) throw new js__$Boot_HaxeError(new hex_error_IllegalArgumentException("ClassUtil.getStaticReference fails with '" + qualifiedClassName + "'",{ fileName : "ClassUtil.hx", lineNumber : 73, className : "hex.util.ClassUtil", methodName : "getStaticReference"}));
+	if(staticRef == null) throw new js__$Boot_HaxeError(new hex_error_IllegalArgumentException("ClassUtil.getStaticReference fails with '" + qualifiedClassName + "'",{ fileName : "ClassUtil.hx", lineNumber : 73, className : "hex.util.ClassUtil", methodName : "getStaticVariableReference"}));
 	return staticRef;
+};
+hex_util_ClassUtil.getClassNameFromStaticReference = function(qualifiedClassName) {
+	var a = qualifiedClassName.split(".");
+	var type = a[a.length - 1];
+	a.splice(a.length - 1,1);
+	return a.join(".");
+};
+hex_util_ClassUtil.getStaticVariableNameFromStaticReference = function(qualifiedClassName) {
+	var a = qualifiedClassName.split(".");
+	return a[a.length - 1];
 };
 hex_util_ClassUtil.getClassReference = function(qualifiedClassName) {
 	var classReference = Type.resolveClass(qualifiedClassName);
-	if(classReference == null) throw new js__$Boot_HaxeError(new hex_error_IllegalArgumentException("ClassUtil.getClassReference fails with class named '" + qualifiedClassName + "'",{ fileName : "ClassUtil.hx", lineNumber : 85, className : "hex.util.ClassUtil", methodName : "getClassReference"}));
+	if(classReference == null) throw new js__$Boot_HaxeError(new hex_error_IllegalArgumentException("ClassUtil.getClassReference fails with class named '" + qualifiedClassName + "'",{ fileName : "ClassUtil.hx", lineNumber : 99, className : "hex.util.ClassUtil", methodName : "getClassReference"}));
 	return classReference;
 };
 hex_util_ClassUtil.prototype = {
@@ -8784,45 +9597,31 @@ js_Browser.createXMLHttpRequest = function() {
 	throw new js__$Boot_HaxeError("Unable to create XMLHttpRequest object.");
 };
 var org_stefx_hexweather_HexWeather = function() {
-	this._init();
-	this._registerView();
-	this._build(this._getApplicationXml());
+	console.log("XmlCompiler starts compilation...");
+	var applicationAssembler = new hex_ioc_assembler_ApplicationAssembler();
+	var applicationContext = applicationAssembler.getApplicationContext("applicationContext");
+	var coreFactory = applicationContext.getCoreFactory();
+	var hexWeatherServiceLocator = new hex_config_stateful_ServiceLocator();
+	hexWeatherServiceLocator.addService(org_stefx_hexweather_module_currentweather_service_IGetCurrentWeatherService,org_stefx_hexweather_service_wunderground_GetCurrentWeatherService);
+	coreFactory.register("hexWeatherServiceLocator",hexWeatherServiceLocator);
+	var currentWeather = new org_stefx_hexweather_module_currentweather_CurrentWeatherModule(hexWeatherServiceLocator);
+	coreFactory.register("currentWeather",currentWeather);
+	applicationAssembler;
 };
 $hxClasses["org.stefx.hexweather.HexWeather"] = org_stefx_hexweather_HexWeather;
 org_stefx_hexweather_HexWeather.__name__ = ["org","stefx","hexweather","HexWeather"];
 org_stefx_hexweather_HexWeather.main = function() {
-	var proxy = new hex_log_layout_LogProxyLayout();
-	var controller = new hex_log_layout_LogLayoutHTMLView(proxy);
-	proxy.addListener(new hex_log_layout_SimpleBrowserLayout(controller.consoleWrapperTaget));
-	proxy.addListener(new hex_log_layout_JavaScriptConsoleLayout());
 	org_stefx_hexweather_HexWeather.self = new org_stefx_hexweather_HexWeather();
 };
 org_stefx_hexweather_HexWeather.prototype = {
 	_applicationAssembler: null
 	,_applicationContext: null
 	,_injector: null
-	,_getApplicationXml: function() {
-		var source = "";
-		var viewConfigName = "";
-		viewConfigName = "viewConfigJS";
-		source = "<?xml version=\"1.0\" encoding=\"utf-8\" ?>\r\n<root name=\"weather\">\r\n\t\n\t<!-- MODULES -->\r\n\t<module id=\"currentWeather\" type=\"org.stefx.hexweather.module.currentweather.CurrentWeatherModule\">\r\n\t\t<argument ref=\"hexWeatherServiceLocator\"/>\r\n\t</module>\r\n\r\n\t\n\t<serviceLocator id=\"hexWeatherServiceLocator\" type=\"hex.config.stateful.ServiceLocator\" >\r\n\t\t<item> \r\n\t\t\t<key type=\"Class\" value=\"org.stefx.hexweather.module.currentweather.service.IGetCurrentWeatherService\"/>\r\n\t\t\t<value type=\"Class\" value=\"org.stefx.hexweather.service.wunderground.GetCurrentWeatherService\"/>\r\n\t\t</item>\r\n\t</serviceLocator>\r\n\r\n\t\n\r\n\r\n</root>";
-		return Xml.parse(source);
-	}
-	,_init: function() {
-		this._applicationAssembler = new hex_ioc_assembler_ApplicationAssembler();
-		this._applicationContext = this._applicationAssembler.getApplicationContext("weather");
-		this._injector = this._applicationContext.getBasicInjector();
-	}
-	,_registerView: function() {
-		hex_log_Logger.DEBUG("_registerView",null,{ fileName : "HexWeather.hx", lineNumber : 79, className : "org.stefx.hexweather.HexWeather", methodName : "_registerView"});
-	}
-	,_build: function(xml) {
-		var parser = new hex_ioc_parser_xml_ApplicationXMLParser();
-		parser.parse(this._applicationAssembler,xml);
-		this._applicationAssembler.buildEverything();
-	}
 	,__class__: org_stefx_hexweather_HexWeather
 };
+var org_stefx_hexweather_constant_CAPIKey = function() { };
+$hxClasses["org.stefx.hexweather.constant.CAPIKey"] = org_stefx_hexweather_constant_CAPIKey;
+org_stefx_hexweather_constant_CAPIKey.__name__ = ["org","stefx","hexweather","constant","CAPIKey"];
 var org_stefx_hexweather_constant_CLocation = function() { };
 $hxClasses["org.stefx.hexweather.constant.CLocation"] = org_stefx_hexweather_constant_CLocation;
 org_stefx_hexweather_constant_CLocation.__name__ = ["org","stefx","hexweather","constant","CLocation"];
@@ -9017,7 +9816,17 @@ org_stefx_hexweather_module_currentweather_view_CurrentWeatherViewJS.__interface
 org_stefx_hexweather_module_currentweather_view_CurrentWeatherViewJS.prototype = {
 	_layout: null
 	,setCurrentWeather: function(currentWeatherVO) {
-		hex_log_Logger.DEBUG(currentWeatherVO,null,{ fileName : "CurrentWeatherViewJS.hx", lineNumber : 22, className : "org.stefx.hexweather.module.currentweather.view.CurrentWeatherViewJS", methodName : "setCurrentWeather"});
+		var currentObservation = currentWeatherVO.current_observation;
+		var obsIconDiv = window.document.querySelector("#obsIcon");
+		var titleDiv = window.document.querySelector("#title");
+		var lastUpdateDiv = window.document.querySelector("#lastUpdate");
+		var observationDiv = window.document.querySelector("#observation");
+		var img = new Image();
+		img.src = "./imgWeather/" + currentObservation.icon + ".png";
+		titleDiv.innerHTML = org_stefx_hexweather_constant_CLocation.CITY + " (" + org_stefx_hexweather_constant_CLocation.STATE + ")";
+		lastUpdateDiv.innerHTML = currentObservation.observation_time_rfc822;
+		observationDiv.innerHTML = "<b>Temperature:</b> " + currentObservation.temp_c + "°C<br/>" + "<b>Pressure:</b> " + currentObservation.pressure_mb + " mb<br/>" + "<b>Wind:</b> " + currentObservation.wind_dir + " at " + Std.string(currentWeatherVO.current_observation.wind_kph) + " km/h<br/>" + "<b>Humidity:</b> " + currentObservation.relative_humidity + "<br/>";
+		obsIconDiv.appendChild(img);
 	}
 	,visible: null
 	,get_visible: function() {
@@ -9034,7 +9843,9 @@ var org_stefx_hexweather_module_currentweather_vo_CurrentWeatherVO = function() 
 $hxClasses["org.stefx.hexweather.module.currentweather.vo.CurrentWeatherVO"] = org_stefx_hexweather_module_currentweather_vo_CurrentWeatherVO;
 org_stefx_hexweather_module_currentweather_vo_CurrentWeatherVO.__name__ = ["org","stefx","hexweather","module","currentweather","vo","CurrentWeatherVO"];
 org_stefx_hexweather_module_currentweather_vo_CurrentWeatherVO.prototype = {
-	__class__: org_stefx_hexweather_module_currentweather_vo_CurrentWeatherVO
+	response: null
+	,current_observation: null
+	,__class__: org_stefx_hexweather_module_currentweather_vo_CurrentWeatherVO
 };
 var org_stefx_hexweather_parser_WundergroundCurrentWeatherParser = function() {
 };
@@ -9047,6 +9858,13 @@ org_stefx_hexweather_parser_WundergroundCurrentWeatherParser.prototype = {
 		var json = JSON.parse(jsonString);
 		hex_log_Logger.DEBUG("Weather: " + json.current_observation.temp_c,null,{ fileName : "WundergroundCurrentWeatherParser.hx", lineNumber : 22, className : "org.stefx.hexweather.parser.WundergroundCurrentWeatherParser", methodName : "parse"});
 		var currentWeatherVO = new org_stefx_hexweather_module_currentweather_vo_CurrentWeatherVO();
+		var _g = 0;
+		var _g1 = Reflect.fields(json);
+		while(_g < _g1.length) {
+			var n = _g1[_g];
+			++_g;
+			Reflect.setProperty(currentWeatherVO,n,Reflect.field(json,n));
+		}
 		return currentWeatherVO;
 	}
 	,__class__: org_stefx_hexweather_parser_WundergroundCurrentWeatherParser
@@ -9061,8 +9879,8 @@ org_stefx_hexweather_service_wunderground_GetCurrentWeatherService.__super__ = h
 org_stefx_hexweather_service_wunderground_GetCurrentWeatherService.prototype = $extend(hex_service_stateless_http_HTTPService.prototype,{
 	createConfiguration: function() {
 		hex_log_Logger.DEBUG("GetCurrentWeatherService createConfiguration",null,{ fileName : "GetCurrentWeatherService.hx", lineNumber : 28, className : "org.stefx.hexweather.service.wunderground.GetCurrentWeatherService", methodName : "createConfiguration"});
-		var serviceUrl = "http://api.wunderground.com/api/864880f1238c33fe/conditions/q/" + org_stefx_hexweather_constant_CLocation.STATE + "/" + org_stefx_hexweather_constant_CLocation.CITY + ".json";
-		hex_log_Logger.DEBUG(serviceUrl,null,{ fileName : "GetCurrentWeatherService.hx", lineNumber : 30, className : "org.stefx.hexweather.service.wunderground.GetCurrentWeatherService", methodName : "createConfiguration"});
+		var serviceUrl = "http://api.wunderground.com/api/" + org_stefx_hexweather_constant_CAPIKey.KEY + "/conditions/q/" + org_stefx_hexweather_constant_CLocation.STATE + "/" + org_stefx_hexweather_constant_CLocation.CITY + ".json";
+		hex_log_Logger.DEBUG(serviceUrl,null,{ fileName : "GetCurrentWeatherService.hx", lineNumber : 32, className : "org.stefx.hexweather.service.wunderground.GetCurrentWeatherService", methodName : "createConfiguration"});
 		this.setConfiguration(new hex_service_stateless_http_HTTPServiceConfiguration(serviceUrl));
 		this.setParser(new org_stefx_hexweather_parser_WundergroundCurrentWeatherParser());
 	}
@@ -9126,6 +9944,7 @@ haxe_xml_Parser.escapes = (function($this) {
 }(this));
 hex_collection_LocatorMessage.REGISTER = new hex_event_MessageType("onRegister");
 hex_collection_LocatorMessage.UNREGISTER = new hex_event_MessageType("onUnregister");
+hex_compiler_core_CompileTimeCoreFactory._fastEvalMethod = hex_compiler_CompileTimeFastEval.fromTarget;
 hex_compiler_parser_xml_ClassImportHelper._primType = ["String","Int","UInt","Float","Bool","null","Object","XML","Class","Function","Array"];
 hex_compiler_parser_xml_XmlContextReader._includeMatcher = new EReg("<include.*?file=(\"|')([^\"']+)\\1.*?(?:(?:/>)|(?:>[\\W\\w\t\r\n]*?</include *>))","g");
 hex_compiler_parser_xml_XmlContextReader._headerMatcher = new EReg("((?:<\\?xml[^>]+>\\s*)<([a-zA-Z0-9-_:]+)[^>]*>[\r\n]?)([\\s\\S]*)</\\2\\s*>","");
@@ -9200,6 +10019,7 @@ hex_ioc_core_ContextNameList.ROOT = "root";
 hex_ioc_core_ContextTypeList.ARRAY = "Array";
 hex_ioc_core_ContextTypeList.BOOLEAN = "Bool";
 hex_ioc_core_ContextTypeList.INSTANCE = "Instance";
+hex_ioc_core_ContextTypeList.STATIC_VARIABLE = "StaticVariable";
 hex_ioc_core_ContextTypeList.INT = "Int";
 hex_ioc_core_ContextTypeList.NULL = "null";
 hex_ioc_core_ContextTypeList.FLOAT = "Float";
@@ -9213,6 +10033,9 @@ hex_ioc_core_ContextTypeList.CLASS = "Class";
 hex_ioc_core_ContextTypeList.XML = "XML";
 hex_ioc_core_ContextTypeList.FUNCTION = "Function";
 js_Boot.__toStr = {}.toString;
+hex_ioc_core_CoreFactory._fastEvalMethod = hex_util_FastEval.fromTarget;
+hex_ioc_parser_AbstractParserCommand.__meta__ = { fields : { execute : { 'final' : null}, setApplicationAssembler : { 'final' : null}, getApplicationAssembler : { 'final' : null}, getContextData : { 'final' : null}}};
+hex_ioc_parser_xml_AbstractXMLParser.__meta__ = { fields : { getApplicationContext : { 'final' : null}, setContextData : { 'final' : null}, getXMLContext : { 'final' : null}}};
 hex_log_LogLevel._ALL = new hex_log_LogLevel(0);
 hex_log_LogLevel._DEBUG = new hex_log_LogLevel(10000);
 hex_log_LogLevel._INFO = new hex_log_LogLevel(20000);
@@ -9220,9 +10043,6 @@ hex_log_LogLevel._WARN = new hex_log_LogLevel(30000);
 hex_log_LogLevel._ERROR = new hex_log_LogLevel(40000);
 hex_log_LogLevel._FATAL = new hex_log_LogLevel(50000);
 hex_log_LogLevel._OFF = new hex_log_LogLevel(60000);
-hex_ioc_core_CoreFactory._fastEvalMethod = hex_util_FastEval.fromTarget;
-hex_ioc_parser_AbstractParserCommand.__meta__ = { fields : { execute : { 'final' : null}, setApplicationAssembler : { 'final' : null}, getApplicationAssembler : { 'final' : null}, getContextData : { 'final' : null}}};
-hex_ioc_parser_xml_AbstractXMLParser.__meta__ = { fields : { getApplicationContext : { 'final' : null}, setContextData : { 'final' : null}, getXMLContext : { 'final' : null}}};
 hex_log_LoggerMessage.LOG = new hex_event_MessageType("onLog");
 hex_log_LoggerMessage.CLEAR = new hex_event_MessageType("onClear");
 hex_log_layout_LogLayoutHTMLView.TAP_THRESHOLD = 250;
@@ -9266,6 +10086,7 @@ hex_view_viewhelper_ViewHelperMessage.INIT = new hex_event_MessageType("onInit")
 hex_view_viewhelper_ViewHelperMessage.RELEASE = new hex_event_MessageType("onRelease");
 hex_view_viewhelper_ViewHelperMessage.ATTACH_VIEW = new hex_event_MessageType("onAttachView");
 hex_view_viewhelper_ViewHelperMessage.REMOVE_VIEW = new hex_event_MessageType("onRemoveView");
+org_stefx_hexweather_constant_CAPIKey.KEY = "864880f1238c33fe";
 org_stefx_hexweather_constant_CLocation.STATE = "LU";
 org_stefx_hexweather_constant_CLocation.CITY = "Luxembourg";
 org_stefx_hexweather_module_currentweather__$CurrentWeatherModule_CurrentWeatherCommandConfig.__meta__ = { obj : { 'hex.di.IInjectorContainer' : ["{\"ctor\":{\"args\":[],\"isPre\":false,\"name\":\"new\",\"isPost\":false,\"order\":0},\"props\":[{\"isOpt\":false,\"name\":\"frontController\",\"type\":\"hex.control.IFrontController\",\"key\":\"\"}],\"name\":\"org.stefx.hexweather.module.currentweather.CurrentWeatherModule\",\"methods\":[]}"]}};
@@ -9276,5 +10097,3 @@ org_stefx_hexweather_module_currentweather_view_CurrentWeatherViewHelper.__meta_
 org_stefx_hexweather_service_wunderground_GetCurrentWeatherService.__meta__ = { obj : { 'hex.di.IInjectorContainer' : ["{\"ctor\":{\"args\":[],\"isPre\":false,\"name\":\"new\",\"isPost\":false,\"order\":0},\"props\":[],\"name\":\"org.stefx.hexweather.service.wunderground.GetCurrentWeatherService\",\"methods\":[{\"args\":[],\"isPre\":false,\"name\":\"createConfiguration\",\"isPost\":true,\"order\":0}]}"]}};
 org_stefx_hexweather_HexWeather.main();
 })(typeof console != "undefined" ? console : {log:function(){}});
-
-//# sourceMappingURL=HexWeather.js.map

@@ -12,28 +12,30 @@
 			height:				100%;
 			position:			absolute;
 			top:0;
-			bottom:				0px;
-			left:				0px;
-			right:				0px;
+			bottom:				0;
+			left:				0;
+			right:				0;
 			margin:				auto;
 
 			background-color: 	#000000;
-			background-image: 	url( "./imgWeather/tile.png" );
+			background-image: 	url('./imgWeather/tile.png');
 			background-repeat: 	repeat;
 			font-family: 		'Ubuntu', sans;
+			font-size:			16px;
 		}
 		
-		#currentWeather
+		.currentWeather
 		{
 			position: 			absolute;
 			width: 				300px;
 			height: 			150px;
-			background-color: 	#999999;
+			background-color: 	#333333;
 			border-radius: 		8px;
 			left:				50%;
 			top:				50%;
 			margin-left:		-150px;
 			margin-top:			-75px;
+
 		}
 		
 		#obsIcon
@@ -75,7 +77,7 @@
 </head>
 <body>
 	<div id="app">
-		<div id="currentWeather">
+		<div id="currentWeather" class="currentWeather">
 			<div id="title"></div>
 			<div id="lastUpdate"></div>
 			<div id="obsIcon"></div>
