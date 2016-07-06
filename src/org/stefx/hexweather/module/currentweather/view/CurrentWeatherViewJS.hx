@@ -26,6 +26,8 @@ class CurrentWeatherViewJS implements ICurrentWeatherView
 	
 	public function setCurrentWeather( currentWeatherVO : CurrentWeatherVO ) : Void
 	{
+		Logger.DEBUG( "setCurrentWeather" );
+		
 		var currentObservation = currentWeatherVO.current_observation;
 		
 		var obsIconDiv : DivElement		= cast js.Browser.document.querySelector( "#obsIcon" );

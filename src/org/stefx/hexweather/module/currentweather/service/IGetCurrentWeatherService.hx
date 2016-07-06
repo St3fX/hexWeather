@@ -7,7 +7,7 @@ import org.stefx.hexweather.module.currentweather.vo.CurrentWeatherVO;
 /**
  * @author Stéphane ARZT
  */
-interface IGetCurrentWeatherService extends IHTTPService<HTTPServiceConfiguration>
+interface IGetCurrentWeatherService extends IHTTPService
 {
 	function getCurrentWeather() : CurrentWeatherVO;
 }

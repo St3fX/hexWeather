@@ -14,7 +14,7 @@ import org.stefx.hexweather.parser.WundergroundCurrentWeatherParser;
  * ...
  * @author Stéphane ARZT
  */
-class GetCurrentWeatherService extends HTTPService<HTTPServiceConfiguration> implements IGetCurrentWeatherService
+class GetCurrentWeatherService extends HTTPService implements IGetCurrentWeatherService
 {
 
 	public function new() 
@@ -36,6 +36,7 @@ class GetCurrentWeatherService extends HTTPService<HTTPServiceConfiguration> imp
 
 	public function getCurrentWeather() : CurrentWeatherVO 
 	{
+		Logger.DEBUG( this._result );
 		return this._result;
 	}
 	

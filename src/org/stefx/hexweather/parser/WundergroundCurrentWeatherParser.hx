@@ -8,14 +8,14 @@ import hex.log.Logger;
  * ...
  * @author Stéphane ARZT
  */
-class WundergroundCurrentWeatherParser implements IParser
+class WundergroundCurrentWeatherParser
 {
 	
 	public function new() 
 	{
 	}
 
-	public function parse( serializedContent : Dynamic, target : Dynamic = null ) : CurrentWeatherVO 
+	public function parse( serializedContent : Dynamic ) : CurrentWeatherVO 
 	{
 		var jsonString : String = serializedContent;
 		var json = haxe.Json.parse( jsonString );

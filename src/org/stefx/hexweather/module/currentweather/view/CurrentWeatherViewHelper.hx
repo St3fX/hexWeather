@@ -10,7 +10,7 @@ import hex.log.Logger;
  * ...
  * @author Stéphane ARZT
  */
-class CurrentWeatherViewHelper extends ViewHelper implements ICurrentWeatherModelListener
+class CurrentWeatherViewHelper extends ViewHelper<ICurrentWeatherView> implements ICurrentWeatherModelListener
 {
 	var _layoutView : ICurrentWeatherView;
 

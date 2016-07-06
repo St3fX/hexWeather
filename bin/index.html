@@ -23,6 +23,19 @@
 			font-family: 		'Ubuntu', sans;
 		}
 		
+		#currentWeatherConfig
+		{
+			position: 			absolute;
+			width: 				500px;
+			height: 			500px;
+			background-color: 	#999999;
+			border-radius: 		8px;
+			left:				50%;
+			top:				50%;
+			margin-left:		-250px;
+			margin-top:			-250px;
+		}
+		
 		#currentWeather
 		{
 			position: 			absolute;
@@ -34,6 +47,7 @@
 			top:				50%;
 			margin-left:		-150px;
 			margin-top:			-75px;
+			visibility: 		hidden;
 		}
 		
 		#obsIcon
@@ -75,6 +89,7 @@
 </head>
 <body>
 	<div id="app">
+		<div id="currentWeatherConfig"></div>
 		<div id="currentWeather">
 			<div id="title"></div>
 			<div id="lastUpdate"></div>

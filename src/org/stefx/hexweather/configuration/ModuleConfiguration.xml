@@ -4,4 +4,6 @@
 	<module id="currentWeather" type="org.stefx.hexweather.module.currentweather.CurrentWeatherModule">
 		<argument ref="hexWeatherServiceLocator"/>
 	</module>
+	<module id="currentWeatherConfig" type="org.stefx.hexweather.module.currentweatherconfig.CurrentWeatherConfigModule">
+	</module>
 </root>

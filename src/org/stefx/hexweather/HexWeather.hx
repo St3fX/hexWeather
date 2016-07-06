@@ -13,6 +13,7 @@ import hex.log.layout.LogLayoutHTMLView;
 import hex.log.layout.LogProxyLayout;
 import hex.log.layout.SimpleBrowserLayout;
 import hex.log.Logger;
+import js.Cookie;
 import org.stefx.hexweather.service.wunderground.GetCurrentWeatherService;
 
 import js.Browser;
@@ -45,46 +46,7 @@ class HexWeather
 	
 	public function new()
 	{
-		//this._init();
-		//this._registerView();
-		//this._build( this._getApplicationXml() );
-
 		XmlCompiler.readXmlFile( "org/stefx/hexweather/configuration/context.xml" );
+		Logger.DEBUG( "Cookie: " + Cookie.exists( "WundergroundWeatherExample" ) );
 	}
-	
-	//function _getApplicationXml() : Xml
-	//{
-		//var source : String = "";
-		//var viewConfigName : String = "";
-		//
-		//#if js
-			//viewConfigName = "viewConfigJS";
-		//#end
-		//
-		//source = XmlReader.readXmlFile( "org/stefx/hexweather/configuration/context.xml" );
-		//
-		//return Xml.parse( source );
-	//}
-	//
-	//function _init()
-	//{
-		//_applicationAssembler = new ApplicationAssembler();
-		//_applicationContext = this._applicationAssembler.getApplicationContext( "applicationContext" );
-		//_injector = this._applicationContext.getBasicInjector();
-	//}
-	//
-	//function _registerView()
-	//{
-		//#if js
-			//this._applicationAssembler.getContextFactory( this._applicationContext ).getCoreFactory().register( "appRoot", Browser.document.getElementById( "app" ) );
-		//#end
-	//}
-	//
-	//function _build( xml:Xml )
-	//{
-		//var parser : ApplicationXMLParser = new ApplicationXMLParser();
-		//parser.parse( this._applicationAssembler, xml );
-		//this._applicationAssembler.buildEverything();
-	//}
-	
 }
