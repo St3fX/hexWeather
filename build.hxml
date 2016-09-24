@@ -1,0 +1,12 @@
+-cp src
+-cp C:\docler\hexAnnotation\src
+-cp C:\docler\hexCore\src
+-cp C:\docler\hexInject\src
+-cp C:\docler\hexIoC\src
+-cp C:\docler\hexMVC\src
+-cp C:\docler\hexService\src
+-cp C:\docler\hexState\src
+
+-main org.stefx.hexweather.HexWeather
+-js bin/HexWeather.js
+-debug
