@@ -6,6 +6,7 @@ import hex.config.stateless.StatelessModelConfig;
 import hex.module.dependency.IRuntimeDependencies;
 import hex.module.dependency.RuntimeDependencies;
 import hex.module.Module;
+import hex.log.Logger;
 import org.stefx.hexweather.module.currentweather.message.CurrentWeatherModuleMessage;
 import org.stefx.hexweather.module.currentweather.model.CurrentWeatherModel;
 import org.stefx.hexweather.module.currentweather.model.ICurrentWeatherModel;
@@ -23,7 +24,6 @@ class CurrentWeatherModule extends Module
 	public function new( serviceConfig : IStatefulConfig ) 
 	{
 		super();
-		getLogger().debug( "CurrentWeatherModule::Constructor" );
 		
 		this._addStatefulConfigs( [ serviceConfig ] );
 		this._addStatelessConfigClasses( [ CurrentWeatherCommandConfig, CurrentWeatherModelConfig ] );
@@ -56,6 +56,6 @@ private class CurrentWeatherModelConfig extends StatelessModelConfig
 {
 	override public function configure() : Void
 	{
-		this.mapModel( ICurrentWeatherModel, CurrentWeatherModel );
+		this.map( ICurrentWeatherModel, CurrentWeatherModel );
 	}
 }

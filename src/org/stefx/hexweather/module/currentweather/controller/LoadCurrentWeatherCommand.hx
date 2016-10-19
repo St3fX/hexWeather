@@ -11,7 +11,7 @@ import org.stefx.hexweather.module.currentweather.service.IGetCurrentWeatherServ
  * ...
  * @author Stéphane ARZT
  */
-class LoadCurrentWeatherCommand extends BasicCommand implements IInjectorContainer implements IAsyncStatelessServiceListener
+class LoadCurrentWeatherCommand extends BasicCommand implements IAsyncStatelessServiceListener
 {
 
 	@Inject
@@ -28,30 +28,30 @@ class LoadCurrentWeatherCommand extends BasicCommand implements IInjectorContain
 	
 	public function execute() : Void
 	{
-		Logger.DEBUG( "LoadCurrentWeatherCommand::execute" );
+		Logger.debug( "LoadCurrentWeatherCommand::execute" );
 		currentWeatherService.addListener( this );
 		currentWeatherService.call();
 	}
 	
 	public function onServiceComplete( service : IAsyncStatelessService ) : Void 
 	{
-		Logger.DEBUG( "LoadCurrentWeatherCommand::onServiceComplete" );
+		Logger.debug( "LoadCurrentWeatherCommand::onServiceComplete" );
 		currentWeatherModel.setCurrentWeather( cast( service, IGetCurrentWeatherService ).getCurrentWeather() );
 	}
 	
 	public function onServiceFail( service : IAsyncStatelessService ) : Void 
 	{
-		Logger.DEBUG("onServiceFail");
+		Logger.debug("onServiceFail");
 	}
 	
 	public function onServiceCancel( service : IAsyncStatelessService ) : Void 
 	{
-		Logger.DEBUG("onServiceCancel");
+		Logger.debug("onServiceCancel");
 	}
 	
 	public function onServiceTimeout( service : IAsyncStatelessService ) : Void 
 	{
-		Logger.DEBUG("onServiceTimeout");
+		Logger.debug("onServiceTimeout");
 	}
 	
 }

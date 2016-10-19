@@ -5,91 +5,10 @@
 	<title>HexWeather</title>
 	<meta name="description" content="" />
 	<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu">
-	<style>
-		body
-		{
-			width:				100%;
-			height:				100%;
-			position:			absolute;
-			top:0;
-			bottom:				0px;
-			left:				0px;
-			right:				0px;
-			margin:				auto;
-
-			background-color: 	#000000;
-			background-image: 	url( "./imgWeather/tile.png" );
-			background-repeat: 	repeat;
-			font-family: 		'Ubuntu', sans;
-		}
-		
-		#currentWeatherConfig
-		{
-			position: 			absolute;
-			width: 				500px;
-			height: 			500px;
-			background-color: 	#999999;
-			border-radius: 		8px;
-			left:				50%;
-			top:				50%;
-			margin-left:		-250px;
-			margin-top:			-250px;
-		}
-		
-		#currentWeather
-		{
-			position: 			absolute;
-			width: 				300px;
-			height: 			150px;
-			background-color: 	#999999;
-			border-radius: 		8px;
-			left:				50%;
-			top:				50%;
-			margin-left:		-150px;
-			margin-top:			-75px;
-			visibility: 		hidden;
-		}
-		
-		#obsIcon
-		{
-			position:			absolute;
-			top:				60px;
-			left:				30px;
-			width: 				100px;
-			height: 			100px;
-		}
-		
-		#title
-		{
-			position:			absolute;
-			top:				5px;
-			width:				100%;
-			text-align:			center;
-			font-weight:		bold;
-			font-size:			24px;
-		}
-		
-		#lastUpdate
-		{
-			position:			absolute;
-			top:				36px;
-			width:				100%;
-			text-align:			center;
-			font-size:			11px;
-		}
-
-		#observation
-		{
-			position:			absolute;
-			top:				66px;
-			left:				130px;
-			font-size:			12px;
-		}
-</style>
+	<link rel="stylesheet" type="text/css" href="./hexWeather.min.css">
 </head>
 <body>
 	<div id="app">
-		<div id="currentWeatherConfig"></div>
 		<div id="currentWeather">
 			<div id="title"></div>
 			<div id="lastUpdate"></div>

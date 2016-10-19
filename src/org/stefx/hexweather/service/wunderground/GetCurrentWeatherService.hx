@@ -25,18 +25,16 @@ class GetCurrentWeatherService extends HTTPService implements IGetCurrentWeather
 	@PostConstruct
 	override public function createConfiguration() : Void
 	{
-		Logger.DEBUG("GetCurrentWeatherService createConfiguration");
+		Logger.debug("GetCurrentWeatherService::createConfiguration");
 		var serviceUrl = "http://api.wunderground.com/api/" + CAPIKey.KEY 
-							+ "/conditions/q/" + CLocation.STATE + "/"
-							+ CLocation.CITY + ".json";
-		Logger.DEBUG( serviceUrl );
+					   + "/conditions/q/" + CLocation.STATE + "/"
+				       + CLocation.CITY + ".json";
 		this.setConfiguration( new HTTPServiceConfiguration( serviceUrl ) );
 		this.setParser( new WundergroundCurrentWeatherParser() );
 	}
 
 	public function getCurrentWeather() : CurrentWeatherVO 
 	{
-		Logger.DEBUG( this._result );
 		return this._result;
 	}
 	

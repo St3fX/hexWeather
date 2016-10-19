@@ -26,7 +26,7 @@ class CurrentWeatherViewJS implements ICurrentWeatherView
 	
 	public function setCurrentWeather( currentWeatherVO : CurrentWeatherVO ) : Void
 	{
-		Logger.DEBUG( "setCurrentWeather" );
+		Logger.debug( "setCurrentWeather" );
 		
 		var currentObservation = currentWeatherVO.current_observation;
 		
@@ -43,9 +43,9 @@ class CurrentWeatherViewJS implements ICurrentWeatherView
 		lastUpdateDiv.innerHTML = currentObservation.observation_time_rfc822;
 
 		observationDiv.innerHTML = "<b>Temperature:</b> " + currentObservation.temp_c + "°C<br/>"
-								+ "<b>Pressure:</b> " + currentObservation.pressure_mb + " mb<br/>"
-								+ "<b>Wind:</b> " + currentObservation.wind_dir + " at " + currentWeatherVO.current_observation.wind_kph + " km/h<br/>"
-								+ "<b>Humidity:</b> " + currentObservation.relative_humidity + "<br/>";
+								 + "<b>Pressure:</b> " + currentObservation.pressure_mb + " mb<br/>"
+								 + "<b>Wind:</b> " + currentObservation.wind_dir + " at " + currentWeatherVO.current_observation.wind_kph + " km/h<br/>"
+								 + "<b>Humidity:</b> " + currentObservation.relative_humidity + "<br/>";
 		
 		obsIconDiv.appendChild( img );
 	}

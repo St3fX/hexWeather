@@ -1,6 +1,7 @@
 package org.stefx.hexweather.parser;
 
 import hex.data.IParser;
+import hex.data.ServiceParser;
 import org.stefx.hexweather.module.currentweather.vo.CurrentWeatherVO;
 import hex.log.Logger;
 
@@ -8,19 +9,17 @@ import hex.log.Logger;
  * ...
  * @author Stéphane ARZT
  */
-class WundergroundCurrentWeatherParser
+class WundergroundCurrentWeatherParser 
 {
 	
 	public function new() 
 	{
 	}
 
-	public function parse( serializedContent : Dynamic ) : CurrentWeatherVO 
+	public function parse( serializedContent : Dynamic, ?target : Dynamic ) : CurrentWeatherVO 
 	{
 		var jsonString : String = serializedContent;
-		var json = haxe.Json.parse( jsonString );
-		Logger.DEBUG( "Weather: " + json.current_observation.temp_c );
-		
+		var json = haxe.Json.parse( jsonString );		
 		var currentWeatherVO = new CurrentWeatherVO();
 		
 		for ( n in Reflect.fields( json ) )

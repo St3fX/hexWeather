@@ -25,11 +25,8 @@ class CurrentWeatherViewHelper extends ViewHelper<ICurrentWeatherView> implement
 	override function _initialize() : Void 
 	{
 		super._initialize();
-		
+
 		this._layoutView = cast this._view;
-		
-		Logger.DEBUG( this._layoutView );
-		
 		this._model.addListener( this );
 	}
 
