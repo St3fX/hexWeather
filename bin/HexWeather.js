@@ -2897,20 +2897,33 @@ hex_di_Injector.prototype = {
 			name = "";
 		}
 		var _this = this.map(clazz,name);
-		_this.provider = new hex_di_provider_ValueProvider(value,_this._injector);
+		var provider = new hex_di_provider_ValueProvider(value,_this._injector);
+		if(_this.provider != null) {
+			console.log("Warning: Injector already has a mapping for " + _this._mappingID + ".\n " + "If you have overridden this mapping intentionally you can use " + "\"injector.unmap()\" prior to your replacement mapping in order to " + "avoid seeing this message.");
+		}
+		_this.provider = provider;
 	}
 	,mapToType: function(clazz,type,name) {
 		if(name == null) {
 			name = "";
 		}
-		this.map(clazz,name).provider = new hex_di_provider_ClassProvider(type);
+		var _this = this.map(clazz,name);
+		var provider = new hex_di_provider_ClassProvider(type);
+		if(_this.provider != null) {
+			console.log("Warning: Injector already has a mapping for " + _this._mappingID + ".\n " + "If you have overridden this mapping intentionally you can use " + "\"injector.unmap()\" prior to your replacement mapping in order to " + "avoid seeing this message.");
+		}
+		_this.provider = provider;
 	}
 	,mapToSingleton: function(clazz,type,name) {
 		if(name == null) {
 			name = "";
 		}
 		var _this = this.map(clazz,name);
-		_this.provider = new hex_di_provider_SingletonProvider(type,_this._injector);
+		var provider = new hex_di_provider_SingletonProvider(type,_this._injector);
+		if(_this.provider != null) {
+			console.log("Warning: Injector already has a mapping for " + _this._mappingID + ".\n " + "If you have overridden this mapping intentionally you can use " + "\"injector.unmap()\" prior to your replacement mapping in order to " + "avoid seeing this message.");
+		}
+		_this.provider = provider;
 	}
 	,getInstance: function(type,name) {
 		if(name == null) {
@@ -2999,7 +3012,11 @@ hex_di_Injector.prototype = {
 		}
 		var mappingID = Type.getClassName(type) + "|" + name;
 		var _this = this._mapping;
-		(__map_reserved[mappingID] != null?_this.getReserved(mappingID):_this.h[mappingID]).provider.destroy();
+		var mapping = __map_reserved[mappingID] != null?_this.getReserved(mappingID):_this.h[mappingID];
+		if(mapping == null) {
+			throw new js__$Boot_HaxeError(new hex_di_error_InjectorException("unmap failed with mapping named '" + mappingID + "' @" + hex_log_Stringifier.stringify(this),{ fileName : "Injector.hx", lineNumber : 171, className : "hex.di.Injector", methodName : "unmap"}));
+		}
+		mapping.provider.destroy();
 		this._mapping.remove(mappingID);
 	}
 	,hasDirectMapping: function(type,name) {
@@ -3244,6 +3261,7 @@ var hex_error_Exception = function(message,posInfos) {
 	this.message = message;
 	this.posInfos = posInfos;
 	this.name = hex_log_Stringifier.stringify(this);
+	hex_log_Logger.error(this.toString(),null,{ fileName : "Exception.hx", lineNumber : 24, className : "hex.error.Exception", methodName : "new"});
 };
 $hxClasses["hex.error.Exception"] = hex_error_Exception;
 hex_error_Exception.__name__ = ["hex","error","Exception"];
@@ -3298,25 +3316,47 @@ hex_di_mapping_InjectionMapping.prototype = {
 	,_mappingID: null
 	,provider: null
 	,getResult: function() {
+		if(this.provider == null) {
+			throw new js__$Boot_HaxeError(new hex_error_NullPointerException("can't retrieve result, mapping with id '" + this._mappingID + "' has no provider",{ fileName : "InjectionMapping.hx", lineNumber : 36, className : "hex.di.mapping.InjectionMapping", methodName : "getResult"}));
+		}
 		return this.provider.getResult(this._injector);
 	}
 	,asSingleton: function() {
-		this.provider = new hex_di_provider_SingletonProvider(this._type,this._injector);
+		var provider = new hex_di_provider_SingletonProvider(this._type,this._injector);
+		if(this.provider != null) {
+			console.log("Warning: Injector already has a mapping for " + this._mappingID + ".\n " + "If you have overridden this mapping intentionally you can use " + "\"injector.unmap()\" prior to your replacement mapping in order to " + "avoid seeing this message.");
+		}
+		this.provider = provider;
 		return this;
 	}
 	,toSingleton: function(type) {
-		this.provider = new hex_di_provider_SingletonProvider(type,this._injector);
+		var provider = new hex_di_provider_SingletonProvider(type,this._injector);
+		if(this.provider != null) {
+			console.log("Warning: Injector already has a mapping for " + this._mappingID + ".\n " + "If you have overridden this mapping intentionally you can use " + "\"injector.unmap()\" prior to your replacement mapping in order to " + "avoid seeing this message.");
+		}
+		this.provider = provider;
 		return this;
 	}
 	,toType: function(type) {
-		this.provider = new hex_di_provider_ClassProvider(type);
+		var provider = new hex_di_provider_ClassProvider(type);
+		if(this.provider != null) {
+			console.log("Warning: Injector already has a mapping for " + this._mappingID + ".\n " + "If you have overridden this mapping intentionally you can use " + "\"injector.unmap()\" prior to your replacement mapping in order to " + "avoid seeing this message.");
+		}
+		this.provider = provider;
 		return this;
 	}
 	,toValue: function(value) {
-		this.provider = new hex_di_provider_ValueProvider(value,this._injector);
+		var provider = new hex_di_provider_ValueProvider(value,this._injector);
+		if(this.provider != null) {
+			console.log("Warning: Injector already has a mapping for " + this._mappingID + ".\n " + "If you have overridden this mapping intentionally you can use " + "\"injector.unmap()\" prior to your replacement mapping in order to " + "avoid seeing this message.");
+		}
+		this.provider = provider;
 		return this;
 	}
 	,_toProvider: function(provider) {
+		if(this.provider != null) {
+			console.log("Warning: Injector already has a mapping for " + this._mappingID + ".\n " + "If you have overridden this mapping intentionally you can use " + "\"injector.unmap()\" prior to your replacement mapping in order to " + "avoid seeing this message.");
+		}
 		this.provider = provider;
 		return this;
 	}
@@ -3359,7 +3399,9 @@ hex_di_provider_SingletonProvider.prototype = {
 	,_value: null
 	,_injector: null
 	,getResult: function(injector) {
-		if(this._value == null) {
+		if(this._isDestroyed) {
+			throw new js__$Boot_HaxeError(new hex_di_error_InjectorException("Forbidden usage of unmapped singleton provider for type '" + Type.getClassName(this._value) + "'",{ fileName : "SingletonProvider.hx", lineNumber : 29, className : "hex.di.provider.SingletonProvider", methodName : "getResult"}));
+		} else if(this._value == null) {
 			this._value = this._injector.instantiateUnmapped(this._type);
 		}
 		return this._value;
@@ -3485,6 +3527,9 @@ hex_di_reflect_FastClassDescriptionProvider.__name__ = ["hex","di","reflect","Fa
 hex_di_reflect_FastClassDescriptionProvider.__interfaces__ = [hex_di_reflect_IClassDescriptionProvider];
 hex_di_reflect_FastClassDescriptionProvider.prototype = {
 	getClassDescription: function(type) {
+		if(type == null) {
+			throw new js__$Boot_HaxeError(new hex_error_NullPointerException("type cannot be null",{ fileName : "FastClassDescriptionProvider.hx", lineNumber : 21, className : "hex.di.reflect.FastClassDescriptionProvider", methodName : "getClassDescription"}));
+		}
 		var tmp;
 		var tmp1;
 		if(type == null) {
@@ -4306,17 +4351,6 @@ hex_error_VirtualMethodException.__super__ = hex_error_Exception;
 hex_error_VirtualMethodException.prototype = $extend(hex_error_Exception.prototype,{
 	__class__: hex_error_VirtualMethodException
 });
-var hex_event_BasicHandler = function(scope,callback) {
-	this.scope = scope;
-	this.callback = callback;
-};
-$hxClasses["hex.event.BasicHandler"] = hex_event_BasicHandler;
-hex_event_BasicHandler.__name__ = ["hex","event","BasicHandler"];
-hex_event_BasicHandler.prototype = {
-	scope: null
-	,callback: null
-	,__class__: hex_event_BasicHandler
-};
 var hex_event_CallbackHandler = function(scope,callback) {
 	this.callbacks = [];
 	this.scope = scope;
@@ -4412,6 +4446,9 @@ hex_event_ClassAdapter.prototype = {
 			var result = null;
 			if(isEventAdapterStrategyMacro) {
 				var aSyncCommand = factoryTarget != null && factoryMethod != null?factoryMethod(adapterClass):Type.createInstance(adapterClass,[]);
+				if(!js_Boot.__instanceof(aSyncCommand,hex_event_IAdapterStrategy)) {
+					throw new js__$Boot_HaxeError(new hex_error_IllegalArgumentException("adapterInstance class should extend AdapterStrategy. Check if you passed the correct class",{ fileName : "ClassAdapter.hx", lineNumber : 108, className : "hex.event.ClassAdapter", methodName : "getCallbackAdapter"}));
+				}
 				if(js_Boot.__instanceof(aSyncCommand,hex_core_IAnnotationParsable)) {
 					annotationProvider.parse(aSyncCommand);
 				}
@@ -4845,6 +4882,7 @@ hex_ioc_assembler_AbstractApplicationContext.prototype = {
 		} catch( ex ) {
 			if (ex instanceof js__$Boot_HaxeError) ex = ex.val;
 			if( js_Boot.__instanceof(ex,hex_error_IllegalArgumentException) ) {
+				hex_log_Logger.error("addChild failed with applicationContext named '" + applicationContext.getName() + "'",null,{ fileName : "AbstractApplicationContext.hx", lineNumber : 54, className : "hex.ioc.assembler.AbstractApplicationContext", methodName : "addChild"});
 				return false;
 			} else throw(ex);
 		}
@@ -5268,7 +5306,9 @@ hex_ioc_control_HashMapFactory.build = function(factoryVO) {
 	var constructorVO = factoryVO.constructorVO;
 	var map = new hex_collection_HashMap();
 	var args = constructorVO["arguments"];
-	if(args.length != 0) {
+	if(args.length == 0) {
+		hex_log_Logger.warn("HashMapFactory.build(" + Std.string(args) + ") returns an empty HashMap.",null,{ fileName : "HashMapFactory.hx", lineNumber : 30, className : "hex.ioc.control.HashMapFactory", methodName : "build"});
+	} else {
 		var _g = 0;
 		while(_g < args.length) {
 			var item = args[_g];
@@ -5488,6 +5528,7 @@ hex_ioc_control_StringFactory.build = function(factoryVO) {
 	}
 	if(value == null) {
 		value = "";
+		hex_log_Logger.warn("StringFactory.build(" + ") returns empty String.",null,{ fileName : "StringFactory.hx", lineNumber : 39, className : "hex.ioc.control.StringFactory", methodName : "build"});
 	}
 	constructorVO.result = value;
 };
@@ -5538,9 +5579,11 @@ hex_ioc_control_XmlFactory.build = function(factoryVO) {
 				}
 			}
 		} else {
+			console.log("XmlFactory.build() returns an empty XML.");
 			constructorVO.result = Xml.parse("");
 		}
 	} else {
+		console.log("XmlFactory.build() returns an empty XML.");
 		constructorVO.result = Xml.parse("");
 	}
 };
@@ -6273,6 +6316,129 @@ hex_log_BasicStringifierStrategy.prototype = {
 		return hex_log_Stringifier.stringify(this);
 	}
 	,__class__: hex_log_BasicStringifierStrategy
+};
+var hex_log_Logger = function() {
+	this.setLevel(hex_log_LogLevel._ALL);
+	this._dispatcher = new hex_domain_DomainDispatcher();
+};
+$hxClasses["hex.log.Logger"] = hex_log_Logger;
+hex_log_Logger.__name__ = ["hex","log","Logger"];
+hex_log_Logger.getInstance = function() {
+	if(hex_log_Logger._Instance == null) {
+		hex_log_Logger._Instance = new hex_log_Logger();
+	}
+	return hex_log_Logger._Instance;
+};
+hex_log_Logger.debug = function(o,domain,posInfos) {
+	hex_log_Logger.getInstance().log(o,hex_log_LogLevel._DEBUG,domain,posInfos);
+};
+hex_log_Logger.info = function(o,domain,posInfos) {
+	hex_log_Logger.getInstance().log(o,hex_log_LogLevel._INFO,domain,posInfos);
+};
+hex_log_Logger.warn = function(o,domain,posInfos) {
+	hex_log_Logger.getInstance().log(o,hex_log_LogLevel._WARN,domain,posInfos);
+};
+hex_log_Logger.error = function(o,domain,posInfos) {
+	hex_log_Logger.getInstance().log(o,hex_log_LogLevel._ERROR,domain,posInfos);
+};
+hex_log_Logger.fatal = function(o,domain,posInfos) {
+	hex_log_Logger.getInstance().log(o,hex_log_LogLevel._FATAL,domain,posInfos);
+};
+hex_log_Logger.clear_all = function(domain) {
+	hex_log_Logger.getInstance().clear();
+};
+hex_log_Logger.prototype = {
+	_dispatcher: null
+	,_level: null
+	,setLevel: function(level) {
+		this._level = level;
+	}
+	,getLevel: function() {
+		return this._level;
+	}
+	,clear: function() {
+		this._dispatcher.dispatch(hex_log_LoggerMessage.CLEAR);
+	}
+	,log: function(o,level,domain,posInfos) {
+		if(this._level.get_value() <= level.get_value()) {
+			this._dispatcher.dispatch(hex_log_LoggerMessage.LOG,domain,[new hex_log_LoggerMessage(o,level,domain == null?hex_domain_NoDomain.DOMAIN:domain,posInfos)]);
+		}
+	}
+	,addListener: function(listener,domain) {
+		this._dispatcher.addHandler(hex_log_LoggerMessage.LOG,listener,$bind(listener,listener.onLog),domain);
+		return this._dispatcher.addHandler(hex_log_LoggerMessage.CLEAR,listener,$bind(listener,listener.onClear),domain);
+	}
+	,removeListener: function(listener,domain) {
+		this._dispatcher.removeHandler(hex_log_LoggerMessage.LOG,listener,$bind(listener,listener.onLog),domain);
+		return this._dispatcher.removeHandler(hex_log_LoggerMessage.CLEAR,listener,$bind(listener,listener.onClear),domain);
+	}
+	,isRegistered: function(listener,domain) {
+		return this._dispatcher.isRegistered(listener,hex_log_LoggerMessage.LOG,domain);
+	}
+	,removeAllListeners: function() {
+		this._dispatcher.removeAllListeners();
+	}
+	,toString: function() {
+		return hex_log_Stringifier.stringify(this);
+	}
+	,__class__: hex_log_Logger
+};
+var hex_log_LogLevel = function(value) {
+	this.value = value;
+};
+$hxClasses["hex.log.LogLevel"] = hex_log_LogLevel;
+hex_log_LogLevel.__name__ = ["hex","log","LogLevel"];
+hex_log_LogLevel.__properties__ = {get_OFF:"get_OFF",get_FATAL:"get_FATAL",get_ERROR:"get_ERROR",get_WARN:"get_WARN",get_INFO:"get_INFO",get_DEBUG:"get_DEBUG",get_ALL:"get_ALL",get_LEVELS:"get_LEVELS"}
+hex_log_LogLevel.get_LEVELS = function() {
+	return [hex_log_LogLevel._ALL,hex_log_LogLevel._DEBUG,hex_log_LogLevel._INFO,hex_log_LogLevel._WARN,hex_log_LogLevel._ERROR,hex_log_LogLevel._FATAL,hex_log_LogLevel._OFF];
+};
+hex_log_LogLevel.get_ALL = function() {
+	return hex_log_LogLevel._ALL;
+};
+hex_log_LogLevel.get_DEBUG = function() {
+	return hex_log_LogLevel._DEBUG;
+};
+hex_log_LogLevel.get_INFO = function() {
+	return hex_log_LogLevel._INFO;
+};
+hex_log_LogLevel.get_WARN = function() {
+	return hex_log_LogLevel._WARN;
+};
+hex_log_LogLevel.get_ERROR = function() {
+	return hex_log_LogLevel._ERROR;
+};
+hex_log_LogLevel.get_FATAL = function() {
+	return hex_log_LogLevel._FATAL;
+};
+hex_log_LogLevel.get_OFF = function() {
+	return hex_log_LogLevel._OFF;
+};
+hex_log_LogLevel.prototype = {
+	value: null
+	,get_value: function() {
+		return this.value;
+	}
+	,toString: function() {
+		switch(this.get_value()) {
+		case 0:
+			return "ALL";
+		case 10000:
+			return "DEBUG";
+		case 20000:
+			return "INFO";
+		case 30000:
+			return "WARN";
+		case 40000:
+			return "ERROR";
+		case 50000:
+			return "FATAL";
+		case 60000:
+			return "OFF";
+		}
+		return "";
+	}
+	,__class__: hex_log_LogLevel
+	,__properties__: {get_value:"get_value"}
 };
 var hex_ioc_core_CoreFactory = function(injector,annotationProvider) {
 	this._injector = injector;
@@ -7058,129 +7224,6 @@ hex_log_ILogListener.prototype = {
 	onClear: null
 	,onLog: null
 	,__class__: hex_log_ILogListener
-};
-var hex_log_LogLevel = function(value) {
-	this.value = value;
-};
-$hxClasses["hex.log.LogLevel"] = hex_log_LogLevel;
-hex_log_LogLevel.__name__ = ["hex","log","LogLevel"];
-hex_log_LogLevel.__properties__ = {get_OFF:"get_OFF",get_FATAL:"get_FATAL",get_ERROR:"get_ERROR",get_WARN:"get_WARN",get_INFO:"get_INFO",get_DEBUG:"get_DEBUG",get_ALL:"get_ALL",get_LEVELS:"get_LEVELS"}
-hex_log_LogLevel.get_LEVELS = function() {
-	return [hex_log_LogLevel._ALL,hex_log_LogLevel._DEBUG,hex_log_LogLevel._INFO,hex_log_LogLevel._WARN,hex_log_LogLevel._ERROR,hex_log_LogLevel._FATAL,hex_log_LogLevel._OFF];
-};
-hex_log_LogLevel.get_ALL = function() {
-	return hex_log_LogLevel._ALL;
-};
-hex_log_LogLevel.get_DEBUG = function() {
-	return hex_log_LogLevel._DEBUG;
-};
-hex_log_LogLevel.get_INFO = function() {
-	return hex_log_LogLevel._INFO;
-};
-hex_log_LogLevel.get_WARN = function() {
-	return hex_log_LogLevel._WARN;
-};
-hex_log_LogLevel.get_ERROR = function() {
-	return hex_log_LogLevel._ERROR;
-};
-hex_log_LogLevel.get_FATAL = function() {
-	return hex_log_LogLevel._FATAL;
-};
-hex_log_LogLevel.get_OFF = function() {
-	return hex_log_LogLevel._OFF;
-};
-hex_log_LogLevel.prototype = {
-	value: null
-	,get_value: function() {
-		return this.value;
-	}
-	,toString: function() {
-		switch(this.get_value()) {
-		case 0:
-			return "ALL";
-		case 10000:
-			return "DEBUG";
-		case 20000:
-			return "INFO";
-		case 30000:
-			return "WARN";
-		case 40000:
-			return "ERROR";
-		case 50000:
-			return "FATAL";
-		case 60000:
-			return "OFF";
-		}
-		return "";
-	}
-	,__class__: hex_log_LogLevel
-	,__properties__: {get_value:"get_value"}
-};
-var hex_log_Logger = function() {
-	this.setLevel(hex_log_LogLevel._ALL);
-	this._dispatcher = new hex_domain_DomainDispatcher();
-};
-$hxClasses["hex.log.Logger"] = hex_log_Logger;
-hex_log_Logger.__name__ = ["hex","log","Logger"];
-hex_log_Logger.getInstance = function() {
-	if(hex_log_Logger._Instance == null) {
-		hex_log_Logger._Instance = new hex_log_Logger();
-	}
-	return hex_log_Logger._Instance;
-};
-hex_log_Logger.debug = function(o,domain,posInfos) {
-	hex_log_Logger.getInstance().log(o,hex_log_LogLevel._DEBUG,domain,posInfos);
-};
-hex_log_Logger.info = function(o,domain,posInfos) {
-	hex_log_Logger.getInstance().log(o,hex_log_LogLevel._INFO,domain,posInfos);
-};
-hex_log_Logger.warn = function(o,domain,posInfos) {
-	hex_log_Logger.getInstance().log(o,hex_log_LogLevel._WARN,domain,posInfos);
-};
-hex_log_Logger.error = function(o,domain,posInfos) {
-	hex_log_Logger.getInstance().log(o,hex_log_LogLevel._ERROR,domain,posInfos);
-};
-hex_log_Logger.fatal = function(o,domain,posInfos) {
-	hex_log_Logger.getInstance().log(o,hex_log_LogLevel._FATAL,domain,posInfos);
-};
-hex_log_Logger.clear_all = function(domain) {
-	hex_log_Logger.getInstance().clear();
-};
-hex_log_Logger.prototype = {
-	_dispatcher: null
-	,_level: null
-	,setLevel: function(level) {
-		this._level = level;
-	}
-	,getLevel: function() {
-		return this._level;
-	}
-	,clear: function() {
-		this._dispatcher.dispatch(hex_log_LoggerMessage.CLEAR);
-	}
-	,log: function(o,level,domain,posInfos) {
-		if(this._level.get_value() <= level.get_value()) {
-			this._dispatcher.dispatch(hex_log_LoggerMessage.LOG,domain,[new hex_log_LoggerMessage(o,level,domain == null?hex_domain_NoDomain.DOMAIN:domain,posInfos)]);
-		}
-	}
-	,addListener: function(listener,domain) {
-		this._dispatcher.addHandler(hex_log_LoggerMessage.LOG,listener,$bind(listener,listener.onLog),domain);
-		return this._dispatcher.addHandler(hex_log_LoggerMessage.CLEAR,listener,$bind(listener,listener.onClear),domain);
-	}
-	,removeListener: function(listener,domain) {
-		this._dispatcher.removeHandler(hex_log_LoggerMessage.LOG,listener,$bind(listener,listener.onLog),domain);
-		return this._dispatcher.removeHandler(hex_log_LoggerMessage.CLEAR,listener,$bind(listener,listener.onClear),domain);
-	}
-	,isRegistered: function(listener,domain) {
-		return this._dispatcher.isRegistered(listener,hex_log_LoggerMessage.LOG,domain);
-	}
-	,removeAllListeners: function() {
-		this._dispatcher.removeAllListeners();
-	}
-	,toString: function() {
-		return hex_log_Stringifier.stringify(this);
-	}
-	,__class__: hex_log_Logger
 };
 var hex_log_LoggerMessage = function(message,level,domain,posInfos) {
 	this.message = message;
@@ -8013,6 +8056,14 @@ hex_model_IModelRO_$org_$stefx_$hexweather_$module_$currentweather_$model_$ICurr
 	addListener: null
 	,removeListener: null
 	,__class__: hex_model_IModelRO_$org_$stefx_$hexweather_$module_$currentweather_$model_$ICurrentWeatherModelListener
+};
+var hex_model_IModelRO_$org_$stefx_$hexweather_$module_$forecasttenday_$model_$IForecastTenDayModelListener = function() { };
+$hxClasses["hex.model.IModelRO_org_stefx_hexweather_module_forecasttenday_model_IForecastTenDayModelListener"] = hex_model_IModelRO_$org_$stefx_$hexweather_$module_$forecasttenday_$model_$IForecastTenDayModelListener;
+hex_model_IModelRO_$org_$stefx_$hexweather_$module_$forecasttenday_$model_$IForecastTenDayModelListener.__name__ = ["hex","model","IModelRO_org_stefx_hexweather_module_forecasttenday_model_IForecastTenDayModelListener"];
+hex_model_IModelRO_$org_$stefx_$hexweather_$module_$forecasttenday_$model_$IForecastTenDayModelListener.prototype = {
+	addListener: null
+	,removeListener: null
+	,__class__: hex_model_IModelRO_$org_$stefx_$hexweather_$module_$forecasttenday_$model_$IForecastTenDayModelListener
 };
 var hex_module_IModule = function() { };
 $hxClasses["hex.module.IModule"] = hex_module_IModule;
@@ -8871,6 +8922,9 @@ hex_state_State.prototype = {
 	,_exitCommandMappings: null
 	,_enterHandlers: null
 	,_exitHandlers: null
+	,getName: function() {
+		return this._stateName;
+	}
 	,clearEnterHandler: function() {
 		this._enterHandlers = [];
 	}
@@ -8883,17 +8937,43 @@ hex_state_State.prototype = {
 	,getExitHandlerList: function() {
 		return this._exitHandlers;
 	}
-	,addEnterHandler: function(scope,callback) {
-		return this._addHandler(this._enterHandlers,new hex_event_BasicHandler(scope,callback));
+	,addEnterHandler: function(callback) {
+		var handlers = this._enterHandlers;
+		if(handlers.indexOf(callback) == -1) {
+			handlers.push(callback);
+			return true;
+		} else {
+			return false;
+		}
 	}
-	,addExitHandler: function(scope,callback) {
-		return this._addHandler(this._exitHandlers,new hex_event_BasicHandler(scope,callback));
+	,addExitHandler: function(callback) {
+		var handlers = this._exitHandlers;
+		if(handlers.indexOf(callback) == -1) {
+			handlers.push(callback);
+			return true;
+		} else {
+			return false;
+		}
 	}
-	,removeEnterHandler: function(handler) {
-		return this._removeHandler(this._enterHandlers,handler);
+	,removeEnterHandler: function(callback) {
+		var handlers = this._enterHandlers;
+		var id = handlers.indexOf(callback);
+		if(id != -1) {
+			handlers.splice(id,1);
+			return true;
+		} else {
+			return false;
+		}
 	}
-	,removeExitHandler: function(handler) {
-		return this._removeHandler(this._exitHandlers,handler);
+	,removeExitHandler: function(callback) {
+		var handlers = this._exitHandlers;
+		var id = handlers.indexOf(callback);
+		if(id != -1) {
+			handlers.splice(id,1);
+			return true;
+		} else {
+			return false;
+		}
 	}
 	,addEnterCommandMapping: function(mapping) {
 		if(this._enterCommandMappings.indexOf(mapping) == -1) {
@@ -8978,16 +9058,16 @@ hex_state_State.prototype = {
 	,toString: function() {
 		return hex_log_Stringifier.stringify(this) + "::" + this._stateName;
 	}
-	,_addHandler: function(handlers,handler) {
-		if(handlers.indexOf(handler) == -1) {
-			handlers.push(handler);
+	,_addHandler: function(handlers,callback) {
+		if(handlers.indexOf(callback) == -1) {
+			handlers.push(callback);
 			return true;
 		} else {
 			return false;
 		}
 	}
-	,_removeHandler: function(handlers,handler) {
-		var id = handlers.indexOf(handler);
+	,_removeHandler: function(handlers,callback) {
+		var id = handlers.indexOf(callback);
 		if(id != -1) {
 			handlers.splice(id,1);
 			return true;
@@ -9230,12 +9310,12 @@ hex_state_control_StateController.prototype = {
 		this._isInTransition = false;
 		this._dispatchStateChange(this._currentState,this._currentState.getEnterHandlerList());
 	}
-	,_dispatchStateChange: function(state,handlers) {
+	,_dispatchStateChange: function(state,callbacks) {
 		var _g = 0;
-		while(_g < handlers.length) {
-			var handler = handlers[_g];
+		while(_g < callbacks.length) {
+			var callback = callbacks[_g];
 			++_g;
-			handler.callback.apply(handler.scope,[state]);
+			callback(state);
 		}
 	}
 	,__class__: hex_state_control_StateController
@@ -9692,6 +9772,13 @@ var org_stefx_hexweather_HexWeather = function() {
 	applicationContext.getCoreFactory().getAnnotationProvider();
 	applicationContext.dispatch(hex_ioc_assembler_ApplicationAssemblerMessage.STATE_TRANSITIONS_BUILT);
 	applicationContext.dispatch(hex_ioc_assembler_ApplicationAssemblerMessage.ASSEMBLING_START);
+	var hexForecastTenDayServiceLocator = new hex_config_stateful_ServiceLocator();
+	hexForecastTenDayServiceLocator.addService(org_stefx_hexweather_module_forecasttenday_service_IGetForecastTenDayService,org_stefx_hexweather_service_wunderground_GetForecastTenDayService,null);
+	coreFactory.register("hexForecastTenDayServiceLocator",hexForecastTenDayServiceLocator);
+	hex_domain_DomainExpert.getInstance().registerDomain(hex_domain_DomainUtil.getDomain("forecastTenDay",hex_domain_Domain));
+	hex_metadata_AnnotationProvider.registerToParentDomain(hex_domain_DomainUtil.getDomain("forecastTenDay",hex_domain_Domain),hex_domain_DomainUtil.getDomain("applicationContext",hex_domain_Domain));
+	var forecastTenDay = new org_stefx_hexweather_module_forecasttenday_ForecastTenDayModule(hexForecastTenDayServiceLocator);
+	coreFactory.register("forecastTenDay",forecastTenDay);
 	var hexWeatherServiceLocator = new hex_config_stateful_ServiceLocator();
 	hexWeatherServiceLocator.addService(org_stefx_hexweather_module_currentweather_service_IGetCurrentWeatherService,org_stefx_hexweather_service_wunderground_GetCurrentWeatherService,null);
 	coreFactory.register("hexWeatherServiceLocator",hexWeatherServiceLocator);
@@ -9702,6 +9789,7 @@ var org_stefx_hexweather_HexWeather = function() {
 	applicationContext.dispatch(hex_ioc_assembler_ApplicationAssemblerMessage.OBJECTS_BUILT);
 	applicationContext.dispatch(hex_ioc_assembler_ApplicationAssemblerMessage.DOMAIN_LISTENERS_ASSIGNED);
 	applicationContext.dispatch(hex_ioc_assembler_ApplicationAssemblerMessage.METHODS_CALLED);
+	forecastTenDay.initialize();
 	currentWeather.initialize();
 	applicationContext.dispatch(hex_ioc_assembler_ApplicationAssemblerMessage.MODULES_INITIALIZED);
 	applicationContext.dispatch(hex_ioc_assembler_ApplicationAssemblerMessage.ASSEMBLING_END);
@@ -9709,6 +9797,9 @@ var org_stefx_hexweather_HexWeather = function() {
 $hxClasses["org.stefx.hexweather.HexWeather"] = org_stefx_hexweather_HexWeather;
 org_stefx_hexweather_HexWeather.__name__ = ["org","stefx","hexweather","HexWeather"];
 org_stefx_hexweather_HexWeather.main = function() {
+	var proxy = new hex_log_layout_LogProxyLayout();
+	proxy.addListener(new hex_log_layout_SimpleBrowserLayout(new hex_log_layout_LogLayoutHTMLView(proxy).consoleWrapperTaget));
+	proxy.addListener(new hex_log_layout_JavaScriptConsoleLayout());
 	org_stefx_hexweather_HexWeather.self = new org_stefx_hexweather_HexWeather();
 };
 org_stefx_hexweather_HexWeather.prototype = {
@@ -9910,7 +10001,7 @@ org_stefx_hexweather_module_currentweather_view_CurrentWeatherViewJS.__interface
 org_stefx_hexweather_module_currentweather_view_CurrentWeatherViewJS.prototype = {
 	_layout: null
 	,setCurrentWeather: function(currentWeatherVO) {
-		hex_log_Logger.debug("setCurrentWeather",null,{ fileName : "CurrentWeatherViewJS.hx", lineNumber : 29, className : "org.stefx.hexweather.module.currentweather.view.CurrentWeatherViewJS", methodName : "setCurrentWeather"});
+		hex_log_Logger.debug("setCurrentMapWeather",null,{ fileName : "CurrentWeatherViewJS.hx", lineNumber : 29, className : "org.stefx.hexweather.module.currentweather.view.CurrentWeatherViewJS", methodName : "setCurrentWeather"});
 		var currentObservation = currentWeatherVO.current_observation;
 		var obsIconDiv = window.document.querySelector("#obsIcon");
 		var titleDiv = window.document.querySelector("#title");
@@ -9941,6 +10032,247 @@ org_stefx_hexweather_module_currentweather_vo_CurrentWeatherVO.prototype = {
 	response: null
 	,current_observation: null
 	,__class__: org_stefx_hexweather_module_currentweather_vo_CurrentWeatherVO
+};
+var org_stefx_hexweather_module_forecasttenday_ForecastTenDayModule = function(serviceConfig) {
+	hex_module_Module.call(this);
+	this._logger.info("ForecastTenDayModule::new",{ fileName : "ForecastTenDayModule.hx", lineNumber : 29, className : "org.stefx.hexweather.module.forecasttenday.ForecastTenDayModule", methodName : "new"});
+	this._addStatefulConfigs([serviceConfig]);
+	this._addStatelessConfigClasses([org_stefx_hexweather_module_forecasttenday__$ForecastTenDayModule_ForecastTenDayCommandConfig,org_stefx_hexweather_module_forecasttenday__$ForecastTenDayModule_ForecastTenDayModelConfig]);
+	this.buildView();
+	this._dispatchPrivateMessage(org_stefx_hexweather_module_forecasttenday_message_ForecastTenDayModuleMessage.LOAD_FORECAST_10_DAY);
+};
+$hxClasses["org.stefx.hexweather.module.forecasttenday.ForecastTenDayModule"] = org_stefx_hexweather_module_forecasttenday_ForecastTenDayModule;
+org_stefx_hexweather_module_forecasttenday_ForecastTenDayModule.__name__ = ["org","stefx","hexweather","module","forecasttenday","ForecastTenDayModule"];
+org_stefx_hexweather_module_forecasttenday_ForecastTenDayModule.__super__ = hex_module_Module;
+org_stefx_hexweather_module_forecasttenday_ForecastTenDayModule.prototype = $extend(hex_module_Module.prototype,{
+	_getRuntimeDependencies: function() {
+		return new hex_module_dependency_RuntimeDependencies();
+	}
+	,buildView: function() {
+		this.buildViewHelper(org_stefx_hexweather_module_forecasttenday_view_ForecastTenDayViewHelper,new org_stefx_hexweather_module_forecasttenday_view_ForecastTenDayViewJS(window.document.querySelector(".forecast")));
+	}
+	,__class__: org_stefx_hexweather_module_forecasttenday_ForecastTenDayModule
+});
+var org_stefx_hexweather_module_forecasttenday__$ForecastTenDayModule_ForecastTenDayCommandConfig = function() {
+	hex_config_stateless_StatelessCommandConfig.call(this);
+};
+$hxClasses["org.stefx.hexweather.module.forecasttenday._ForecastTenDayModule.ForecastTenDayCommandConfig"] = org_stefx_hexweather_module_forecasttenday__$ForecastTenDayModule_ForecastTenDayCommandConfig;
+org_stefx_hexweather_module_forecasttenday__$ForecastTenDayModule_ForecastTenDayCommandConfig.__name__ = ["org","stefx","hexweather","module","forecasttenday","_ForecastTenDayModule","ForecastTenDayCommandConfig"];
+org_stefx_hexweather_module_forecasttenday__$ForecastTenDayModule_ForecastTenDayCommandConfig.__super__ = hex_config_stateless_StatelessCommandConfig;
+org_stefx_hexweather_module_forecasttenday__$ForecastTenDayModule_ForecastTenDayCommandConfig.prototype = $extend(hex_config_stateless_StatelessCommandConfig.prototype,{
+	configure: function() {
+		this.map(org_stefx_hexweather_module_forecasttenday_message_ForecastTenDayModuleMessage.LOAD_FORECAST_10_DAY,org_stefx_hexweather_module_forecasttenday_controller_LoadForecastTenDayCommand);
+	}
+	,__class__: org_stefx_hexweather_module_forecasttenday__$ForecastTenDayModule_ForecastTenDayCommandConfig
+});
+var org_stefx_hexweather_module_forecasttenday__$ForecastTenDayModule_ForecastTenDayModelConfig = function() {
+	hex_config_stateless_StatelessModelConfig.call(this);
+};
+$hxClasses["org.stefx.hexweather.module.forecasttenday._ForecastTenDayModule.ForecastTenDayModelConfig"] = org_stefx_hexweather_module_forecasttenday__$ForecastTenDayModule_ForecastTenDayModelConfig;
+org_stefx_hexweather_module_forecasttenday__$ForecastTenDayModule_ForecastTenDayModelConfig.__name__ = ["org","stefx","hexweather","module","forecasttenday","_ForecastTenDayModule","ForecastTenDayModelConfig"];
+org_stefx_hexweather_module_forecasttenday__$ForecastTenDayModule_ForecastTenDayModelConfig.__super__ = hex_config_stateless_StatelessModelConfig;
+org_stefx_hexweather_module_forecasttenday__$ForecastTenDayModule_ForecastTenDayModelConfig.prototype = $extend(hex_config_stateless_StatelessModelConfig.prototype,{
+	configure: function() {
+		this.map(org_stefx_hexweather_module_forecasttenday_model_IForecastTenDayModel,org_stefx_hexweather_module_forecasttenday_model_ForecastTenDayModel);
+	}
+	,__class__: org_stefx_hexweather_module_forecasttenday__$ForecastTenDayModule_ForecastTenDayModelConfig
+});
+var org_stefx_hexweather_module_forecasttenday_controller_LoadForecastTenDayCommand = function() {
+	hex_control_command_BasicCommand.call(this);
+};
+$hxClasses["org.stefx.hexweather.module.forecasttenday.controller.LoadForecastTenDayCommand"] = org_stefx_hexweather_module_forecasttenday_controller_LoadForecastTenDayCommand;
+org_stefx_hexweather_module_forecasttenday_controller_LoadForecastTenDayCommand.__name__ = ["org","stefx","hexweather","module","forecasttenday","controller","LoadForecastTenDayCommand"];
+org_stefx_hexweather_module_forecasttenday_controller_LoadForecastTenDayCommand.__interfaces__ = [hex_service_stateless_IAsyncStatelessServiceListener];
+org_stefx_hexweather_module_forecasttenday_controller_LoadForecastTenDayCommand.__super__ = hex_control_command_BasicCommand;
+org_stefx_hexweather_module_forecasttenday_controller_LoadForecastTenDayCommand.prototype = $extend(hex_control_command_BasicCommand.prototype,{
+	forecastTenDayService: null
+	,forecastTenDayModel: null
+	,execute: function() {
+		hex_log_Logger.debug("LoadForecast10DayCommand::execute",null,{ fileName : "LoadForecastTenDayCommand.hx", lineNumber : 31, className : "org.stefx.hexweather.module.forecasttenday.controller.LoadForecastTenDayCommand", methodName : "execute"});
+		this.forecastTenDayService.addListener(this);
+		this.forecastTenDayService.call();
+	}
+	,onServiceComplete: function(service) {
+		hex_log_Logger.debug("LoadForecast10DayCommand::onServiceComplete",null,{ fileName : "LoadForecastTenDayCommand.hx", lineNumber : 39, className : "org.stefx.hexweather.module.forecasttenday.controller.LoadForecastTenDayCommand", methodName : "onServiceComplete"});
+		this.forecastTenDayModel.setForecastTenDay((js_Boot.__cast(service , org_stefx_hexweather_module_forecasttenday_service_IGetForecastTenDayService)).getForecastTenDay());
+	}
+	,onServiceFail: function(service) {
+		hex_log_Logger.debug("onServiceFail",null,{ fileName : "LoadForecastTenDayCommand.hx", lineNumber : 45, className : "org.stefx.hexweather.module.forecasttenday.controller.LoadForecastTenDayCommand", methodName : "onServiceFail"});
+	}
+	,onServiceCancel: function(service) {
+		hex_log_Logger.debug("onServiceCancel",null,{ fileName : "LoadForecastTenDayCommand.hx", lineNumber : 50, className : "org.stefx.hexweather.module.forecasttenday.controller.LoadForecastTenDayCommand", methodName : "onServiceCancel"});
+	}
+	,onServiceTimeout: function(service) {
+		hex_log_Logger.debug("onServiceTimeout",null,{ fileName : "LoadForecastTenDayCommand.hx", lineNumber : 55, className : "org.stefx.hexweather.module.forecasttenday.controller.LoadForecastTenDayCommand", methodName : "onServiceTimeout"});
+	}
+	,__class__: org_stefx_hexweather_module_forecasttenday_controller_LoadForecastTenDayCommand
+});
+var org_stefx_hexweather_module_forecasttenday_message_ForecastTenDayModuleMessage = function() { };
+$hxClasses["org.stefx.hexweather.module.forecasttenday.message.ForecastTenDayModuleMessage"] = org_stefx_hexweather_module_forecasttenday_message_ForecastTenDayModuleMessage;
+org_stefx_hexweather_module_forecasttenday_message_ForecastTenDayModuleMessage.__name__ = ["org","stefx","hexweather","module","forecasttenday","message","ForecastTenDayModuleMessage"];
+var org_stefx_hexweather_module_forecasttenday_model_IForecastTenDayModelRO = function() { };
+$hxClasses["org.stefx.hexweather.module.forecasttenday.model.IForecastTenDayModelRO"] = org_stefx_hexweather_module_forecasttenday_model_IForecastTenDayModelRO;
+org_stefx_hexweather_module_forecasttenday_model_IForecastTenDayModelRO.__name__ = ["org","stefx","hexweather","module","forecasttenday","model","IForecastTenDayModelRO"];
+org_stefx_hexweather_module_forecasttenday_model_IForecastTenDayModelRO.__interfaces__ = [hex_model_IModelRO_$org_$stefx_$hexweather_$module_$forecasttenday_$model_$IForecastTenDayModelListener];
+org_stefx_hexweather_module_forecasttenday_model_IForecastTenDayModelRO.prototype = {
+	getForecastTenDay: null
+	,__class__: org_stefx_hexweather_module_forecasttenday_model_IForecastTenDayModelRO
+};
+var org_stefx_hexweather_module_forecasttenday_model_IForecastTenDayModel = function() { };
+$hxClasses["org.stefx.hexweather.module.forecasttenday.model.IForecastTenDayModel"] = org_stefx_hexweather_module_forecasttenday_model_IForecastTenDayModel;
+org_stefx_hexweather_module_forecasttenday_model_IForecastTenDayModel.__name__ = ["org","stefx","hexweather","module","forecasttenday","model","IForecastTenDayModel"];
+org_stefx_hexweather_module_forecasttenday_model_IForecastTenDayModel.__interfaces__ = [org_stefx_hexweather_module_forecasttenday_model_IForecastTenDayModelRO];
+org_stefx_hexweather_module_forecasttenday_model_IForecastTenDayModel.prototype = {
+	setForecastTenDay: null
+	,__class__: org_stefx_hexweather_module_forecasttenday_model_IForecastTenDayModel
+};
+var org_stefx_hexweather_module_forecasttenday_model_ForecastTenDayModel = function() {
+	this.dispatcher = new org_stefx_hexweather_module_forecasttenday_model_ForecastTenDayModelDispatcher();
+};
+$hxClasses["org.stefx.hexweather.module.forecasttenday.model.ForecastTenDayModel"] = org_stefx_hexweather_module_forecasttenday_model_ForecastTenDayModel;
+org_stefx_hexweather_module_forecasttenday_model_ForecastTenDayModel.__name__ = ["org","stefx","hexweather","module","forecasttenday","model","ForecastTenDayModel"];
+org_stefx_hexweather_module_forecasttenday_model_ForecastTenDayModel.__interfaces__ = [org_stefx_hexweather_module_forecasttenday_model_IForecastTenDayModel];
+org_stefx_hexweather_module_forecasttenday_model_ForecastTenDayModel.prototype = {
+	_forecastTenDayVO: null
+	,dispatcher: null
+	,setForecastTenDay: function(forecastTenDayVO) {
+		this._forecastTenDayVO = forecastTenDayVO;
+		this.dispatcher.onForecastTenDayLoaded(this._forecastTenDayVO);
+	}
+	,getForecastTenDay: function() {
+		return this._forecastTenDayVO;
+	}
+	,addListener: function(listener) {
+		this.dispatcher.addListener(listener);
+	}
+	,removeListener: function(listener) {
+		this.dispatcher.removeListener(listener);
+	}
+	,__class__: org_stefx_hexweather_module_forecasttenday_model_ForecastTenDayModel
+};
+var org_stefx_hexweather_module_forecasttenday_model_IForecastTenDayModelListener = function() { };
+$hxClasses["org.stefx.hexweather.module.forecasttenday.model.IForecastTenDayModelListener"] = org_stefx_hexweather_module_forecasttenday_model_IForecastTenDayModelListener;
+org_stefx_hexweather_module_forecasttenday_model_IForecastTenDayModelListener.__name__ = ["org","stefx","hexweather","module","forecasttenday","model","IForecastTenDayModelListener"];
+org_stefx_hexweather_module_forecasttenday_model_IForecastTenDayModelListener.prototype = {
+	onForecastTenDayLoaded: null
+	,__class__: org_stefx_hexweather_module_forecasttenday_model_IForecastTenDayModelListener
+};
+var org_stefx_hexweather_module_forecasttenday_model_ForecastTenDayModelDispatcher = function() {
+	hex_model_ModelDispatcher.call(this);
+};
+$hxClasses["org.stefx.hexweather.module.forecasttenday.model.ForecastTenDayModelDispatcher"] = org_stefx_hexweather_module_forecasttenday_model_ForecastTenDayModelDispatcher;
+org_stefx_hexweather_module_forecasttenday_model_ForecastTenDayModelDispatcher.__name__ = ["org","stefx","hexweather","module","forecasttenday","model","ForecastTenDayModelDispatcher"];
+org_stefx_hexweather_module_forecasttenday_model_ForecastTenDayModelDispatcher.__interfaces__ = [org_stefx_hexweather_module_forecasttenday_model_IForecastTenDayModelListener];
+org_stefx_hexweather_module_forecasttenday_model_ForecastTenDayModelDispatcher.__super__ = hex_model_ModelDispatcher;
+org_stefx_hexweather_module_forecasttenday_model_ForecastTenDayModelDispatcher.prototype = $extend(hex_model_ModelDispatcher.prototype,{
+	onForecastTenDayLoaded: function(forecastTenDayVO) {
+		var _g = 0;
+		var _g1 = this._listeners;
+		while(_g < _g1.length) {
+			var listener = _g1[_g];
+			++_g;
+			listener.onForecastTenDayLoaded(forecastTenDayVO);
+		}
+	}
+	,__class__: org_stefx_hexweather_module_forecasttenday_model_ForecastTenDayModelDispatcher
+});
+var org_stefx_hexweather_module_forecasttenday_service_IGetForecastTenDayService = function() { };
+$hxClasses["org.stefx.hexweather.module.forecasttenday.service.IGetForecastTenDayService"] = org_stefx_hexweather_module_forecasttenday_service_IGetForecastTenDayService;
+org_stefx_hexweather_module_forecasttenday_service_IGetForecastTenDayService.__name__ = ["org","stefx","hexweather","module","forecasttenday","service","IGetForecastTenDayService"];
+org_stefx_hexweather_module_forecasttenday_service_IGetForecastTenDayService.__interfaces__ = [hex_service_stateless_http_IHTTPService];
+org_stefx_hexweather_module_forecasttenday_service_IGetForecastTenDayService.prototype = {
+	getForecastTenDay: null
+	,__class__: org_stefx_hexweather_module_forecasttenday_service_IGetForecastTenDayService
+};
+var org_stefx_hexweather_module_forecasttenday_view_ForecastCellRendererViewJS = function() {
+};
+$hxClasses["org.stefx.hexweather.module.forecasttenday.view.ForecastCellRendererViewJS"] = org_stefx_hexweather_module_forecasttenday_view_ForecastCellRendererViewJS;
+org_stefx_hexweather_module_forecasttenday_view_ForecastCellRendererViewJS.__name__ = ["org","stefx","hexweather","module","forecasttenday","view","ForecastCellRendererViewJS"];
+org_stefx_hexweather_module_forecasttenday_view_ForecastCellRendererViewJS.getForecastCellRenderer = function(data) {
+	var divElement = window.document.createElement("div");
+	divElement.className = "forecastDay";
+	var img = new Image();
+	img.className = "forecasdayIcon";
+	img.src = "./imgWeather/" + Std.string(data.icon) + ".png";
+	img.alt = data.icon;
+	divElement.appendChild(img);
+	var forecastDate = window.document.createElement("div");
+	forecastDate.className = "forecastDate";
+	forecastDate.innerHTML = Std.string(data.date.weekday) + ", " + Std.string(data.date.day) + " " + Std.string(data.date.monthname) + " " + Std.string(data.date.year);
+	divElement.appendChild(forecastDate);
+	var forecastObservation = window.document.createElement("div");
+	forecastObservation.className = "forecastObservation";
+	forecastObservation.innerHTML = "<span class='forecastTemperature'>" + Std.string(data.low.celsius) + "°C / " + Std.string(data.high.celsius) + "°C</span><br/>" + "<span><b>Wind: </b>" + Std.string(data.avewind.dir) + " at " + Std.string(data.avewind.kph) + " km/h</span><br/>" + "<span><b>Humidity: </b>" + Std.string(data.avehumidity) + "%</span><br/>";
+	divElement.appendChild(forecastObservation);
+	return divElement;
+};
+org_stefx_hexweather_module_forecasttenday_view_ForecastCellRendererViewJS.prototype = {
+	__class__: org_stefx_hexweather_module_forecasttenday_view_ForecastCellRendererViewJS
+};
+var org_stefx_hexweather_module_forecasttenday_view_ForecastTenDayViewHelper = function() {
+	hex_view_viewhelper_ViewHelper.call(this);
+};
+$hxClasses["org.stefx.hexweather.module.forecasttenday.view.ForecastTenDayViewHelper"] = org_stefx_hexweather_module_forecasttenday_view_ForecastTenDayViewHelper;
+org_stefx_hexweather_module_forecasttenday_view_ForecastTenDayViewHelper.__name__ = ["org","stefx","hexweather","module","forecasttenday","view","ForecastTenDayViewHelper"];
+org_stefx_hexweather_module_forecasttenday_view_ForecastTenDayViewHelper.__interfaces__ = [org_stefx_hexweather_module_forecasttenday_model_IForecastTenDayModelListener];
+org_stefx_hexweather_module_forecasttenday_view_ForecastTenDayViewHelper.__super__ = hex_view_viewhelper_ViewHelper;
+org_stefx_hexweather_module_forecasttenday_view_ForecastTenDayViewHelper.prototype = $extend(hex_view_viewhelper_ViewHelper.prototype,{
+	_layoutView: null
+	,_model: null
+	,_initialize: function() {
+		hex_view_viewhelper_ViewHelper.prototype._initialize.call(this);
+		this._layoutView = this._view;
+		this._model.addListener(this);
+	}
+	,onForecastTenDayLoaded: function(forecastTenDay) {
+		this._layoutView.setForecastTenDay(forecastTenDay);
+	}
+	,__class__: org_stefx_hexweather_module_forecasttenday_view_ForecastTenDayViewHelper
+});
+var org_stefx_hexweather_module_forecasttenday_view_IForecastTenDayView = function() { };
+$hxClasses["org.stefx.hexweather.module.forecasttenday.view.IForecastTenDayView"] = org_stefx_hexweather_module_forecasttenday_view_IForecastTenDayView;
+org_stefx_hexweather_module_forecasttenday_view_IForecastTenDayView.__name__ = ["org","stefx","hexweather","module","forecasttenday","view","IForecastTenDayView"];
+org_stefx_hexweather_module_forecasttenday_view_IForecastTenDayView.__interfaces__ = [hex_view_IView];
+org_stefx_hexweather_module_forecasttenday_view_IForecastTenDayView.prototype = {
+	setForecastTenDay: null
+	,__class__: org_stefx_hexweather_module_forecasttenday_view_IForecastTenDayView
+};
+var org_stefx_hexweather_module_forecasttenday_view_ForecastTenDayViewJS = function(layout) {
+	this._layout = layout;
+};
+$hxClasses["org.stefx.hexweather.module.forecasttenday.view.ForecastTenDayViewJS"] = org_stefx_hexweather_module_forecasttenday_view_ForecastTenDayViewJS;
+org_stefx_hexweather_module_forecasttenday_view_ForecastTenDayViewJS.__name__ = ["org","stefx","hexweather","module","forecasttenday","view","ForecastTenDayViewJS"];
+org_stefx_hexweather_module_forecasttenday_view_ForecastTenDayViewJS.__interfaces__ = [org_stefx_hexweather_module_forecasttenday_view_IForecastTenDayView];
+org_stefx_hexweather_module_forecasttenday_view_ForecastTenDayViewJS.prototype = {
+	_layout: null
+	,setForecastTenDay: function(forecastTenDayVO) {
+		hex_log_Logger.debug("setForecastTenDay",null,{ fileName : "ForecastTenDayViewJS.hx", lineNumber : 25, className : "org.stefx.hexweather.module.forecasttenday.view.ForecastTenDayViewJS", methodName : "setForecastTenDay"});
+		var forecastDay = forecastTenDayVO.forecast.simpleforecast.forecastday;
+		var _g = 0;
+		while(_g < 10) {
+			var div = org_stefx_hexweather_module_forecasttenday_view_ForecastCellRendererViewJS.getForecastCellRenderer(forecastDay[_g++]);
+			window.document.querySelector("#forecast").appendChild(div);
+		}
+	}
+	,visible: null
+	,get_visible: function() {
+		return this.visible;
+	}
+	,set_visible: function(value) {
+		return this.visible = value;
+	}
+	,__class__: org_stefx_hexweather_module_forecasttenday_view_ForecastTenDayViewJS
+	,__properties__: {set_visible:"set_visible",get_visible:"get_visible"}
+};
+var org_stefx_hexweather_module_forecasttenday_vo_ForecastTenDayVO = function() {
+};
+$hxClasses["org.stefx.hexweather.module.forecasttenday.vo.ForecastTenDayVO"] = org_stefx_hexweather_module_forecasttenday_vo_ForecastTenDayVO;
+org_stefx_hexweather_module_forecasttenday_vo_ForecastTenDayVO.__name__ = ["org","stefx","hexweather","module","forecasttenday","vo","ForecastTenDayVO"];
+org_stefx_hexweather_module_forecasttenday_vo_ForecastTenDayVO.prototype = {
+	response: null
+	,simpleforecast: null
+	,forecast: null
+	,__class__: org_stefx_hexweather_module_forecasttenday_vo_ForecastTenDayVO
 };
 var org_stefx_hexweather_parser_WundergroundCurrentWeatherParser = function() {
 };
@@ -9975,6 +10307,39 @@ org_stefx_hexweather_parser_WundergroundCurrentWeatherParser.prototype = {
 	}
 	,__class__: org_stefx_hexweather_parser_WundergroundCurrentWeatherParser
 };
+var org_stefx_hexweather_parser_WundergroundForecastTenDayParser = function() {
+};
+$hxClasses["org.stefx.hexweather.parser.WundergroundForecastTenDayParser"] = org_stefx_hexweather_parser_WundergroundForecastTenDayParser;
+org_stefx_hexweather_parser_WundergroundForecastTenDayParser.__name__ = ["org","stefx","hexweather","parser","WundergroundForecastTenDayParser"];
+org_stefx_hexweather_parser_WundergroundForecastTenDayParser.prototype = {
+	parse: function(serializedContent,target) {
+		var jsonString = serializedContent;
+		var json = JSON.parse(jsonString);
+		var forecast10DayVO = new org_stefx_hexweather_module_forecasttenday_vo_ForecastTenDayVO();
+		var _g = 0;
+		var _g1 = Reflect.fields(json);
+		while(_g < _g1.length) {
+			var n = _g1[_g];
+			++_g;
+			var value = Reflect.field(json,n);
+			var tmp;
+			var tmp1;
+			if(forecast10DayVO.__properties__) {
+				tmp = forecast10DayVO.__properties__["set_" + n];
+				tmp1 = tmp;
+			} else {
+				tmp1 = false;
+			}
+			if(tmp1) {
+				forecast10DayVO[tmp](value);
+			} else {
+				forecast10DayVO[n] = value;
+			}
+		}
+		return forecast10DayVO;
+	}
+	,__class__: org_stefx_hexweather_parser_WundergroundForecastTenDayParser
+};
 var org_stefx_hexweather_service_wunderground_GetCurrentWeatherService = function() {
 	hex_service_stateless_http_HTTPService.call(this);
 };
@@ -9992,6 +10357,24 @@ org_stefx_hexweather_service_wunderground_GetCurrentWeatherService.prototype = $
 		return this._result;
 	}
 	,__class__: org_stefx_hexweather_service_wunderground_GetCurrentWeatherService
+});
+var org_stefx_hexweather_service_wunderground_GetForecastTenDayService = function() {
+	hex_service_stateless_http_HTTPService.call(this);
+};
+$hxClasses["org.stefx.hexweather.service.wunderground.GetForecastTenDayService"] = org_stefx_hexweather_service_wunderground_GetForecastTenDayService;
+org_stefx_hexweather_service_wunderground_GetForecastTenDayService.__name__ = ["org","stefx","hexweather","service","wunderground","GetForecastTenDayService"];
+org_stefx_hexweather_service_wunderground_GetForecastTenDayService.__interfaces__ = [org_stefx_hexweather_module_forecasttenday_service_IGetForecastTenDayService];
+org_stefx_hexweather_service_wunderground_GetForecastTenDayService.__super__ = hex_service_stateless_http_HTTPService;
+org_stefx_hexweather_service_wunderground_GetForecastTenDayService.prototype = $extend(hex_service_stateless_http_HTTPService.prototype,{
+	createConfiguration: function() {
+		hex_log_Logger.debug("GetForecast10DayService::createConfiguration",null,{ fileName : "GetForecastTenDayService.hx", lineNumber : 28, className : "org.stefx.hexweather.service.wunderground.GetForecastTenDayService", methodName : "createConfiguration"});
+		this.setConfiguration(new hex_service_stateless_http_HTTPServiceConfiguration("http://api.wunderground.com/api/" + org_stefx_hexweather_constant_CAPIKey.KEY + "/forecast10day/q/" + org_stefx_hexweather_constant_CLocation.STATE + "/" + org_stefx_hexweather_constant_CLocation.CITY + ".json"));
+		this.setParser(new org_stefx_hexweather_parser_WundergroundForecastTenDayParser());
+	}
+	,getForecastTenDay: function() {
+		return this._result;
+	}
+	,__class__: org_stefx_hexweather_service_wunderground_GetForecastTenDayService
 });
 function $iterator(o) { if( o instanceof Array ) return function() { return HxOverrides.iter(o); }; return typeof(o.iterator) == 'function' ? $bind(o,o.iterator) : o.iterator; }
 var $_, $fid = 0;
@@ -10108,7 +10491,6 @@ hex_ioc_core_ContextTypeList.CLASS = "Class";
 hex_ioc_core_ContextTypeList.XML = "XML";
 hex_ioc_core_ContextTypeList.FUNCTION = "Function";
 js_Boot.__toStr = { }.toString;
-hex_ioc_core_CoreFactory._fastEvalMethod = hex_util_FastEval.fromTarget;
 hex_log_LogLevel._ALL = new hex_log_LogLevel(0);
 hex_log_LogLevel._DEBUG = new hex_log_LogLevel(10000);
 hex_log_LogLevel._INFO = new hex_log_LogLevel(20000);
@@ -10116,6 +10498,7 @@ hex_log_LogLevel._WARN = new hex_log_LogLevel(30000);
 hex_log_LogLevel._ERROR = new hex_log_LogLevel(40000);
 hex_log_LogLevel._FATAL = new hex_log_LogLevel(50000);
 hex_log_LogLevel._OFF = new hex_log_LogLevel(60000);
+hex_ioc_core_CoreFactory._fastEvalMethod = hex_util_FastEval.fromTarget;
 hex_log_LoggerMessage.LOG = new hex_event_MessageType("onLog");
 hex_log_LoggerMessage.CLEAR = new hex_event_MessageType("onClear");
 hex_log_layout_LogLayoutHTMLView.TAP_THRESHOLD = 250;
@@ -10168,6 +10551,14 @@ org_stefx_hexweather_module_currentweather__$CurrentWeatherModule_CurrentWeather
 org_stefx_hexweather_module_currentweather_controller_LoadCurrentWeatherCommand.__INJECTION_DATA = { c : { a : []}, p : [{ p : "currentWeatherService", t : "org.stefx.hexweather.module.currentweather.service.IGetCurrentWeatherService", n : "", o : false},{ p : "currentWeatherModel", t : "org.stefx.hexweather.module.currentweather.model.ICurrentWeatherModel", n : "", o : false}], m : [], pc : [], pd : []};
 org_stefx_hexweather_module_currentweather_message_CurrentWeatherModuleMessage.LOAD_CURRENT_WEATHER = new hex_event_MessageType("loadCurrentWeather");
 org_stefx_hexweather_module_currentweather_view_CurrentWeatherViewHelper.__INJECTION_DATA = { c : { a : []}, p : [{ p : "dispatcher", t : "hex.event.IDispatcher", n : "", o : false},{ p : "_model", t : "org.stefx.hexweather.module.currentweather.model.ICurrentWeatherModelRO", n : "", o : false}], m : [], pc : [], pd : []};
+org_stefx_hexweather_module_forecasttenday__$ForecastTenDayModule_ForecastTenDayCommandConfig.__INJECTION_DATA = { c : { a : []}, p : [{ p : "frontController", t : "hex.control.IFrontController", n : "", o : false}], m : [], pc : [], pd : []};
+org_stefx_hexweather_module_forecasttenday__$ForecastTenDayModule_ForecastTenDayModelConfig.__INJECTION_DATA = { c : { a : []}, p : [{ p : "injector", t : "hex.di.IDependencyInjector", n : "", o : false}], m : [], pc : [], pd : []};
+org_stefx_hexweather_module_forecasttenday_controller_LoadForecastTenDayCommand.__INJECTION_DATA = { c : { a : []}, p : [{ p : "forecastTenDayService", t : "org.stefx.hexweather.module.forecasttenday.service.IGetForecastTenDayService", n : "", o : false},{ p : "forecastTenDayModel", t : "org.stefx.hexweather.module.forecasttenday.model.IForecastTenDayModel", n : "", o : false}], m : [], pc : [], pd : []};
+org_stefx_hexweather_module_forecasttenday_message_ForecastTenDayModuleMessage.LOAD_FORECAST_10_DAY = new hex_event_MessageType("loadForecast10Day");
+org_stefx_hexweather_module_forecasttenday_view_ForecastTenDayViewHelper.__INJECTION_DATA = { c : { a : []}, p : [{ p : "dispatcher", t : "hex.event.IDispatcher", n : "", o : false},{ p : "_model", t : "org.stefx.hexweather.module.forecasttenday.model.IForecastTenDayModelRO", n : "", o : false}], m : [], pc : [], pd : []};
 org_stefx_hexweather_service_wunderground_GetCurrentWeatherService.__INJECTION_DATA = { c : { a : []}, p : [], m : [], pc : [{ m : "createConfiguration", a : [], o : 0}], pd : []};
+org_stefx_hexweather_service_wunderground_GetForecastTenDayService.__INJECTION_DATA = { c : { a : []}, p : [], m : [], pc : [{ m : "createConfiguration", a : [], o : 0}], pd : []};
 org_stefx_hexweather_HexWeather.main();
 })(typeof window != "undefined" ? window : typeof global != "undefined" ? global : typeof self != "undefined" ? self : this);
+
+//# sourceMappingURL=HexWeather.js.map
