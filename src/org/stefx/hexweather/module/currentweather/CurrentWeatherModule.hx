@@ -29,6 +29,13 @@ class CurrentWeatherModule extends Module
 		this._addStatelessConfigClasses( [ CurrentWeatherCommandConfig, CurrentWeatherModelConfig ] );
 		this.buildView();
 		this._dispatchPrivateMessage( CurrentWeatherModuleMessage.LOAD_CURRENT_WEATHER );
+		
+/*		var timer = new haxe.Timer( 60000 ); // 60000ms delay
+		timer.run = function() 
+		{
+			Logger.info( "CurrentWeatherModule::tick" );
+			this._dispatchPrivateMessage( CurrentWeatherModuleMessage.LOAD_CURRENT_WEATHER );
+		} */
 	}
 	
 	override function _getRuntimeDependencies() : IRuntimeDependencies

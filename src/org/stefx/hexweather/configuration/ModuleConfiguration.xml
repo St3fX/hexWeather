@@ -4,4 +4,10 @@
 	<module id="currentWeather" type="org.stefx.hexweather.module.currentweather.CurrentWeatherModule">
 		<argument ref="hexWeatherServiceLocator"/>
 	</module>
+	<module id="forecastTenDay" type="org.stefx.hexweather.module.forecasttenday.ForecastTenDayModule">
+		<argument ref="hexForecastTenDayServiceLocator"/>
+	</module>
+	<module id="currentWeatherMap" type="org.stefx.hexweather.module.currentweathermap.CurrentWeatherMapModule">
+		<argument ref="hexWeatherMapServiceLocator"/>
+	</module>
 </root>
