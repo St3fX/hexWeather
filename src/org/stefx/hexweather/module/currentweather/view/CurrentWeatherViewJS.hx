@@ -26,7 +26,7 @@ class CurrentWeatherViewJS implements ICurrentWeatherView
 	
 	public function setCurrentWeather( currentWeatherVO : CurrentWeatherVO ) : Void
 	{
-		Logger.debug( "setCurrentWeather" );
+		Logger.debug( "setCurrentMapWeather" );
 		
 		var currentObservation = currentWeatherVO.current_observation;
 		
