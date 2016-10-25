@@ -6,16 +6,4 @@
 			<value type="Class" value="org.stefx.hexweather.service.wunderground.GetCurrentWeatherService"/>
 		</item>
 	</serviceLocator>
-	<serviceLocator id="hexForecastTenDayServiceLocator" type="hex.config.stateful.ServiceLocator" >
-		<item> 
-			<key type="Class" value="org.stefx.hexweather.module.forecasttenday.service.IGetForecastTenDayService"/>
-			<value type="Class" value="org.stefx.hexweather.service.wunderground.GetForecastTenDayService"/>
-		</item>
-	</serviceLocator>
-	<serviceLocator id="hexWeatherMapServiceLocator" type="hex.config.stateful.ServiceLocator" >
-		<item> 
-			<key type="Class" value="org.stefx.hexweather.module.currentweathermap.service.IGetCurrentWeatherMapService"/>
-			<value type="Class" value="org.stefx.hexweather.service.wunderground.GetCurrentWeatherMapService"/>
-		</item>
-	</serviceLocator>
 </root>
