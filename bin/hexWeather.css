@@ -71,14 +71,14 @@
 			position: 			absolute;
 			width: 				300px;
 			height: 			400px;
-			background-color: 	#00000044;
+			background-color: 	#00000044; 
 			border:				solid 2px #FFFFFF;
 			border-radius: 		8px;
 			left:				50%;
 			top:				50%;
 			margin-left:		10px;
 			margin-top:			-200px;
-			display:			block;
+			display:			block; 
 			overflow: 			auto;
 		}
 		
@@ -140,4 +140,20 @@
 			margin-top:			-30px;
 		}
 		
+		footer
+		{
+			position:			absolute;
+			bottom:				10px;
+			right:				20px;
+			display:			table;
+		}
+		
+		footer span
+		{
+			padding-left:		10px;
+			padding-right:		10px;
+			display:			table-cell;
+			vertical-align:		middle;
+			font-size:			16px;
+		}
 		

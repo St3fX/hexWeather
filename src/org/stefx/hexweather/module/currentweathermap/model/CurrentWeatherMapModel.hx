@@ -1,5 +1,4 @@
 package org.stefx.hexweather.module.currentweathermap.model;
-import org.stefx.hexweather.module.currentweathermap.vo.CurrentWeatherMapVO;
 import org.stefx.hexweather.module.currentweathermap.model.CurrentWeatherMapModelDispatcher;
 
 /**
@@ -9,8 +8,6 @@ import org.stefx.hexweather.module.currentweathermap.model.CurrentWeatherMapMode
 class CurrentWeatherMapModel implements ICurrentWeatherMapModel
 {
 
-	var _currentWeatherMap : CurrentWeatherMapVO;
-	
 	public var dispatcher : CurrentWeatherMapModelDispatcher;
 
 	public function new() 
@@ -18,15 +15,9 @@ class CurrentWeatherMapModel implements ICurrentWeatherMapModel
 		dispatcher = new CurrentWeatherMapModelDispatcher();
 	}
 	
-	public function setCurrentWeatherMap( currentWeatherMap : CurrentWeatherMapVO ) 
+	public function setCurrentWeatherMap( mapUrl : String) 
 	{
-		this._currentWeatherMap = currentWeatherMap;
-		dispatcher.onCurrentWeatherMapLoaded( this._currentWeatherMap );
-	}
-	
-	public function getCurrentWeatherMap() : CurrentWeatherMapVO 
-	{
-		return this._currentWeatherMap;
+		dispatcher.onCurrentWeatherMapLoaded( mapUrl );
 	}
 	
 	public function addListener( listener : ICurrentWeatherMapModelListener ) : Void 

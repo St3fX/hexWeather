@@ -6,7 +6,7 @@ import hex.config.stateless.StatelessModelConfig;
 import hex.module.dependency.IRuntimeDependencies;
 import hex.module.dependency.RuntimeDependencies;
 import hex.module.Module;
-
+import hex.log.Logger;
 import org.stefx.hexweather.module.forecasttenday.message.ForecastTenDayModuleMessage;
 import org.stefx.hexweather.module.forecasttenday.view.ForecastTenDayViewHelper;
 import org.stefx.hexweather.module.forecasttenday.view.ForecastTenDayViewJS;
@@ -31,6 +31,13 @@ class ForecastTenDayModule extends Module
 		this._addStatelessConfigClasses( [ ForecastTenDayCommandConfig, ForecastTenDayModelConfig ] );
 		this.buildView();
 		this._dispatchPrivateMessage( ForecastTenDayModuleMessage.LOAD_FORECAST_10_DAY ); 
+
+		var timer = new haxe.Timer( 30 * 60000 );
+		timer.run = function() 
+		{
+			Logger.info( "ForecastTenDayModule::tick" );
+			this._dispatchPrivateMessage( ForecastTenDayModuleMessage.LOAD_FORECAST_10_DAY ); 
+		}
 	}
 	
 	override function _getRuntimeDependencies() : IRuntimeDependencies

@@ -1,10 +1,9 @@
 package org.stefx.hexweather.module.currentweathermap.model;
-import org.stefx.hexweather.module.currentweathermap.vo.CurrentWeatherMapVO;
 
 /**
  * @author Stéphane ARZT
  */
-interface ICurrentWeatherMapModel extends ICurrentWeatherMapModelRO 
+interface ICurrentWeatherMapModel
 {
-	function setCurrentWeatherMap( currentWeatherMap : CurrentWeatherMapVO ) : Void;
+	function setCurrentWeatherMap( mapUrl : String ) : Void;
 }

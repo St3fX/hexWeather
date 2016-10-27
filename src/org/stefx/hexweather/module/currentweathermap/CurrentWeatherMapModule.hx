@@ -21,14 +21,21 @@ import org.stefx.hexweather.module.currentweathermap.model.ICurrentWeatherMapMod
 class CurrentWeatherMapModule extends Module
 {
 
-	public function new( serviceConfig : IStatefulConfig ) 
+	public function new() 
 	{
 		super();
 		
-		this._addStatefulConfigs( [ serviceConfig ] );
+//		this._addStatefulConfigs( [ serviceConfig ] );
 		this._addStatelessConfigClasses( [ CurrentWeatherMapCommandConfig, CurrentWeatherMapModelConfig ] );
 		this.buildView();
 		this._dispatchPrivateMessage( CurrentWeatherMapModuleMessage.LOAD_CURRENT_WEATHER_MAP );
+
+		var timer = new haxe.Timer( 30 * 60000 );
+		timer.run = function() 
+		{
+			this._dispatchPrivateMessage( CurrentWeatherMapModuleMessage.LOAD_CURRENT_WEATHER_MAP );
+		}
+		
 	}
 	
 	override function _getRuntimeDependencies() : IRuntimeDependencies
@@ -39,7 +46,7 @@ class CurrentWeatherMapModule extends Module
 
 	function buildView() : Void
 	{
-		this.buildViewHelper( CurrentWeatherMapViewHelper, new CurrentWeatherMapViewJS( js.Browser.document.querySelector( ".currentWeatherMap" ) ) );
+		this.buildViewHelper( CurrentWeatherMapViewHelper, new CurrentWeatherMapViewJS( js.Browser.document.querySelector( ".currentMap" ) ) );
 	}
 }
 

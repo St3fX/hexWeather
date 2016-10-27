@@ -2,10 +2,15 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8"/>
+	<meta property="og:title" content="hexWeather" />
+	<meta property="og:description" content="A little app powered with hexMachina and bas on wundurground.com services" />
+	<meta property="og:type" content="website" />
+	<meta property="og:image" content="http://stefx.toile-libre.org/hexWeather/clear.png" />
 	<title>HexWeather</title>
 	<meta name="description" content="" />
 	<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu">
 	<link rel="stylesheet" type="text/css" href="./hexWeather.min.css">
+
 </head>
 <body>
 	<div id="app">
@@ -18,10 +23,14 @@
 		<div id="forecast">
 		</div>
 		<div id="currentMap">
-			<img id="currentImgMap" src="http://api.wunderground.com/api/864880f1238c33fe/satellite/q/LU/Luxembourg.gif?width=300&height=230&basemap=1" alt="map"/>
 		</div>
 	</div>
-
+	<footer>
+		<span>Powered by </span>
+		<a href="http://www.hexmachina.org" target="_blank"><img src="./imgWeather/hexmachinaLogo.png" alt="hexMachina"/></a> 
+		<span> and </span>
+		<a href="http://www.wunderground.com" target="_blank"><img src="./imgWeather/wundergroundLogo.png" alt="wunderGround"/></a>
+	</footer>
 	<script src="HexWeather.js"></script>
 </body>
 </html>

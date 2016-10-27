@@ -5,7 +5,6 @@ import hex.log.Logger;
 import org.stefx.hexweather.module.currentweathermap.model.ICurrentWeatherMapModelListener;
 import org.stefx.hexweather.module.currentweathermap.model.ICurrentWeatherMapModelRO;
 import org.stefx.hexweather.module.currentweathermap.view.ICurrentWeatherMapView;
-import org.stefx.hexweather.module.currentweathermap.vo.CurrentWeatherMapVO;
 
 /**
  * ...
@@ -31,9 +30,9 @@ class CurrentWeatherMapViewHelper extends ViewHelper<ICurrentWeatherMapView> imp
 		this._model.addListener( this );
 	}
 
-	public function onCurrentWeatherMapLoaded( currentWeatherMap : CurrentWeatherMapVO ) : Void
+	public function onCurrentWeatherMapLoaded( mapUrl : String ) : Void
 	{
-		this._layoutView.setCurrentWeatherMap( currentWeatherMap );
+		this._layoutView.setCurrentWeatherMap( mapUrl );
 	}
 	
 }

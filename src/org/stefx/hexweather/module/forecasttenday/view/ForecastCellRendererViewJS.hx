@@ -5,6 +5,7 @@ import js.html.DivElement;
 import js.html.Image;
 import js.html.Text;
 
+import hex.log.Logger;
 /**
  * ...
  * @author Stéphane ARZT

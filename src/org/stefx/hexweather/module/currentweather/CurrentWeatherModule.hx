@@ -30,12 +30,11 @@ class CurrentWeatherModule extends Module
 		this.buildView();
 		this._dispatchPrivateMessage( CurrentWeatherModuleMessage.LOAD_CURRENT_WEATHER );
 		
-/*		var timer = new haxe.Timer( 60000 ); // 60000ms delay
+		var timer = new haxe.Timer( 30 * 60000 );
 		timer.run = function() 
 		{
-			Logger.info( "CurrentWeatherModule::tick" );
 			this._dispatchPrivateMessage( CurrentWeatherModuleMessage.LOAD_CURRENT_WEATHER );
-		} */
+		}
 	}
 	
 	override function _getRuntimeDependencies() : IRuntimeDependencies

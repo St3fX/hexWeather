@@ -4,6 +4,7 @@ import hex.log.Logger;
 import js.Browser;
 import js.html.DOMElement;
 import js.html.DivElement;
+
 import org.stefx.hexweather.module.forecasttenday.vo.ForecastTenDayVO;
 
 /**
@@ -24,8 +25,20 @@ class ForecastTenDayViewJS implements IForecastTenDayView
 	{
 		Logger.debug( "setForecastTenDay" );
 		
-		var forecastDay = forecastTenDayVO.forecast.simpleforecast.forecastday;
-		for ( i in 0...10 )
+		( cast js.Browser.document.querySelector( "#forecast" ) ).innerHTML = "";
+		
+		try
+		{
+			( cast js.Browser.document.querySelector( "#forecast" ) ).scrollTo( 0, 0 ); // Works only with FireFox
+		}
+		catch ( e : Dynamic )
+		{
+			Logger.error( e );
+		}
+			
+		var forecastDay : Array<Dynamic> = forecastTenDayVO.forecast.simpleforecast.forecastday;
+		
+		for ( i in 0...forecastDay.length )
 		{
 			var div : DivElement = ForecastCellRendererViewJS.getForecastCellRenderer( forecastDay[ i ] );
 			( cast js.Browser.document.querySelector( "#forecast" ) ).appendChild( div );

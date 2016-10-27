@@ -1,6 +1,5 @@
 package org.stefx.hexweather.module.currentweathermap.model;
 import hex.model.IModelRO;
-import org.stefx.hexweather.module.currentweathermap.vo.CurrentWeatherMapVO;
 
 /**
  * ...
@@ -8,5 +7,5 @@ import org.stefx.hexweather.module.currentweathermap.vo.CurrentWeatherMapVO;
  */
 interface ICurrentWeatherMapModelRO extends IModelRO<ICurrentWeatherMapModelListener>
 {
-	function getCurrentWeatherMap() : CurrentWeatherMapVO;
+	function getCurrentWeatherMap() : Void;
 }

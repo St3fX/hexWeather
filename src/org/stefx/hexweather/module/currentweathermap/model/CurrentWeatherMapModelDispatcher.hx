@@ -1,7 +1,6 @@
 package org.stefx.hexweather.module.currentweathermap.model;
 
 import hex.model.ModelDispatcher;
-import org.stefx.hexweather.module.currentweathermap.vo.CurrentWeatherMapVO;
 
 /**
  * ...
@@ -16,7 +15,7 @@ class CurrentWeatherMapModelDispatcher extends ModelDispatcher<ICurrentWeatherMa
 		
 	}
 	
-	public function onCurrentWeatherMapLoaded( currentWeatherMap : CurrentWeatherMapVO ) 
+	public function onCurrentWeatherMapLoaded( mapUrl : String ) 
 	{
 	}
 	

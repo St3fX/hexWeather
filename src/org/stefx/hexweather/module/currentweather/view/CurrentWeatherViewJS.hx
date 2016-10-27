@@ -35,8 +35,14 @@ class CurrentWeatherViewJS implements ICurrentWeatherView
 		var lastUpdateDiv : DivElement	= cast js.Browser.document.querySelector( "#lastUpdate" );
 		var observationDiv : DivElement	= cast js.Browser.document.querySelector( "#observation" );
 		
+		titleDiv.innerHTML = "";
+		lastUpdateDiv.innerHTML = "";
+		observationDiv.innerHTML = "";
+		obsIconDiv.innerHTML = "";
+		
 		var img : ImageElement = new Image();
 		img.src = "./imgWeather/" + currentObservation.icon + ".png";
+		img.alt = currentObservation.icon;
 		
 		titleDiv.innerHTML = CLocation.CITY + " (" + CLocation.STATE + ")";
 		

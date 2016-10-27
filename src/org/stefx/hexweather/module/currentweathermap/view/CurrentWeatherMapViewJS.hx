@@ -9,8 +9,8 @@ import js.html.Image;
 import js.html.Text;
 import js.html.TextAreaElement;
 import org.stefx.hexweather.constant.CLocation;
-import org.stefx.hexweather.module.currentweather.vo.CurrentWeatherVO;
-import org.stefx.hexweather.module.currentweathermap.vo.CurrentWeatherMapVO;
+import org.stefx.hexweather.constant.CAPIKey;
+import org.stefx.hexweather.module.currentweathermap.view.ICurrentWeatherMapView;
 
 /**
  * ...
@@ -25,8 +25,13 @@ class CurrentWeatherMapViewJS implements ICurrentWeatherMapView
 		this._layout = layout;
 	}
 	
-	public function setCurrentWeatherMap( currentWeatherMapVO : CurrentWeatherMapVO ) : Void
+	public function setCurrentWeatherMap( mapUrl : String ) : Void
 	{
+		var img : Image = new Image();
+		img.src = mapUrl;
+		img.alt = "Satellite Map";
+		( cast js.Browser.document.querySelector( "#currentMap" ) ).innerHTML = "";
+		( cast js.Browser.document.querySelector( "#currentMap" ) ).appendChild( img );
 	}
 
 	@:isVar public var visible( get, set ) : Bool;
