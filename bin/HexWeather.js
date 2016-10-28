@@ -9964,14 +9964,16 @@ org_stefx_hexweather_module_currentweather_view_CurrentWeatherViewJS.prototype =
 	,setCurrentWeather: function(currentWeatherVO) {
 		hex_log_Logger.debug("setCurrentMapWeather",null,{ fileName : "CurrentWeatherViewJS.hx", lineNumber : 29, className : "org.stefx.hexweather.module.currentweather.view.CurrentWeatherViewJS", methodName : "setCurrentWeather"});
 		var currentObservation = currentWeatherVO.current_observation;
-		var obsIconDiv = window.document.querySelector("#obsIcon");
-		var titleDiv = window.document.querySelector("#title");
-		var lastUpdateDiv = window.document.querySelector("#lastUpdate");
-		var observationDiv = window.document.querySelector("#observation");
-		titleDiv.innerHTML = "";
-		lastUpdateDiv.innerHTML = "";
-		observationDiv.innerHTML = "";
-		obsIconDiv.innerHTML = "";
+		var currentWeatherDiv = window.document.querySelector("#currentWeather");
+		currentWeatherDiv.innerHTML = "";
+		var obsIconDiv = window.document.createElement("div");
+		var titleDiv = window.document.createElement("div");
+		var lastUpdateDiv = window.document.createElement("div");
+		var observationDiv = window.document.createElement("div");
+		obsIconDiv.id = "obsIcon";
+		titleDiv.id = "title";
+		lastUpdateDiv.id = "lastUpdate";
+		observationDiv.id = "observation";
 		var img = new Image();
 		img.src = "./imgWeather/" + currentObservation.icon + ".png";
 		img.alt = currentObservation.icon;
@@ -9979,6 +9981,10 @@ org_stefx_hexweather_module_currentweather_view_CurrentWeatherViewJS.prototype =
 		lastUpdateDiv.innerHTML = currentObservation.observation_time_rfc822;
 		observationDiv.innerHTML = "<b>Temperature:</b> " + currentObservation.temp_c + "°C<br/>" + "<b>Pressure:</b> " + currentObservation.pressure_mb + " mb<br/>" + "<b>Wind:</b> " + currentObservation.wind_dir + " at " + Std.string(currentWeatherVO.current_observation.wind_kph) + " km/h<br/>" + "<b>Humidity:</b> " + currentObservation.relative_humidity + "<br/>";
 		obsIconDiv.appendChild(img);
+		currentWeatherDiv.appendChild(obsIconDiv);
+		currentWeatherDiv.appendChild(titleDiv);
+		currentWeatherDiv.appendChild(lastUpdateDiv);
+		currentWeatherDiv.appendChild(observationDiv);
 	}
 	,visible: null
 	,get_visible: function() {
