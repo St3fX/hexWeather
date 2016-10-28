@@ -30,16 +30,19 @@ class CurrentWeatherViewJS implements ICurrentWeatherView
 		
 		var currentObservation = currentWeatherVO.current_observation;
 		
-		var obsIconDiv : DivElement		= cast js.Browser.document.querySelector( "#obsIcon" );
-		var titleDiv : DivElement		= cast js.Browser.document.querySelector( "#title" );
-		var lastUpdateDiv : DivElement	= cast js.Browser.document.querySelector( "#lastUpdate" );
-		var observationDiv : DivElement	= cast js.Browser.document.querySelector( "#observation" );
+		var currentWeatherDiv : DivElement = cast js.Browser.document.querySelector( "#currentWeather" );
+		currentWeatherDiv.innerHTML = "";
 		
-		titleDiv.innerHTML = "";
-		lastUpdateDiv.innerHTML = "";
-		observationDiv.innerHTML = "";
-		obsIconDiv.innerHTML = "";
-		
+		var obsIconDiv : DivElement		= Browser.document.createDivElement();
+		var titleDiv : DivElement		= Browser.document.createDivElement();
+		var lastUpdateDiv : DivElement	= Browser.document.createDivElement();
+		var observationDiv : DivElement	= Browser.document.createDivElement();
+
+		obsIconDiv.id = "obsIcon";
+		titleDiv.id = "title";
+		lastUpdateDiv.id = "lastUpdate";
+		observationDiv.id = "observation";
+				
 		var img : ImageElement = new Image();
 		img.src = "./imgWeather/" + currentObservation.icon + ".png";
 		img.alt = currentObservation.icon;
@@ -54,6 +57,11 @@ class CurrentWeatherViewJS implements ICurrentWeatherView
 								 + "<b>Humidity:</b> " + currentObservation.relative_humidity + "<br/>";
 		
 		obsIconDiv.appendChild( img );
+		
+		currentWeatherDiv.appendChild( obsIconDiv );
+		currentWeatherDiv.appendChild( titleDiv );
+		currentWeatherDiv.appendChild( lastUpdateDiv );
+		currentWeatherDiv.appendChild( observationDiv );
 	}
 
 	@:isVar public var visible( get, set ) : Bool;
