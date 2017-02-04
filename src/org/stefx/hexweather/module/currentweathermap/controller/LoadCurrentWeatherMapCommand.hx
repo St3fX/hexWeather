@@ -26,10 +26,10 @@ class LoadCurrentWeatherMapCommand extends BasicCommand
 	
 	public function execute() : Void
 	{
-		Logger.debug( "LoadCurrentWeatherCommand::execute" );
+		Logger.info( "LoadCurrentWeatherCommand::execute" );
 		var mapUrl : String = "http://api.wunderground.com/api/" + CAPIKey.KEY 
 							+ "/satellite/q/" + CLocation.STATE + "/"
-							+ CLocation.CITY + ".gif?width=300&height=230&basemap=1";
+							+ CLocation.CITY + ".gif?width=300&height=230&basemap=1&rd=" + Math.random() * 1000000;
 		currentWeatherMapModel.setCurrentWeatherMap( mapUrl );
 	}
 }
